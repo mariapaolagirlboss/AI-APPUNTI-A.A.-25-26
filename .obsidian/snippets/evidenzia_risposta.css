@@ -1,0 +1,9 @@
+.domanda1:has(details[open]) .evidenzia_risposta {
+    color: rgb(48, 249, 3) !important;
+    font-weight: bold !important;
+    background-color: rgba(0, 255, 0, 0.1) !important;
+    padding: 2px 4px !important;
+    border-radius: 4px !important;
+}
+
+
