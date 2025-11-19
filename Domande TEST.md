@@ -144,13 +144,13 @@ $$
 1. <strong>Caso moneta normale</strong><br>
 Probabilità Testa (T)=1/2<br>
 Probabilità Croce (C)=1/2<br>
-Scenario A: esce prima Testa e poi Croce: (1/2*1/2)<br>
-Scenario B: esce prima Croce e poi Testa: (1/2*1/2)<br>
-(1/2*1/2)+(1/2*1/2)=0.5<br>
+Scenario A: esce prima Testa e poi Croce: (1/2 * 1/2)<br>
+Scenario B: esce prima Croce e poi Testa: (1/2 * 1/2)<br>
+(1/2 * 1/2)+(1/2 * 1/2)=0.5<br>
 2.<strong> Caso moneta truccata</strong><br>
 Probabilità Testa (T)=3/4<br>
 Probabilità Croce (C)=1/4<br>
-(3/4*1/4)+(1/4*3/4)=6/16 (ovvero 0.375)<br>
+(3/4 * 1/4)+(1/4 * 3/4)=6/16 (ovvero 0.375)<br>
 Poiché 0.5 > 0.375 è più verosimile che i dati osservati provengano da una moneta normale
 
 </details>
