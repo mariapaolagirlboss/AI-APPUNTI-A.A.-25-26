@@ -1,0 +1,7 @@
+.domanda1:has(details[open]) .risposta_errata {
+    color: rgb(255, 0, 0) !important;
+    font-weight: bold !important;
+    background-color: rgba(93, 26, 26, 0.896) !important;
+    padding: 2px 4px !important;
+    border-radius: 4px !important;
+}

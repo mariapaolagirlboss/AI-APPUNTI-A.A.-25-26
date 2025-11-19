@@ -1,0 +1,12 @@
+- **Varie**:
+	- https://flashcards.world/flashcards/sets/06b2bd21-981e-4fc9-872f-4a9c3b1a6146/
+	- 
+- **Alberi di decisione**
+	- https://www.andreaminini.com/ai/machine-learning/alberi-di-decisione
+	- https://moodle2.units.it/pluginfile.php/559400/mod_resource/content/0/GLI%20ALBERI%20DECISIONALI_22.pdf (mmm)
+	- https://www.andreaminini.com/ai/machine-learning/problema-attributi-con-valori-continui-alberi-decisionali
+- **Naive Baynes**
+	- https://www.andreaminini.com/ai/machine-learning/algoritmo-naive-bayes
+- **Algoritmo clustering k-means**
+	- https://www.ibm.com/it-it/think/topics/k-means-clustering
+	- 

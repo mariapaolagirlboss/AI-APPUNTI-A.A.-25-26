@@ -1,5 +1,6 @@
 {
   "enabledCssSnippets": [
-    "evidenzia_risposta"
+    "evidenzia_risposta",
+    "risposta_errata"
   ]
 }
