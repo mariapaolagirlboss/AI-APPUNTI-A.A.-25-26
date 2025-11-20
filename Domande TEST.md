@@ -175,7 +175,8 @@ Poiché 0.5 > 0.375 è più verosimile che i dati osservati provengano da una mo
 </div>
 
 ---
-<div class = "domanda1">
+
+<div class = "domanda1 riprendere">
 10. Qual è il principale scopo della <strong>normalizzazione</strong> dei dati prima dell'addestramento di un modello di machine learning?<br>
 	-Aumentare la precisione delle previsioni del modello.<br>
 	-<span class="evidenzia_risposta">Garantire che tutte le feature abbiano la stessa scala, migliorando la convergenza dell'ottimizzazione.</span><br>
@@ -193,3 +194,193 @@ Poiché 0.5 > 0.375 è più verosimile che i dati osservati provengano da una mo
 
 ---
 
+<div class = "domanda1">
+11. Quale delle seguenti opzioni <strong>NON</strong> aiuta a <strong>ridurre l'overfitting</strong> in un modello di deep learning?<br>
+	-<span class="evidenzia_risposta">Aumentare il numero di epoche di addestramento</span><br>
+	-Ridurre la complessità del modello per evitare un adattamento eccessivo ai dati di training.<br>
+	-Aumentare la quantità di dati disponibili per l'addestramento.<br>
+	-Utilizzare tecniche di regolarizzazione come dropout o weight decay<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Aumentare il numero di epoche di addestramento.<br>
+
+<strong>Spiegazione</strong>: Addestrare troppo a lungo causa l'overfitting! Le altre opzioni (b, c, d) sono errate nel contesto del quiz proprio perché sono metodi efficaci per combattere l'overfitting. <br>
+<strong>RIDURRE LA COMPLESSITÀ DEL MODELLO</strong>: semplificare il modello (meno strati, meno neuroni) riduce la sua "capacità". Un modello più semplice è costretto a imparare solo le regole generali (i pattern principali) e non riesce a memorizzare il "rumore" o i dettagli inutili dei dati di training.<br>
+<strong>AUMENTARE LA QUANTITÀ DEI DATI DISPONIBILI</strong>: simile a imparare a memoria dati per un test, se ne ho troppi è impossibile farlo. Più dati sono forniti al modello, più è difficile per lui impararli tutti.<br>
+<strong>USO DI TECNICHE DI REGOLARIZZAZIONE</strong>: è come mettere dei freni/penalità al modello.<br>
+-<strong>Weight Decay</strong>: penalizza pesi troppo grandi nella rete neurale. Pesi grandi indicano che modello reagisce in modo esagerato a piccoli cambiamenti (overfitting).<br> 
+-<strong>Dropout</strong>: durante addestramento spegne casualmente alcuni neuroni. Impedisce al modello di basarsi su specifico percorso, crea così strategie più robuste.
+
+</details>
+</div>
+
+---
+
+ <div class = "domanda1 riprendere">
+12. Nella <strong>Principal Component Analysis</strong>, cosa indica la varianza spiegata da ciascuna componente?<br>
+	-Indica la correlazione tra ciascuna componente e la variabile target<br>
+	-<span class="evidenzia_risposta">Indica quanto una singola componente contribuisce alla varianza complessiva dei dati</span><br>
+	-Indica la deviazione standard della componente rispetto alla media dei dati<br>
+	-Misura la somma cumulativa delle differenze quadratiche tra le osservazioni e i valori predetti dalla componente<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Indica quanto una singola componente contribuisce alla varianza complessiva dei dati<br>
+
+<strong>Spiegazione</strong>: ...
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+13. Selezionare la sentenza <strong>ERRATA</strong> relativa alla <strong>probabilità condizionata</strong> P(A|B) tra due eventi A e B<br>
+	-P(A|B) può essere maggiore di P(A)<br>
+	-P(A|B) può essere inferiore a P(A)<br>
+	-<span class="risposta_errata">P(A|B) è sicuramente minore o uguale di P(A and B)</span><br>
+	-P(A|B) è sicuramente maggiore o uguale di P(A and B)<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Aumentare il numero di epoche di addestramento.<br>
+
+<strong>Spiegazione</strong>:Essendo una probabilità, P(B) è un numero compreso tra 0 e 1. Cosa succede quando si divide un numero per qualcosa di più piccolo di 1? Il risultato diventa più grande.<br>
+<strong>Esempio</strong>:<br>
+Probabilità dell'intersezione P(A∩B) = 0,1 (10%).<br>
+Probabilità di B P(B) = 0,5 (50%).<br>
+P(A∣B)=0,1 / 0,5=0,2<br>
+0,2 (il risultato) > 0,1 (l'intersezione).<br>
+Opzione c afferma che P(A∣B)< P(A and B).<br>
+Questo è matematicamente IMPOSSIBILE (a meno che P(A∣B) non sia zero). <br>
+Dividendo l'intersezione per un numero decimale (P(B)), il risultato cresce, non diminuisce.
+</details>
+</div>
+
+$$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$$
+---
+
+ <div class = "domanda1 riprendere">
+14. Un dataset contiene 1/3 di positivi e 2/3 di negativi. La recall del modello è di 2/3. Che percentuale dei dati sono falsi negativi?<br>
+	-Non può essere stabilito<br>
+	-1/3<br>
+	-<span class="evidenzia_risposta">1/9</span><br>
+	-2/9<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: 1/9<br>
+
+<strong>Spiegazione</strong>: ...
+
+</details>
+</div>
+
+---
+
+ <div class = "domanda1 riprendere">
+15. Selezionare la sentenza <strong>ERRATA</strong> relativa al learning rate<br>
+	-Il learning rate può variare durante il training<br>
+	-<span class="risposta_errata">È una metrica che misura la capacità di apprendimento del modello</span><br>
+	-È un iper-parametro che definisce la lunghezza del passo durante la discesa del gradiente<br>
+	-Un learning rate alto tipicamente velocizza il training ma potrebbe saltare sopra al minimo<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: È una metrica che misura la capacità di apprendimento del modello<br>
+
+<strong>Spiegazione</strong>: ...
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1 riprendere">
+16. Selezionare la sentenza corretta riguardo alla <strong>regressione logistica</strong>?<br>
+	-La predizione non dipende dal bilanciamento dei dati di training rispetto alle classi<br>
+	-<span class="evidenzia_risposta">I parametri del modello sono tipicamente calcolati mediante discesa del gradiente</span><br>
+	-I parametri del modello possono essere tipicamente calcolati in forma chiusa, mediante una formula esplicita<br>
+	-Il calcolo della predizione non si basa sulla loglikelihood dei dati di training, in quanto si tratta di una tecnica discriminativa<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: I parametri del modello sono tipicamente calcolati mediante discesa del gradiente<br>
+
+<strong>Spiegazione</strong>: regressione logistica molto sensibile al bilanciamento delle classi(...), i parametri <strong>non</strong> possono essere calcolati in forma chiusa (si parlerebbe di regressione linear), loglikelyhood(...)
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1 riprendere">
+17. Selezionare la sentenza <strong>SCORRETTA</strong> relativa ai <strong>neuroni artificiali</strong><br>
+	-<span class="risposta_errata">Un neurone artificiale può apprendere qualunque funzione dei suoi input</span><br>
+	-Un neurone artificiale definisce un semplice modello matematico che simula il neurone biologico.<br>
+	-Un neurone artificiale tipicamente calcola una combinazione lineare dei suoi input, seguita dalla applicazione di una funzione di attivazione non lineare.<br>
+	-Il numero dei parametri di un neurone artificiale è lineare nel numero dei suoi input.<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Un neurone artificiale può apprendere qualunque funzione dei suoi input.<br>
+
+<strong>Spiegazione</strong>: ...
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1 riprendere">
+18. Cosa si intende con <strong>"deep" features</strong>?<br>
+	-Features ottenute mediante utilizzo di sensori ottici di profondità<br>
+	-<span class="evidenzia_risposta">Features sintetizzate in modo automatico a partire da altre features</span><br>
+	-Features soggette a una approfondita supervisione da parte umana<br>
+	-Features relative a dati in 2 o più dimensioni<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Features sintetizzate in modo automatico a partire da altre features<br>
+
+<strong>Spiegazione</strong>: ...
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1 riprendere">
+19. Selezionare la sentenza <strong>SCORRETTA</strong> relativa alla <strong>backpropagation</strong> per reti neurali<br>
+	-E' l'algoritmo per il calcolo della derivata parziale della loss rispetto a ogni parametro della rete<br>
+	-Si riduce a semplici calcoli algebrici facilmente parallelizzabili in strutture di calcolo tipo GPU<br>
+	-L'algoritmo calcola il gradiente un layer alla volta, sfruttando la regola matematica per la derivazione di funzioni composte<br>
+	-<span class="risposta_errata">Tipicamente, il gradiente viene artificialmente rinforzato ad ogni layer attraversato per contrastare il fenomeno della sua scomparsa (vanishing)</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Tipicamente, il gradiente viene artificialmente rinforzato ad ogni layer attraversato per contrastare il fenomeno della sua scomparsa (vanishing)<br>
+
+<strong>Spiegazione</strong>: ...
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1 riprendere">
+20. Quale è l'effetto tipico della <strong>riduzione della dimensione del minibatch</strong> durante il training?<br>
+	-La Backpropagation è effettuata meno frequentemente e l'aggiornamento dei parametri è meno accurato<br>
+	-<span class="evidenzia_risposta">La Backpropagation è effettuata più frequentemente ma l'aggiornamento dei parametri è meno accurato</span><br>
+	-La Backpropagation è effettuata meno frequentemente ma l'aggiornamento dei parametri è più accurato<br>
+	-La Backpropagation è effettuata più frequentemente e l'aggiornamento dei parametri è più accurato<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: La Backpropagation è effettuata più frequentemente ma l'aggiornamento dei parametri è meno accurato<br>
+
+<strong>Spiegazione</strong>: ...
+
+</details>
+</div>

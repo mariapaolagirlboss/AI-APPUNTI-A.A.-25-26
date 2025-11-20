@@ -9,4 +9,6 @@
 	- https://www.andreaminini.com/ai/machine-learning/algoritmo-naive-bayes
 - **Algoritmo clustering k-means**
 	- https://www.ibm.com/it-it/think/topics/k-means-clustering
-	- 
+- **Overfitting**
+	- https://www.ocurt.it/tecnologia-consapevole/come-evitare-overfitting-fine-tuning-modelli-ai/
+	- https://python.angelocardellicchio.it/material/06_tflow/01_intro/05_dropout/
