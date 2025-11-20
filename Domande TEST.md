@@ -70,10 +70,8 @@
 </details>
 </div>
 
-$$
-H(X) = - \sum_{i=1}^{n} P(X=i)\log_2 P(X=i)
-$$
----
+$$H(X) = - \sum_{i=1}^{n} P(X=i)\log_2 P(X=i)$$
+- - -
 
 <div class = "domanda1">
 5. Selezionare la sentenza <strong> ERRATA </strong> relativa alla <strong>distribuzione congiunta</strong>di probabilità per N variabili aleatorie discrete<br>
