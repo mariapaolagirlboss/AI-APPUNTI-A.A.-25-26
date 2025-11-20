@@ -261,7 +261,7 @@ Dividendo l'intersezione per un numero decimale (P(B)), il risultato cresce, non
 $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$$
 ---
 
- <div class = "domanda1 riprendere">
+ <div class = "domanda1">
 14. Un dataset contiene 1/3 di positivi e 2/3 di negativi. La recall del modello è di 2/3. Che percentuale dei dati sono falsi negativi?<br>
 	-Non può essere stabilito<br>
 	-1/3<br>
@@ -272,10 +272,32 @@ $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$$
 
 <strong>Risposta corretta</strong>: 1/9<br>
 
-<strong>Spiegazione</strong>: ...
+<strong>Spiegazione</strong>:<br>
+2/3 = (TP) / 1/3 <br>
+TP = 2/3 * 1/3 = 2/9, così abbiamo trovato i <strong>TRUE POSITIVES</strong><br>
+Positivi = TP + FN, quindi 1/3 = 2/9 + FN <br>
+FN = 1/3 - 2/9 = 1/9
 
 </details>
 </div>
+
+$$
+\begin{aligned}
+\text{Positivi Totali (P)} &= TP + FN \\
+\text{Negativi Totali (N)} &= TN + FP \\
+\text{Totale Dati (All)} &= TP + TN + FP + FN \\
+\\[10pt]
+\text{Accuratezza} &= \frac{TP + TN}{\text{All}} \\
+\\[10pt]
+\text{Precisione} &= \frac{TP}{TP + FP} \\
+\\[10pt]
+\text{Richiamo (Recall)} &= \frac{TP}{TP + FN} \\
+\\[10pt]
+\text{Specificità} &= \frac{TN}{TN + FP} \\
+\\[10pt]
+\text{F1 Score} &= 2 \cdot \frac{\text{Precisione} \cdot \text{Recall}}{\text{Precisione} + \text{Recall}}
+\end{aligned}
+$$
 
 ---
 
@@ -384,3 +406,6 @@ $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$$
 
 </details>
 </div>
+
+---
+
