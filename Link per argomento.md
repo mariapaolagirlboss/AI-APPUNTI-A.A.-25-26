@@ -1,6 +1,5 @@
 - **Varie**:
 	- https://flashcards.world/flashcards/sets/06b2bd21-981e-4fc9-872f-4a9c3b1a6146/
-	- 
 - **Alberi di decisione**
 	- https://www.andreaminini.com/ai/machine-learning/alberi-di-decisione
 	- https://moodle2.units.it/pluginfile.php/559400/mod_resource/content/0/GLI%20ALBERI%20DECISIONALI_22.pdf (mmm)
@@ -12,3 +11,7 @@
 - **Overfitting**
 	- https://www.ocurt.it/tecnologia-consapevole/come-evitare-overfitting-fine-tuning-modelli-ai/
 	- https://python.angelocardellicchio.it/material/06_tflow/01_intro/05_dropout/
+	- https://aws.amazon.com/it/what-is/overfitting/
+- **Tensorflow/Keras**:
+	- https://www.geeksforgeeks.org/deep-learning/optimizers-in-tensorflow/
+	- https://www.geeksforgeeks.org/deep-learning/optimizers-in-tensorflow/

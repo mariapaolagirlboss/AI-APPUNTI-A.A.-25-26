@@ -194,7 +194,7 @@ Poiché 0.5 > 0.375 è più verosimile che i dati osservati provengano da una mo
 
 <div class = "domanda1">
 11. Quale delle seguenti opzioni <strong>NON</strong> aiuta a <strong>ridurre l'overfitting</strong> in un modello di deep learning?<br>
-	-<span class="evidenzia_risposta">Aumentare il numero di epoche di addestramento</span><br>
+	-<span class="risposta_errata">Aumentare il numero di epoche di addestramento</span><br>
 	-Ridurre la complessità del modello per evitare un adattamento eccessivo ai dati di training.<br>
 	-Aumentare la quantità di dati disponibili per l'addestramento.<br>
 	-Utilizzare tecniche di regolarizzazione come dropout o weight decay<br>
@@ -328,7 +328,10 @@ $$
 
 <strong>Risposta corretta</strong>: I parametri del modello sono tipicamente calcolati mediante discesa del gradiente<br>
 
-<strong>Spiegazione</strong>: regressione logistica molto sensibile al bilanciamento delle classi(...), i parametri <strong>non</strong> possono essere calcolati in forma chiusa (si parlerebbe di regressione linear), loglikelyhood(...)
+<strong>Spiegazione</strong>: <br>
+regressione logistica molto sensibile al bilanciamento delle classi(...)<br>
+i parametri <strong>non</strong> possono essere calcolati in forma chiusa (si parlerebbe di regressione lineare)<br>
+Calcolo non si basa su loglikelyhood: Regressione logistica è un metodo discriminativo, ma la funzione standard per trovare parametri migliori è MLE (...)
 
 </details>
 </div>
@@ -389,7 +392,7 @@ $$
 
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1">
 20. Quale è l'effetto tipico della <strong>riduzione della dimensione del minibatch</strong> durante il training?<br>
 	-La Backpropagation è effettuata meno frequentemente e l'aggiornamento dei parametri è meno accurato<br>
 	-<span class="evidenzia_risposta">La Backpropagation è effettuata più frequentemente ma l'aggiornamento dei parametri è meno accurato</span><br>
@@ -400,10 +403,91 @@ $$
 
 <strong>Risposta corretta</strong>: La Backpropagation è effettuata più frequentemente ma l'aggiornamento dei parametri è meno accurato<br>
 
-<strong>Spiegazione</strong>: ...
+<strong>Spiegazione</strong>: If we <strong>decrease</strong> the batchsize we <strong>update more frequently</strong> (that is good), but updates are <strong>less accurate</strong>, since we are backpropagating form a loss relative to very specific data. Conversely, if we increase the batchsize, updates grow in accuracy (the ideal would be to compute them on the whole training set- fullbatch) but training can be slow, since parameters are too rarely updated.
 
 </details>
 </div>
 
 ---
 
+<div class = "domanda1">
+21. Selezionare la sentenza <strong>SCORRETTA</strong> relativa <strong>all'overfitting</strong><br>
+	-Può essere contrastata con tecniche di regolarizzazione<br>
+	-<span class="risposta_errata">L'acquisizione di nuovi dati di training non può che peggiorare la situazione.</span><br>
+	-Può essere particolarmente pericolosa per modelli altamenti espressivi<br>
+	-Può essere contrastata con la tecnica di early stopping durante la fase di training<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: L'acquisizione di nuovi dati di training non può che peggiorare la situazione<br>
+
+<strong>Spiegazione</strong>: <br>
+<strong>Early stopping</strong>: L'arresto anticipato interrompe la fase di addestramento prima che il modello di machine learning riconosca il rumore nei dati. Tuttavia, è importante che i tempi siano corretti, altrimenti il modello non darà risultati accurati.<br>
+<strong>Tecniche di regolarizzazione</strong>: pensa a dropout o weight decay. <br>
+<strong>Pericolosa per modelli espressivi</strong>: maggiore è l'espressività del modello, maggiore è il rischio di overfitting. Un modello poco espressivo deve basarsi su regole generali per memorizzare i dati e ignora il rumore delle immagini, un modello molto espressivo no. 
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+22. Il problema della scomparsa del gradiente (vanishing gradient) si riferisce a una progressiva diminuzione dell'intensità del gradiente, dovuta a: <br>
+	-Training eccessivamente lungo<br>
+	-Dati troppo rumorosi o malamente preprocessati<br>
+	-Troppi pochi dati di training a disposizione<br>
+	-<span class="evidenzia_risposta">Backpropagation in reti profonde</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Backpropagation in reti profonde<br>
+
+<strong>Spiegazione 1</strong>: If you systematically use the sigmoid as activation function in all layers of a deep network, the gradient will contain a lot of factors below 0.25, resulting in a very small value. If the gradient is close to zero, learning is impossible. This is known as the vanishing gradient problem.<br>
+<strong>Spiegazione 2</strong>: <br>
+<strong>Backpropagation</strong>: algoritmo calcola i gradienti moltiplicando le derivate di ogni strato, partendo dalla fine verso l'inizio (Chain Rule)<br>
+<strong>Limite della sigmoide</strong>: la derivata della sigmoide è sempre molto piccola<br>
+<strong>Effetto della profondità</strong>: in una rete profonda, la backpropagation costringe a moltiplicare 0.25 (...)per se stesso moltissime volte, il quale diventa rapidamente quasi zero. Il segnale di errore si """spegne""" prima di arrivare ai primi strati, rendendo impossibile apprendimento(...)
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+23. Quale è lo scopo dell'<strong>optimizer</strong> in <strong>Tensorflow/Keras?</strong> <br>
+	-<span class="evidenzia_risposta">Definire l'algoritmo che calcola i gradienti della loss e aggiorna i pesi del modello</span><br>
+	-Salvare i migliori pesi del modello durante il processo di training<br>
+	-Aggiungere una penalità ai pesi del layer su cui viene istanziato<br>
+	-Contrastare overfitting<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Definire l'algoritmo che calcola i gradienti della loss e aggiorna i pesi del modello<br>
+
+<strong>Spiegazione</strong>: <br>
+-<strong>Salvare migliori pesi del modelli...</strong>: compito dei Callbacks, il compito dell'optimizer è modificare i pesi, non salvarli o decidere quale sia il migliore.<br>
+-<strong>Aggiungere penalità ai pesi...</strong>: questo si riferisce a regolarizzazione.<br>
+-<strong>Contrastare overfitting</strong>: obiettivo optimizer è di minimizzare errore, non si preoccupa di generalizzazione/overfitting.<br>
+<br>
+<strong>Optimizer</strong>: The tool in charge of governing the gradient descent technique, possibly dynamically adapting the learning rate, is the so called optimizer.
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+24. Quale delle seguenti <strong>NON</strong> è una applicazione tipica degli <strong>autoencoders</strong>?<br>
+	-Rilevamento di anomalie (anomaly detection)<br>
+	-Rimozione del rumore (denoising)<br>
+	-<span class="risposta_errata">Segmentazione di immagini (semantic segmentation)</span><br>
+	-Riduzione delle dimensioni (dimensionality reduction)<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Segmentazione di immagini (semantic segmentation<br>
+
+<strong>Spiegazione</strong>: hanno applicazioni per la data denoising, anomaly detection, feature extraction e generative models
+</details>
+</div>
