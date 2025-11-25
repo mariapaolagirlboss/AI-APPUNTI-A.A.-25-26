@@ -299,7 +299,7 @@ $$
 
 ---
 
- <div class = "domanda1 riprendere">
+ <div class = "domanda1">
 15. Selezionare la sentenza <strong>ERRATA</strong> relativa al learning rate<br>
 	-Il learning rate può variare durante il training<br>
 	-<span class="risposta_errata">È una metrica che misura la capacità di apprendimento del modello</span><br>
@@ -310,7 +310,8 @@ $$
 
 <strong>Risposta corretta</strong>: È una metrica che misura la capacità di apprendimento del modello<br>
 
-<strong>Spiegazione</strong>: ...
+<strong>Spiegazione</strong>: The backpropagation algorithms only gives a direction in which
+gradients should be updated. The actual amount of the update is obtained by multiplication with a scalar hyperparameter (fixed externally, not learned) called learning rate. Increasing the learning rate can make training faster, but it reduces the accuracy of the result. If we make large steps nearby the optimum, we can miss it. (Variare learning rate: learning rate scheduling)
 
 </details>
 </div>
@@ -318,7 +319,7 @@ $$
 ---
 
 <div class = "domanda1 riprendere">
-16. Selezionare la sentenza corretta riguardo alla <strong>regressione logistica</strong>?<br>
+16. Selezionare la sentenza corretta riguardo alla <strong>regressione logistica</strong><br>
 	-La predizione non dipende dal bilanciamento dei dati di training rispetto alle classi<br>
 	-<span class="evidenzia_risposta">I parametri del modello sono tipicamente calcolati mediante discesa del gradiente</span><br>
 	-I parametri del modello possono essere tipicamente calcolati in forma chiusa, mediante una formula esplicita<br>
@@ -653,6 +654,308 @@ La U-Net è un'architettura progettata specificamente per la <strong>Segmentazio
 <summary> Clicca qui per la soluzione e la spiegazione</summary>
 
 <strong>Risposta corretta</strong>:Suppone ingenuamente che le features siano indipendenti tra loro, date le classi.<br>
+
+<strong>Spiegazione</strong>: abbastanza straightforward
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+33. Quali delle seguenti affermazioni relative alla <strong>backpropagation</strong> è corretta?<br>
+	-<span class="evidenzia_risposta">Si effettua solo durante il training</span><br>
+	-Viene fatta sia durante la fase di inference che quella di training<br>
+	-Molto più costosa, in termini di tempo, del calcolo in avanti (inference) lungo la rete<br>
+	-Effettuata unicamente lungo le skip connections delle reti residuali per evitare perdita gradiente<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>:Si effettua solo durante il training<br>
+
+<strong>Spiegazione</strong>: The backpropagation algorithm is a tool for improving the neural network during the training process.<br>
+<strong>Sia durante fase di inference che training</strong>: backpropagation is only used during training. It's the mechanism that allows a neural network to learn from data. once training is done, the network switches to inference mode, where it simply makes predictions using the learned weights without adjusting them.<br>
+<strong>Più costosa rispetto a inference</strong>: hanno la stessa complessità computazionale<br>
+<strong>Effettuata unicamente lungo skip connection</strong>: backpropagation is a very general algorithm that can be applied <strong>ANYWHERE</strong> where there is a computation graph on which you can define gradients.
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+34. Selezionare la sentenza corretta<br>
+	-Numero dei parametri di un neurone artificiale è quadratico nella dimensione dei suoi inputs<br>
+	-<span class="evidenzia_risposta">Un neurone artificiale tipicamente calcola una combinazione lineare dei suoi input, seguita dall'applicazione di una funzione di attivazione non lineare</span><br>
+	-Un neurone artificiale può apprendere qualunque funzione dei suoi input<br>
+	-Un neurone può apprendere solo funzioni lineari<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>:Un neurone artificiale tipicamente calcola una combinazione lineare dei suoi input, seguita dall'applicazione di una funzione di attivazione non lineare<br>
+
+<strong>Spiegazione</strong>: <br>
+<strong>Numero dei parametri quadratico...</strong>: Il numero di parametri di un singolo neurone cresce linearmente (O(n)) rispetto alla dimensione dell'input, non in modo quadratico (O(n2)). Se un neurone riceve in ingresso un vettore x di dimensione N (cioè ha N input), i suoi parametri sono: Pesi (w): un peso per ogni input. Quindi N pesi; Bias (b): un singolo valore di bias (costante) aggiunto alla somma ponderata. Totale parametri = N+1<br>
+<strong>Può apprendere solo funzioni lineari</strong>: un neurone artificiale tipicamente calcola una <strong>combinazione LINEARE dei suoi input</strong>, seguita dall'<strong>applicazione di una funzione di attivazione NON LINEARE</strong>.<br><strong>N.B.</strong> un singolo neurone, anche con attivazione non lineare, può creare solo un confine di decisione lineare (una linea retta o un piano che taglia lo spazio in due). Per questo motivo, un singolo neurone non può risolvere il problema dello XOR (che non è separabile linearmente).
+</details>
+</div>
+
+$$ \text {Totale Parametri} = N + 1$$
+---
+
+<div class = "domanda1">
+35. Il problema della <strong>scomparsa del gradiente</strong> si riferisce a una progressiva diminuzione dell'intensità del gradiente, dovuta a:<br>
+	-<span class="evidenzia_risposta">Backpropagation in reti profonde</span><br>
+	-Dati troppo rumorosi o malamente preprocessati<br>
+	-Troppi pochi dati di training a disposizione<br>
+	-Training eccessivamente lungo<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Backpropagation in reti profonde<br>
+
+<strong>Spiegazione</strong>: abbastanza straightforward
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+36. Se un modello calcola una distribuzione di probabilità, aggiungere alla funzione obiettivo una <strong>componente tesa</strong> ad aumentarne l'<strong>entropia</strong> avrà effetto di:<br>
+	-Contrastare fenomeno della perdita di gradiente<br>
+	-Focalizzare le scelte sui casi più probabili<br>
+	-Nessun effetto concreto<br>
+	-<span class="evidenzia_risposta">Ridistribuire le probabilità in modo più bilanciato tra tutti i casi</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Ridistribuire le probabilità in modo più bilanciato tra tutti i casi<br>
+
+<strong>Spiegazione</strong>: chiedere al modello di aumentare l'entropia equivale a dire: "Non essere troppo sicuro di te, considera tutte le opzioni". Massimizzare l'entropia spinge la distribuzione a diventare "piatta" (uniforme). Invece di avere un picco altissimo su una sola risposta, il modello abbassa quel picco e alza le probabilità delle altre opzioni, rendendo tutto più bilanciato. <br>
+<strong>Focalizzare le scelte sui casi più probabili</strong>: è l'esatto opposto<br>
+<strong>N.B.</strong> non c'entra nulla con la perdita del gradiente.
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+37. La derivata della <strong>funzione logistica</strong> &sigma;(x) è:<br>
+	- &sigma; (<i>x</i>) /  &sigma; (1 - <i>x</i>)<br>
+	- <span class="evidenzia_risposta">&sigma; (<i>x</i>) * (1 - &sigma; (<i>x</i>))</span><br>
+	- &sigma; (<i>x</i>) / (1 - &sigma;(<i> x</i>))<br>
+	- &sigma; (<i>x</i>) * &sigma;(1- <i> x</i>)<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: &sigma;(x) * (1 - &sigma;(x))<br>
+
+<strong>Spiegazione</strong>: abbastanza straightforward
+</details>
+</div>
+$$\sigma(x) \cdot (1 - \sigma(x))$$
+---
+
+<div class = "domanda1 riprendere">
+38. Selezionare la sentenza <strong>ERRONEA</strong> relativa alla <strong>crossentropy</strong> H(P,Q) tra P e Q:<br>
+	-È uguale alla divergenza di Kullback-Leibler KL(P,Q) più l'entropia H(P) di P<br>
+	-Misura la loglikelihood di Q data la distribuzione P<br>
+	-Ha un valore minimo quando P = Q<br>
+	-<span class="risposta_errata">È una funzione simmetrica H(P,Q) = H(Q,P)</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: È una funzione simmetrica H(P,Q) = H(Q,P)<br>
+
+<strong>Spiegazione</strong>: P e Q hanno ruoli fissi e diversi: P è la distribuzione reale dei dati (il "Ground Truth"). Es: Questa immagine è un GATTO al 100%. Q è quello che pensa il modello. Es: Il modello pensa che sia un GATTO al 70% e un CANE al 30%.<br>
+
+</details>
+</div>
+
+$$
+\text{1. Definizione Generale Cross-Entropy} \\
+H(P, Q) = - \sum_{x} P(x) \cdot \log(Q(x))
+$$
+
+$$
+\text{2. Relazione con KL Divergence} \\
+H(P, Q) = H(P) + KL(P||Q)
+$$
+
+$$
+\text{3. Identità Completa (Entropia + KL)} \\
+\mathcal{H}(P, Q) = - \sum_{i} P(i) \log Q(i) = \mathcal{H}(P) + D_{KL}(P||Q)
+$$
+
+$$
+\text{4. Binary Cross-Entropy (Log Loss)} \\
+L = - [ y \cdot \log(Q) + (1-y) \cdot \log(1-Q) ]
+$$
+
+---
+
+<div class = "domanda1">
+39. Selezionare la sentenza corretta relativa alla <strong>distribuzione congiunta</strong> di probabilità.<br>
+	-Non permette calcolo di eventi condizionali<br>
+	-Non permette di fare alcun tipo di predizione<br>
+	-Non consente una visione distinta delle singole features<br>
+	-<span class="evidenzia_risposta">Il suo calcolo presenta problemi di scalabilità all'aumentare delle features</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Il suo calcolo presenta problemi di scalabilità all'aumentare delle features<br>
+
+<strong>Spiegazione</strong>: La distribuzione congiunta è una tabella che contiene le probabilità di tutte le possibili combinazioni di variabili. Il problema è che questa tabella cresce in modo esponenziale (<strong>curse of dimensionality</strong>).<br>
+<strong>Non permette calcolo eventi condizionali</strong>: falso, <i>P(A|B)=(P(A,B)) / P(B)</i><br>
+<strong>Non consente visione distinta delle singole features</strong>: falso, marginalizazzione.
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+40. Ci sono due dadi, uno normale e uno truccato che restituisce un 6 con probabilità 0.5 e gli altri valori con probabilità 0.1. Faccio due lanci con lo stesso dado e osservo un 3 e un 6. Cosa posso concludere?<br>
+	-È più probabile che il dado sia normale<br>
+	-Nulla<br>
+	-<span class="evidenzia_risposta">È più probabile che il dado sia truccato</span><br>
+	-La probabilità di usare l'uno o l'altro dei dadi è la stessa<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: È più probabile che il dado sia truccato.<br>
+
+<strong>Spiegazione</strong>: stesso ragionamento domanda 8
+</details>
+</div>
+
+$$ P(\text{Scenario A}) + P(\text{Scenario B}) $$
+
+---
+
+<div class = "domanda1">
+41. Il range dell'entropia per la distribuzione di una probabilità di una variabile aleatoria discreta è:<br>
+	-Tra 0 e 1<br>
+	-<span class="evidenzia_risposta">Tra 0 e log n dove n sono i possibili valori di X</span><br>
+	-Tra 0 e infinito<br>
+	-Tra -1 e 1<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Tra 0 e log n dove n sono i possibili valori di X<br>
+
+<strong>Spiegazione</strong>: abbastanza straightforward
+</details>
+</div>
+
+$$H(X) = - \sum_{i=1}^{n} P(X=i)\log_2 P(X=i)$$
+---
+
+<div class = "domanda1 riprendere">
+42. Selezionare la sentenza <strong>SCORRETTA</strong> riguardo alla <strong>regressione logistica</strong><br>
+	-Si basa su una combinazione lineare delle features di input<br>
+	-Probabilità della predizione cresce se ci si allontana dalla superficie di confine tra le classi<br>
+	-<span class="risposta_errata">Non dipende dal bilanciamento dei dati di training rispetto alle classi</span><br>
+	-Nel caso di classificazione binaria la superficie di confine tra le classi è un iperpiano<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Non dipende dal bilanciamento dei dati di training rispetto alle classi. <br>
+
+<strong>Spiegazione</strong>: La regressione logistica soffre moltissimo se i dati sono sbilanciati.<br>
+<strong>Si basa su combinazione lineare</strong>: corretto, si basa su calcolo lineare a cui poi viene applicata la sigmoide. (...)<br>
+<strong>Probabilità della predizione cresce</strong>...: corretto, sul confine la probabilità è 0.5 (massima incertezza). Più ci si allontana dal confine, più la sigmoide spinge la probabilità verso 1 o verso 0.<br>
+<strong>Superficie tra le classi è iperpiano</strong>...: no curve complesse (...)
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+43. In quale di questi casi la <strong>regressione logistica</strong> potrebbe essere in difficoltà<br>
+	-Quando non tutte le features di input sono rilevanti ai fini della classificazione<br>
+	-Quando esiste elevata correlazione tra le features<br>
+	-<span class="evidenzia_risposta">Quando classificazione dipende da un confronto tra le features</span><br>
+	-Quando le features sono indipendenti tra loro, data la classe<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Quando classificazione dipende da un confronto tra le features<br>
+
+<strong>Spiegazione</strong>: La Regressione Logistica è un classificatore Lineare. La sua formula è una somma: w1​x1​+w2​x2​+... Questo significa che valuta ogni feature singolarmente e somma i punteggi. Se la soluzione del problema richiede di "confrontare" le feature tra loro (interazioni), la Regressione Logistica fallisce perché non è capace di capire le relazioni complesse senza aiuto. (...) <br>
+<strong>Correlazione tra features</strong>: caso meno grave
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+44. Riguardo alla  <strong>regressione multinomiale</strong> selezionare la sentenza <strong>SCORRETTA</strong> tra le seguenti:<br>
+	-Il peso con cui è valutata ogni feature è tipicamente diverso per ogni classe<br>
+	-Il peso delle features indica la loro importanza ai fini della classificazione<br>
+	-Per <i>n</i> features di input e <i>m</i> classi, il numero dei parametri del modello è <i> n x m + m</i><br>
+	-<span class="risposta_errata">Per ogni input esiste almeno una classe con probabilità >0.5</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Per ogni input esiste almeno una classe con probabilità >0.5<br>
+
+<strong>Spiegazione</strong>: Pensa a una torta, se le classi sono due allora è possibile, altrimenti no.<br>
+<strong>Peso diverso per ogni classe</strong>...: corretto, se si deve distinguere un "Gatto" da una "Auto", la caratteristica "ha il pelo" avrà un peso molto alto (positivo) per la classe Gatto, ma un peso basso o negativo per la classe Auto.<br>
+<strong>Peso delle features indica la loro importanza</strong>...: Nelle regressioni lineari/logistiche, più un peso è alto (in valore assoluto), più quella feature influenza la decisione finale. È l'indice di quanto quella caratteristica conta.<br>
+<strong>Per n features di input</strong>...: Ho m classi. Per ogni classe serve un set di pesi per le n feature (n×m). Per ogni classe serve anche un bias (l'intercetta)(m). Totale: <i>(n×m)+m</i>.
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+45. Selezionare la sentenza <strong>SCORRETTA</strong> riguardo alla funzione <strong>softmax</strong><br>
+	-<span class="risposta_errata">Produce valori compresi nell'intervallo[-1, 1]</span><br>
+	-Generalizza la funzione logistica al caso multiclasse<br>
+	-Per un dato input, la somma dei suoi valori su tutte le classi è sempre 1<br>
+	-Permette di calcolare una distribuzione di probabilità sulle classi<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Produce valori compresi nell'intervallo[-1, 1]<br>
+
+<strong>Spiegazione</strong>: Softmax produce probabilità, la probabilità non può mai essere negativa.<br>
+<strong>Calcolare distribuzione di probabilità</strong>...: Softmax converts a vector of raw scores into a probability distribution<br>
+<strong>Per dato input somma dei suoi valori</strong>...: Softmax prende punteggi grezzi, li rende positivi e li normalizza. (Pensa sempre a esempio torta, se metto insieme tutte le fette da capo, avrò nuovamente 1)
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1 riprendere">
+46. Cosa si intende per tecniche discriminative?<br>
+	-Tecniche tipiche di unsupervised learning che tentano di separare i dati in clusters distinti<br>
+	-<span class="evidenzia_risposta">Tecniche di classificazione che si focalizzano sulla definizione delle frontiere di decisione (decision boundaries)</span><br>
+	-Tecniche che cercano di discriminare i dati in base alle diverse distribuzioni di probabilità delle varie classi<br>
+	-Tecniche che cercando di identificare gli outliers all'interno del data set<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Tecniche di classificazione che si focalizzano sulla definizione delle frontiere di decisione (decision boundaries)<br>
+
+<strong>Spiegazione</strong>: (...)
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+47. AlexNet, la prima rete convoluzionale profonda vincitrice della ImageNet competition è stata realizzata in quale anno:<br>
+	-<span class="evidenzia_risposta">2012</span><br>
+	-1993<br>
+	-1971<br>
+	-2019<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: 2012 <br>
 
 <strong>Spiegazione</strong>: abbastanza straightforward
 </details>

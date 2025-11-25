@@ -26,4 +26,10 @@
 	- https://www.agendadigitale.eu/cultura-digitale/gan-generative-adversarial-networks-cosa-sono-applicazioni-e-vantaggi/
 	- https://medium.com/@miraytopal/what-is-mode-collapse-in-gans-d3428a7bd9b8
 	- https://www.quora.com/Why-are-the-weights-frozen-in-the-discriminator-of-GANs-during-training
+- **Probabilità**
+	- https://www.andreaminini.org/statistica/probabilita/variabili-aleatorie
+	- https://www.unife.it/letterefilosofia/comunicazione/insegnamenti/statistica-sociale/materiale_didattico/STATISTICA_SOCIALE__Lezioni_14_e_15_novembre_2011.pdf
+	- https://it.statisticseasily.com/glossario/what-is-curse-of-dimensionality/
+- **Regressione**
+	- https://en.wikipedia.org/wiki/Logistic_regression
 	- 

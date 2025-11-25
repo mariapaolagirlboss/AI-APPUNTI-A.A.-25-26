@@ -7,7 +7,7 @@
 - 
 ## B
 - **Bagging**: tecnica attraverso la quale si allenano i modelli su sottoinsiemi random (bags) dei dati di input
-- **Backpropagation**: The gradient is computed backward, backpropagating the loss to all neurons inside a networks, and their connections. This is a backward pass through the network. The algorithm for computing parameters updates is known as backpropagation algorithm.
+- **Backpropagation**: The gradient is computed backward, backpropagating the loss to all neurons inside a networks, and their connections. This is a backward pass through the network. The algorithm for computing parameters updates is known as backpropagation algorithm. Backpropagation guarda l'errore commesso dal modello e torna indietro per calcolare di quanto bisogna correggere ogni singolo peso.
 ## C
 - **Campionario** (spazio): insieme $\Omega$ dei possibili esiti di un esperimento casuale
 - **Congiunta** (distribuzione): 

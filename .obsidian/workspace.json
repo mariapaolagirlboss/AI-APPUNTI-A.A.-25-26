@@ -63,8 +63,7 @@
               "title": "Link per argomento"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -226,14 +225,15 @@
       "bases:Create new base": false
     }
   },
-  "active": "bdaa4445b5624ed9",
+  "active": "6f4d524a064b7233",
   "lastOpenFiles": [
-    "Domande TEST.md",
     "Glossario.md",
-    "images/Screenshot 2025-11-24 alle 15.44.48.png",
-    "images/Screenshot 2025-11-19 alle 15.48.09.png",
+    "Domande TEST.md",
     "Link per argomento.md",
     "DUBBI.md",
+    "images/Screenshot 2025-11-25 alle 15.22.16.png",
+    "images/Screenshot 2025-11-24 alle 15.44.48.png",
+    "images/Screenshot 2025-11-19 alle 15.48.09.png",
     "Domande da riprendere.md",
     "images"
   ]
