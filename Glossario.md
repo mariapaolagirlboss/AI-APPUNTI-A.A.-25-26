@@ -7,6 +7,7 @@
 - 
 ## B
 - **Bagging**: tecnica attraverso la quale si allenano i modelli su sottoinsiemi random (bags) dei dati di input
+- **Backpropagation**: The gradient is computed backward, backpropagating the loss to all neurons inside a networks, and their connections. This is a backward pass through the network. The algorithm for computing parameters updates is known as backpropagation algorithm.
 ## C
 - **Campionario** (spazio): insieme $\Omega$ dei possibili esiti di un esperimento casuale
 - **Congiunta** (distribuzione): 
@@ -14,7 +15,10 @@
 	2. stimare la probabilità per ogni combinazione di valori.
 	Date *n* features booleane dobbiamo stimare $2^n-1$ parametri
 - **Continuo** (attributo): un attributo con valori continui ha molti valori. Tuttavia, in questo caso la variabilità dei valori non accresce l'informazione bensì la riduce (vedi [[Link per argomento]])
+	**Esempio**: La temperatura misurata in gradi (24.5∘, 24.51∘, 30.2∘).
 ## D
+- **Discreto**(features): variabili che possono assumere solo un numero finito (e solitamente ridotto) di stati o categorie ben distinte. Non ci sono vie di mezzo.
+	**Esempio**: Previsioni del tempo(slide ppt), ha 3 valori possibili: Sunny, Overcast, Rain. Questa è una feature discreta: o è soleggiato, o è coperto o c'è la pioggia. Non c'è un valore "un po' soleggiato e un po' coperto". Ogni arco (freccia) che esce dal nodo rappresenta esattamente una di queste categorie. 
 ## E
 - **Entropia**: misura il numero medio di bits richiesti per trasmettere il valore prodotto da una sorgente stocastica X. Misura il grado di impurità dell'informazione. 
 	$$

@@ -1,5 +1,6 @@
 - **Varie**:
 	- https://flashcards.world/flashcards/sets/06b2bd21-981e-4fc9-872f-4a9c3b1a6146/
+	- https://d2l.ai/chapter_computer-vision/transposed-conv.html
 - **Alberi di decisione**
 	- https://www.andreaminini.com/ai/machine-learning/alberi-di-decisione
 	- https://moodle2.units.it/pluginfile.php/559400/mod_resource/content/0/GLI%20ALBERI%20DECISIONALI_22.pdf (mmm)
@@ -15,3 +16,14 @@
 - **Tensorflow/Keras**:
 	- https://www.geeksforgeeks.org/deep-learning/optimizers-in-tensorflow/
 	- https://www.geeksforgeeks.org/deep-learning/optimizers-in-tensorflow/
+- **Reti neurali**:
+	- https://www.youtube.com/watch?v=Q1JCrG1bJ-A
+	- https://www.geeksforgeeks.org/deep-learning/residual-networks-resnet-deep-learning/
+	- https://en.wikipedia.org/wiki/U-Net
+	- https://en.wikipedia.org/wiki/Artificial_neuron
+	- https://www.quora.com/Why-cant-we-make-an-XOR-gate-with-1-neuron
+- **Modelli generativi**
+	- https://www.agendadigitale.eu/cultura-digitale/gan-generative-adversarial-networks-cosa-sono-applicazioni-e-vantaggi/
+	- https://medium.com/@miraytopal/what-is-mode-collapse-in-gans-d3428a7bd9b8
+	- https://www.quora.com/Why-are-the-weights-frozen-in-the-discriminator-of-GANs-during-training
+	- 

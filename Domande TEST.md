@@ -338,7 +338,7 @@ Calcolo non si basa su loglikelyhood: Regressione logistica è un metodo discrim
 
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1">
 17. Selezionare la sentenza <strong>SCORRETTA</strong> relativa ai <strong>neuroni artificiali</strong><br>
 	-<span class="risposta_errata">Un neurone artificiale può apprendere qualunque funzione dei suoi input</span><br>
 	-Un neurone artificiale definisce un semplice modello matematico che simula il neurone biologico.<br>
@@ -349,14 +349,21 @@ Calcolo non si basa su loglikelyhood: Regressione logistica è un metodo discrim
 
 <strong>Risposta corretta</strong>: Un neurone artificiale può apprendere qualunque funzione dei suoi input.<br>
 
-<strong>Spiegazione</strong>: ...
+<strong>Spiegazione</strong>: 
+<strong>Calcolo di combinazione lineare degli input...</strong>: corretto! Prima fa la somma pesata (z = w1​x1​ + w2​x2​ + ... + b) e poi applica una non-linearità (come la Sigmoide o la ReLU) al risultato.<br>
+<strong>Numero dei parametri...</strong>: Se un neurone ha N input, avrà N pesi (uno per ogni input) più 1 bias. Quindi i parametri totali sono N+1...riguarda...Pesi collegati a input (?).<br>
+<br>
+Un singolo neurone artificiale è limitato. Matematicamente, un singolo neurone è un classificatore lineare: può risolvere solo problemi dove i dati possono essere separati da una linea retta (o un iperpiano). <strong>Esempio classico</strong>: Un singolo neurone non può imparare la funzione logica XOR, perché non è linearmente separabile. Per apprendere "qualunque funzione" serve una rete di neuroni (con almeno uno strato nascosto), non un neurone da solo.
+
 
 </details>
 </div>
+![[Screenshot 2025-11-24 alle 15.44.48.png|321x113]]
 
+$$ y = f\left( \sum_{i=1}^{n} w_i x_i + b \right) $$
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1">
 18. Cosa si intende con <strong>"deep" features</strong>?<br>
 	-Features ottenute mediante utilizzo di sensori ottici di profondità<br>
 	-<span class="evidenzia_risposta">Features sintetizzate in modo automatico a partire da altre features</span><br>
@@ -367,7 +374,7 @@ Calcolo non si basa su loglikelyhood: Regressione logistica è un metodo discrim
 
 <strong>Risposta corretta</strong>: Features sintetizzate in modo automatico a partire da altre features<br>
 
-<strong>Spiegazione</strong>: ...
+<strong>Spiegazione</strong>: Deep Learning exploits deep features of data, that is features extracted from other features.
 
 </details>
 </div>
@@ -491,3 +498,165 @@ Calcolo non si basa su loglikelyhood: Regressione logistica è un metodo discrim
 <strong>Spiegazione</strong>: hanno applicazioni per la data denoising, anomaly detection, feature extraction e generative models
 </details>
 </div>
+
+---
+
+<div class = "domanda1">
+25. Qual è il principale vantaggio delle <strong>connessioni residue</strong> (skip connections) in una <strong>ResNet</strong>?<br>
+	-Riducono il numero di parametri da ottimizzare nel modello<br>
+	-<span class="evidenzia_risposta">Permettono una migliore gestione del problema del vanishing gradient.</span><br>
+	-Permettono di evitare l’overffitting durante l'addestramento<br>
+	-Migliorano la velocità di calcolo durante l'addestramento<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Permettono una migliore gestione del problema del vanishing gradient.<br>
+
+<strong>Spiegazione</strong>: In order to solve the problem of the vanishing/exploding gradient, this architecture introduced the concept called <strong>Residual Blocks</strong>. In this network, we use a technique called <strong>skip connections</strong>. The skip connection connects activations of a layer to further layers by skipping some layers in between, this forms a residual block. Resnets are made by stacking these residual blocks together.<br>
+<strong>Riducono il numero di parametri...</strong>: le skip connections non riducono i parametri. Il numero di parametri rimane identico (o aumenta leggermente), poiché si tratta semplicemente di una somma elemento per elemento dell'input con l'output dello strato.<br>
+<strong>Evitare overfitting</strong>: Lo scopo delle skip connections non è la regolarizzazione ma l'abilitazione dell'addestramento in profondità.<br>
+<strong>Miglioramento velocità di calcolo</strong>: non migliorano la velocità di calcolo, la rete è di solito più profonda e complessa.
+</details>
+</div>
+
+---
+
+<div class = "domanda1 riprendere">
+26. Seleziona la sentenza corretta relativa alle <strong>Transposed Convolutions</strong>.<br>
+	-Sono prevalentemente utilizzate in architetture per classificazione di immagini.<br>
+	-Sono essenzialmente equivalenti all'applicazione di un livello di downsampling seguito da una convoluzione normale.<br>
+	-<span class="evidenzia_risposta">Possono essere interpretate come convoluzioni normali con stride sub-unitario.</span><br>
+	-Nessuna delle altre risposte è corretta.<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Possono essere interpretate come convoluzioni normali con stride sub-unitario.<br>
+
+<strong>Spiegazione</strong>: ...
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+27. Selezionare la sentenza <strong>SCORRETTA</strong> relativa alle <strong>Generative Adversarial Networks</strong><br>
+	-Durante la fase di allenamento del Generatore i parametri del Discriminatore devono essere congelati, e viceversa<br>
+	-Le GAN possono soffrire del fenomeno di "mode collapse", cioè la tendenza a focalizzare la generazione su un unico o pochi esempi<br>
+	-<span class="risposta_errata">Le GANs sono utilizzate per generare attacchi ad una rete di classificazione prefissata</span><br>
+	-Le GAN basano il loro training su un game tra il Generatore e il Discriminatore, dove ognuno cerca di prevalere sull'altro<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Le GANs sono utilizzate per generare attacchi ad una rete di classificazione prefissata<br>
+
+<strong>Spiegazione</strong>: <br>
+<strong>Mode collapse</strong>: In machine learning, mode collapse is a failure mode observed in generative models, originally noted in Generative Adversarial Networks (GANs). Mode collapse in Generative Adversarial Networks (GANs) can be likened to a talented artist who creates a popular artwork. After the work gains popularity, the artist may be afraid to take risks and start producing similar works. This can lead to a lack of artistic exploration and eventually bore the audience. Similarly, in GANs, mode collapse happens when the generator focuses on producing a limited set of data patterns that deceive the discriminator. It becomes fixated on a few dominant modes in the training data and fails to capture the full diversity of the data distribution.
+<strong>Parametri congelati</strong>: You have to manually stop keras from training the discriminator when you train the generator - if we didn’t do this, the discriminator would learn to be more convinced by the generator every time the generator is trained, undoing anything useful it could have learned! La frase "the discriminator would learn to be more convinced by the generator" significa questo: Se tu permettessi a entrambi di imparare durante il turno del Generatore, il Discriminatore imparerebbe che per "vincere" (minimizzare l'errore in quel momento specifico) gli basta dire "Sì, è tutto vero!"<br>
+<strong>Generare attacchi: perché è errata?</strong>: La frase descrive gli Adversarial Attacks, non le GANs. Il discriminatore non è prefissato, deve evolvere e imparare contemporaneamente al generatore.
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+28. Selezionare la sentenza <strong>SCORRETTA</strong> relativa alla <strong>U-Net</strong><br>
+	-Spesso impiegata per problemi di segmentazione semantica di immagini<br>
+	-<span class="risposta_errata">Spesso utilizzata nell'ambito della classificazione dei generi musicali</span><br>
+	-Usata per rimozione del rumore (denoising) di immagini<br>
+	-Componente tipico dei modelli generativi a diffusione<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Spesso utilizzata nell'ambito della classificazione dei generi musicali.<br>
+
+<strong>Spiegazione</strong>: <br>
+<strong>Impiegata per segmentazione...</strong>: U-Net is a convolutional neural network that was developed for image segmentation. The network is based on a fully convolutional neural network.<br>
+<strong>Denoising</strong>: The U-Net architecture has also been employed in diffusion models for iterative image denoising.<br>
+<strong>Componente modelli generativi a diffusione</strong>: The U-Net architecture has also been employed in diffusion models for iterative image denoising.<br>
+La U-Net è un'architettura progettata specificamente per la <strong>Segmentazione Semantica</strong> non per la <strong>Classificazione</strong>.
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+29. Con <strong>modelli generativi</strong> si intende:<br>
+	-L'uso di attacchi avversariali allo scopo di aumentare la robustezza dei modelli<br>
+	-<span class="evidenzia_risposta">Modelli che cercano di apprendere la distribuzione di probabilità dei dati.</span><br>
+	-L'applicazione di tecniche genetiche al deep learning<br>
+	-Il processo di automatizzazione della generazione di reti neurali<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>:Modelli che cercano di apprendere la distribuzione di probabilità dei dati.<br>
+
+<strong>Spiegazione</strong>: A generative model is a model that tries to learn the actual distribution Pdata of real data from available samples (training set).
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+30. Selezionare la sentenza <strong>SCORRETTA</strong> relativa ai <strong>modelli a diffusione</strong><br>
+	-<span class="risposta_errata">Generano i risultati attraverso un processo di diffusione della informazione</span><br>
+	-Tipicamente, lo spazio latente ha la stessa dimensione dello spazio visibile<br>
+	-Il risultato è ottenuto attraverso passaggi multipli lungo una singola rete, tipicamente una U-net<br>
+	-I modelli a diffusione iterano una operazione di denoising<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Generano i risultati attraverso un processo di diffusione della informazione. <br>
+
+<strong>Spiegazione</strong>: <br>
+<strong>Risultato ottenuto tramite U-net...</strong>: corretto, mostrato in ppt cartabinaria 07 modelli generativi ultima slide (...)<br>
+<strong>Modelli a diffusione iterano operazione di denoising</strong>: as of 2024, diffusion models are mainly used for computer vision tasks, including image denoising, inpainting, super-resolution, image generation, and video generation.<br>
+<strong>Spazio latente ha stessa dimensione spazio visibile</strong>: 
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+31. Selezionare la sentenza <strong>SCORRETTA</strong> relativa agli <strong>alberi di decisione</strong><br>
+	-<span class="risposta_errata">Possono essere utilizzati solo con features discrete</span><br>
+	-Costo computazionale molto basso<br>
+	-Forte tendenza all'overfitting<br>
+	-Possono esprimere qualunque funzione di classificazione<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Possono essere utilizzati solo con features discrete. <br>
+
+<strong>Spiegazione</strong>: <br>
+<strong>Possono esprimere qualunque funzione di classificazione</strong>: Decision Trees are a non-parametric supervised learning method used for classification and regression.
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+32. Perché la tecnica <strong>Naive Bayes</strong> è detta naive?<br>
+	-<span class="evidenzia_risposta">Suppone ingenuamente che le features siano indipendenti tra loro, date le classi</span><br>
+	-Suppone che i dati di training rispecchino i dati reali<br>
+	-Fornisce un modo semplice ma preciso di calcolare la distribuzione congiunta di probabilità delle features<br>
+	-Suppone che la teoria possa avere applicazioni pratiche<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>:Suppone ingenuamente che le features siano indipendenti tra loro, date le classi.<br>
+
+<strong>Spiegazione</strong>: abbastanza straightforward
+</details>
+</div>
+
+---
+
