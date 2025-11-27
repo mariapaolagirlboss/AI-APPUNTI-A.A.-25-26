@@ -1,6 +1,7 @@
 - **Varie**:
 	- https://flashcards.world/flashcards/sets/06b2bd21-981e-4fc9-872f-4a9c3b1a6146/
 	- https://d2l.ai/chapter_computer-vision/transposed-conv.html
+	- https://www.gironi.it/blog/lalgoritmo-di-discesa-del-gradiente-gradient-descent-spiegato-semplice/
 - **Alberi di decisione**
 	- https://www.andreaminini.com/ai/machine-learning/alberi-di-decisione
 	- https://moodle2.units.it/pluginfile.php/559400/mod_resource/content/0/GLI%20ALBERI%20DECISIONALI_22.pdf (mmm)
@@ -22,6 +23,12 @@
 	- https://en.wikipedia.org/wiki/U-Net
 	- https://en.wikipedia.org/wiki/Artificial_neuron
 	- https://www.quora.com/Why-cant-we-make-an-XOR-gate-with-1-neuron
+	- https://www.ibm.com/it-it/think/topics/autoencoder
+	- https://www.diariodiunanalista.it/posts/introduzione-agli-autoencoder/
+	- https://www.reddit.com/r/MachineLearning/comments/ef1xe8/d_should_autoencoders_really_be_symmetric/
+	- https://www.quora.com/Is-an-autoencoder-with-more-than-one-hidden-layers-a-type-of-deep-neural-network-DNN-Is-DNN-always-fully-connected-How-do-you-know-if-the-autoencoder-network-that-you-built-is-fully-connected
+	- https://it.mathworks.com/discovery/lstm.html
+	- 
 - **Modelli generativi**
 	- https://www.agendadigitale.eu/cultura-digitale/gan-generative-adversarial-networks-cosa-sono-applicazioni-e-vantaggi/
 	- https://medium.com/@miraytopal/what-is-mode-collapse-in-gans-d3428a7bd9b8
@@ -30,6 +37,10 @@
 	- https://www.andreaminini.org/statistica/probabilita/variabili-aleatorie
 	- https://www.unife.it/letterefilosofia/comunicazione/insegnamenti/statistica-sociale/materiale_didattico/STATISTICA_SOCIALE__Lezioni_14_e_15_novembre_2011.pdf
 	- https://it.statisticseasily.com/glossario/what-is-curse-of-dimensionality/
+	- https://it.statisticseasily.com/glossario/cos%27%C3%A8-la-distribuzione-congiunta/
+	- https://ccaudek.github.io/bookdown_psicometria/chapter-prob-congiunta.html
+	- 
 - **Regressione**
 	- https://en.wikipedia.org/wiki/Logistic_regression
+	- https://www.andreaminini.com/ai/machine-learning/qual-e-la-differenza-tra-classificatore-e-regressori
 	- 

@@ -963,3 +963,649 @@ $$H(X) = - \sum_{i=1}^{n} P(X=i)\log_2 P(X=i)$$
 
 ---
 
+<div class = "domanda1">
+48. Il campo ricettivo di un neurone di una CNN dipende da:<br>
+	-<span class="evidenzia_risposta">Profondità del layer in cui si trova il neurone e le dimensioni e gli strides del kernel dei layers precedenti</span><br>
+	-Profondità del layer in cui si trova il neurone e le dimensioni dei kernel dei layers precedenti, ma non dai loro strides<br>
+	-La dimensione del kernel e il numero dei canali del layer in cui si trova il neurone<br>
+	-Unicamente dalla profondità del layer a cui si trova il neurone<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Profondità del layer in cui si trova il neurone e le dimensioni e gli strides del kernel dei layers precedenti.<br>
+
+<strong>Spiegazione</strong>: The receptive field of a (deep, hidden) neuron is the dimension of the input region influencing it.<br>
+<strong>Come viene ampliato il campo?</strong> <br>
+A neuron cannot see anything outside its receptive field! We may also rapidly enlarge the receptive fields by means of downsampling layers, e.g. pooling layers or convolutional layers with non-unitarian stride. Questo implica profondità, uso di kernel dai layers precedenti + stride
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+49. Quale delle seguenti sentenze relative agli <strong>autoencoders</strong> è corretta?<br>
+	-Richiedono l'uso di livelli densi<br>
+	-Encoder e decoder devono essere strettamente simmetrici<br>
+	-<span class="evidenzia_risposta">La rappresentazione interna prodotta dall'encoder abitualmente ha una dimensione ridotta rispetto a quella di partenza</span><br>
+	-Rete neurale che codifica se stessa<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: La rappresentazione interna prodotta dall'encoder abitualmente ha una dimensione ridotta rispetto a quella di partenza <br>
+
+<strong>Spiegazione</strong>: Un autoencoder è un tipo di architettura di rete neurale progettata per comprimere (codificare) in modo efficiente i dati di input fino alle caratteristiche essenziali, quindi ricostruire (decodificare) l'input originale a partire da questa rappresentazione compressa. <br>
+Immagina di dover trasmettere un'immagine complessa a un amico, ma puoi usare solo 10 parole. Non puoi descrivere ogni singolo pixel. Devi per forza dire cose come "è un gatto rosso che dorme sul divano". Riducendo la dimensione (il bottleneck), costringi l'encoder a scartare i dettagli inutili (rumore) e a estrarre solo le caratteristiche (features) più importanti e significative.<br>
+<br>
+<strong>Encoder e decoder simmetrici</strong>...: (If your decoder is too powerful and you have a VAE the decoder might choose to ignore the latent codes entirely ... ). Se il decoder è enorme e potente, potrebbe memorizzare le mappature senza che l'encoder debba fare un buon lavoro di compressione. Altro problema presente nei Variational Autoencoder: Posterior Collapse.<br>
+<strong>Uso di livelli densi</strong>...: Non richiedono solamente livelli densi. Simple autoencoders can be made using fully connected layers only, but you can also use other layers (convolution layers, for example, to make convolutional autoencoders).
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+50. Quale è la tipica struttura di una <strong>rete neurale</strong> per la <strong>classificazione di immagini</strong>?<br>
+	-Solo livelli densi<br>
+	-Un encoder, seguito da un decoder<br>
+	-<span class="evidenzia_risposta">Sequenza alternata di convoluzioni e downsampling, seguita da flattening e pochi livelli densi finali</span><br>
+	-Sequenza di convoluzioni che preservano la dimensione spaziale dell'input<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Sequenza alternata di convoluzioni e downsampling, seguita da flattening e pochi livelli densi finali<br>
+
+<strong>Spiegazione</strong>: A Neural Network for image processing has a structure of the
+following kind: a long sequence of convolutional layers, possibly organized in suitable modules (e.g. inception modules) and a short (2 or 3) final sequence of dense layers.
+</details>
+</div>
+
+![[Screenshot 2025-11-26 alle 13.55.49.png]]
+
+---
+
+<div class = "domanda1 riprendere">
+51. Selezionare la sentenza corretta relativa alla tecnica a <strong>discesa del gradiente</strong><br>
+	-Permette sempre di individuare il minimo globale, se questo esiste<br>
+	-Risultato non dipende dall'inizializzazione dei parametri del modello<br>
+	-Può essere applicata solo se la funzione da minimizzare ha una superficie concava<br>
+	-<span class="evidenzia_risposta">Potrebbe convergere a un minimo locale</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Potrebbe convergere a un minimo locale<br>
+
+<strong>Spiegazione</strong>: L’algoritmo può convergere a un minimo locale anziché a un minimo globale, soprattutto se la funzione di costo è non convessa. <br>
+<br>
+https://www.gironi.it/blog/lalgoritmo-di-discesa-del-gradiente-gradient-descent-spiegato-semplice/<br>
+<br>
+<strong>Permette sempre di individuare minimo globale</strong>...: scorretto, discesa del gradiente è algoritmo miope, per le reti neurali multistrato la superficie di errore può essere molto complicata e piena di minimi locali. Se l'algoritmo inizia la discesa vicino a un minimo locale, finirà lì dentro e non sarà in grado di risalire per trovare il minimo globale. <br>
+(...)
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+52. Qual è l'effetto di uno <strong>stride non unitario</strong> (>1) in un layer convolutivo?<br>
+	-<span class="evidenzia_risposta">La dimensione spaziale diminuisce</span><br>
+	-Nessun effetto spaziale, il numero dei canali decresce<br>
+	-La dimensione spaziale aumenta<br>
+	-Nessun effetto spaziale, il numero dei canali aumenta<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: La dimensione spaziale diminuisce <br>
+
+<strong>Spiegazione</strong>:<br>
+<strong>Stride</strong>: movement of the linear filter. With a <strong>low stride</strong> (e.g.unitary) receptive fields largely overlap. With a <strong>higher stride</strong>, we have less overlap and the dimension of the output get smaller (lower sampling rate).
+</details>
+</div>
+
+![[Screenshot 2025-11-27 alle 15.16.33.png|352x267]]
+
+---
+
+<div class = "domanda1">
+53. Selezionare la sentenza corretta<br>
+	-Una GAN è una rete che permette di generare attacchi per un qualunque modello predittivo<br>
+	-Le GAN hanno una struttura encoder-decoder, simile a quella di un autoencoder<br>
+	-<span class="evidenzia_risposta">Le GAN possono soffrire del fenomeno di "mode-collapse", cioè la tendenza a focalizzare la generazione su un unico o pochi esempi</span><br>
+	-Le GAN basano il loro training su una funzione di loglikelihood relativa ai dati generali<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Le GAN possono soffrire del fenomeno di "mode-collapse", cioè la tendenza a focalizzare la generazione su un unico o pochi esempi<br>
+
+<strong>Spiegazione</strong>:<br>
+<strong>Struttura encoder-decoder</strong>...: errato, le Variational Autoencoders hanno una struttura così<br>
+<strong>Training basato su funzione di loglikelihood</strong>...: errato, il training delle GAN si basa su un discriminatore (che cerca di massimizzare capacità di distinguere vero dal falso) e generatore (che cerca di ingannare discriminatore e minimizzare capacità di distinzione tra vero e falso)<br>
+<strong>Generare attacchi per qualunque modello predittivo</strong>...: errato, scopo GAN è modellazione generativa. Though originally proposed as a form of generative model for unsupervised learning, GANs have also proved useful for semi-supervised learning,[2] fully supervised learning, and reinforcement learning (...)
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+54. I <strong>Long-Short Term Memory Models</strong> (LSTMs) sono modelli utilizzati prevalentemente per:<br>
+	-Segmentazione immagini mediche<br>
+	-<span class="evidenzia_risposta">Elaborazione di sequenze di dati</span><br>
+	-Predire traiettorie per agenti a guida autonoma<br>
+	-Elaborazione di immagini<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Elaborazione di sequenze di dati<br>
+
+<strong>Spiegazione</strong>: una rete a lunga memoria a breve termine (Long Short-Term Memory o LSTM) è un tipo di rete neurale ricorrente (RNN). Le LSTM sono prevalentemente usate per apprendere, elaborare e classificare dati sequenziali in quanto sono in grado di apprendere le dipendenze a lungo termine tra fasi temporali di dati. <br>
+<br>
+Un'unità LSTM è composta tipicamente da una cella e tre porte: una di input, una di output e una di oblio. La cella ricorda valori a intervalli di tempo arbitrari e le porte regolano il flusso di informazioni in entrata e in uscita dalla cella. Le porte di oblio decidono quali informazioni scartare dallo stato precedente, mappando lo stato precedente e l'input corrente su un valore compreso tra 0 e 1. Un valore (arrotondato) di 1 indica la conservazione delle informazioni, mentre un valore di 0 rappresenta l'eliminazione. Le porte di input decidono quali nuove informazioni memorizzare nello stato corrente della cella, utilizzando lo stesso sistema delle porte di oblio. Le porte di output controllano quali informazioni nello stato corrente della cella emettere, assegnando un valore da 0 a 1 alle informazioni, considerando lo stato precedente e quello corrente. L'emissione selettiva di informazioni rilevanti dallo stato corrente consente alla rete LSTM di mantenere dipendenze utili a lungo termine per effettuare predizioni, sia al passo corrente sia in quelli futuri. 
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+55. Quale <strong>funzione di loss</strong> è tipicamente utilizzata per una rete neurale per classificazione a categorie multiple che utilizza softmax come attivazione finale?<br>
+	-Binary crossentropy<br>
+	-<span class="evidenzia_risposta">Categorical crossentropy</span><br>
+	-Absolute error<br>
+	-Mean squared error<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Categorical crossentropy<br>
+
+<strong>Spiegazione</strong>: Richiesta di una funzione di loss per una rete che fa classificazione a categorie multiple (<strong> multinomial regression </strong>) e usa <strong>softmax</strong>. 
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+56. Quali delle seguenti tecniche <strong>NON</strong> può essere usata per contrastare <strong>overfitting</strong>?<br>
+	-Early stopping<br>
+	-Data augmentation<br>
+	-Introduzione di dropout layers<br>
+	-<span class="risposta_errata">Aggiunta di skip connections</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Aggiunta di skip connections<br>
+
+<strong>Spiegazione</strong>: early stopping, dropout layers, data augmentation (it helps to prevent overfitting by providing the model with more data to learn from) sono tutte tecniche che CONTRASTANO overfitting. 
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1 riprendere">
+57. Il numero dei parametri di un <strong>layer convolutivo</strong> dipende da:<br>
+	-Unicamente dalle dimensioni dei layers di input e output<br>
+	-Lo stride del kernel e tutte le dimensioni di input e output, compresi i canali<br>
+	-<span class="evidenzia_risposta">La dimensione spaziale del kernel e il numero dei canali di input e output</span><br>
+	-Lo stride del kernel e le dimensioni spaziali di input e output<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: la dimensione spaziale del kernel e il numero dei canali di input e output<br>
+
+<strong>Spiegazione</strong>: (...) 
+
+
+</details>
+</div>
+
+![[Screenshot 2025-11-26 alle 15.31.57.png]]
+
+
+---
+
+<div class = "domanda1">
+58. Quale tra i seguenti è un tipico campo di applicazione della <strong>U-Net</strong>?<br>
+	-<span class="evidenzia_risposta">Segmentazione semantica</span><br>
+	-Generazione musicale<br>
+	-Object detection<br>
+	-Natural language processing<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Segmentazione semantica<br>
+
+<strong>Spiegazione</strong>: U-Net is a convolutional neural network that was developed for image segmentation. The network is based on a fully convolutional neural network.
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+59. Selezionare la risposta <strong>SCORRETTA</strong> relativa alla <strong>Mutua Informazione</strong> I(X,Y) tra due variabili aleatorie X e Y (anche detta Information Gain nel contesto degli Alberi di Decisione)<br>
+	-Funzione simmetrica: I(X,Y) = I(Y,X)<br>
+	-<span class="risposta_errata">Coincide con l'entropia H(Y|X) di Y dato X</span><br>
+	-Può essere utilizzata per guidare la selezione degli attributi durante la costruzione di un albero di decisione<br>
+	-Misura il guadagno di informazione su Y dopo aver osservato X<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Coincide con l'entropia H(Y|X) di Y dato X<br>
+
+<strong>Spiegazione</strong>: Entropia = quantità di incertezza che ho su una decisione.<br>
+Situazione Iniziale (H(Y)): Devo indovinare se domani piove (Y). Massima incertezza. Questa è l'entropia iniziale.<br>
+L'indizio (X): Qualcuno dice: "Domani è nuvoloso" (X). <br>
+Situazione dopo l'indizio (H(Y|X)): Ora ho ancora un po' di dubbio (potrebbe piovere o no), ma sono meno confuso di prima. Questa nuova incertezza ridotta è l'entropia condizionata, H(Y|X) (l'incertezza di Y dato che conosco X).<br>
+Il Guadagno (I(X,Y)): L'Information Gain (Mutua Informazione) è: "Quanta confusione ho eliminato grazie all'indizio?". Matematicamente è la sottrazione tra l'incertezza di prima e quella di adesso.
+
+
+</details>
+</div>
+
+
+$$\text{Guadagno} = \text{Incertezza}_{\text{Prima}} - \text{Incertezza}_{\text{Dopo}}$$
+$$I(X,Y) = H(Y) - H(Y|X)$$
+$$ \text{Simmetria: }I(X,Y)=H(X)−H(X∣Y)=H(Y)−H(Y∣X)$$
+---
+
+<div class = "domanda1 riprendere">
+60. Il tensore di input di un <strong>layer convolutivo</strong> 2D ha dimensione (32,32,8). Sintetizzo un unico kernel con dimensione spaziale (4,4), stride 2, nessun padding (valid mode). Quale sarà la dimensione dell'output?<br>
+	-(16,16,1)<br>
+	-(16,16,8)<br>
+	-(15,15,8)<br>
+	-<span class="evidenzia_risposta">(15, 15,1)</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: (15, 15,1)<br>
+
+<strong>Spiegazione</strong>: 
+
+</details>
+</div>
+$$\text{Output} = \frac{W + P - K}{S} + 1$$
+---
+
+<div class = "domanda1 riprendere">
+61. Quale è la derivata della funzione di <strong>MaxPooling</strong>?<br>
+	-Identità<br>
+	-Non è derivabile<br>
+	-<span class="evidenzia_risposta">1 in corrispondenza del massimo e 0 altrove</span><br>
+	-1 ovunque<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: 1 in corrispondenza del massimo e 0 altrove<br>
+
+<strong>Spiegazione</strong>: Max pooling is a pooling operation that selects the maximum element from the region of the feature map covered by the filter. <br>
+Quando si calcola il gradiente (la derivata) per tornare indietro (Backpropagation):<br>
+La rete si chiede: "Chi ha contribuito a questo output?"<br>
+Solo il "vincitore" (il massimo) ha contribuito. Gli altri numeri sono stati ignorati<br>
+Di conseguenza, il gradiente passa integralmente (1) attraverso la posizione del massimo e viene bloccato (0) per tutte le altre posizioni che non erano il massimo.<br>È una sorta di interruttore, 1 per il valore più alto, 0 per gli altri (...)
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+62. Selezionare la risposta <strong>ERRATA</strong> relativa alla <strong>derivata della funzione logistica</strong><br>
+	-<span class="risposta_errata">È una funzione monotona</span><br>
+	-Tende a 0 quando X tende a meno infinito<br>
+	-Ha il suo massimo in corrispondenza dello 0<br>
+	-<span class="risposta_errata">È una funzione simmetrica</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>:è una funzione simmetrica, è una funzione monotona<br>
+
+<strong>Spiegazione</strong>: letteralmente guarda l'immagine
+
+
+</details>
+</div>
+
+![[Screenshot 2025-11-26 alle 16.44.21.png]]
+
+
+---
+
+<div class = "domanda1">
+63. Selezionare la risposta <strong>ERRATA</strong> relativa all' <strong>apprendimento supervisionato</strong><br>
+	-<span class="risposta_errata">Richiede costante supervisione di un esperto durante il training</span><br>
+	-Può comprendere sia problemi di regressione che di classificazione<br>
+	-Si riferisce all'apprendimento di funzioni basato su esempi di training composti da coppie input-output<br>
+	-La definizione della ground truth può richiedere l'intervento umano ed essere onerosa<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: richiede costante supervisione di un esperto durante il training<br>
+
+<strong>Spiegazione</strong>: 
+<strong>Ground truth</strong>...: corretto, building supervised training sets is expensive, since it requires a complex human operation to create ground truth annotations.<br>
+<strong>Problemi di regressione e classificazione</strong>...: corretto, presente nella "definizione" slide iniziali.
+
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+64. Selezionare la risposta <strong>CORRETTA</strong> relativa alla <strong>regressione multinomiale</strong><br>
+	-Per n features di input e m classi, il numero dei parametri del modello cresce come O(n+m)<br>
+	-<span class="evidenzia_risposta">Il peso con cui è valutata ogni feature è tipicamente diverso per ogni classe</span><br>
+	-I pesi delle features sono sempre tutti positivi, i bias possono essere negativi<br>
+	-Per ogni input esiste esiste almeno una classe con probabilità >0.5 <br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Il peso con cui è valutata ogni feature è tipicamente diverso per ogni classe.<br>
+
+<strong>Spiegazione</strong>: <br>
+<strong>Come cresce il numero dei parametri del modello</strong>: <i>n x m + m</i><br>
+<strong>Pesi delle features</strong>...:il peso w associato a una feature x indica la direzione e l'intensità della relazione tra quella feature e la classe target. Possono essere positivi, negativi o pari a zero.
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+65. Selezionare la risposta <strong>CORRETTA</strong> relativa alla <strong>funzione softmax</strong><br>
+	-Non può essere utilizzata nel caso di una classificazione binaria<br>
+	-<span class="evidenzia_risposta">Restituisce una distribuzione di probabilità sulle classi</span><br>
+	-Per una data classe, la somma dei valori su tutti gli input di un minibatch è sempre 1<br>
+	-Produce valori compresi nell'intervallo [-1, 1]<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Restituisce una distribuzione di probabilità sulle classi<br>
+
+<strong>Spiegazione</strong>: <br>
+<strong>Produce valori compresi tra [-1, 1]</strong>: errato, softmax produce probabilità, la probabilità non può mai essere negativa.<br>
+<strong>Somma dei valori su tutti gli input</strong>...: Per un dato input, la somma dei suoi valori su tutte le classi è sempre 1 !!!<br>
+<strong>Classificazione binaria</strong>: La funzione softmax è usata in vari metodi di classificazione multi-classe, come la regressione logistica multinomiale, analisi discriminante lineare multiclasse, classificatori bayesiani e reti neurali artificiali.
+
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+66. In quali di questi casi una tecnica di <strong>classificazione lineare</strong> potrebbe non fornire risultati soddisfacenti<br>
+	-<span class="evidenzia_risposta">Quando la classificazione dipende da un confronto tra le features</span><br>
+	-Quando esiste una elevata correlazione tra le features<br>
+	-Quando non tutte le features di input sono rilevanti ai fini della classificazione<br>
+	-Quando le feature sono indipendenti tra loro, data la classe<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Quando la classificazione dipende da un confronto tra le features. <br>
+
+<strong>Spiegazione</strong>: Un classificatore lineare funziona tracciando una linea retta per separare le classi. La sua equazione è una somma pesata: y=w1 x1 +w2 x2 +b. Questo modello presuppone che ogni caratteristica (x1, x2 ) contribuisca al risultato in modo indipendente e additivo. Quando la risposta dipende da un "confronto" o da una interazione complessa tra le feature (problema dello XOR), la relazione diventa non lineare.
+
+
+
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1 riprendere">
+67. Selezionare la sentenza <strong>CORRETTA</strong> relativa alle <strong>tecniche discriminative</strong><br>
+	-Cercano di determinare le distribuzioni di probabilità delle varie classi di dati<br>
+	-<span class="evidenzia_risposta">Si focalizzano sulla definizione delle frontiere di decisione (decision boundaries)</span><br>
+	-Si applicano per lo più in ambito di apprendimento non supervisionato<br>
+	-Sono tipicamente meno espressive delle tecniche generative<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Quando la classificazione dipende da un confronto tra le features. <br>
+
+<strong>Spiegazione</strong>: Si focalizzano sulla definizione delle frontiere di decisione (decision boundaries) (...)
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+68. Selezionare la risposta <strong>ERRATA</strong> relativa alla funzione <strong>ReLu(x)</strong><br>
+	-Lei o le sue varianti sono tipicamente utilizzate per i livelli interni delle reti neurali profonde<br>
+	-La sua derivata è una funzione a gradino<br>
+	-È una funzione monotona non decrescente<br>
+	-<span class="risposta_errata">Non può essere utilizzata per layer convoluzionali</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Non può essere utilizzata per layer convoluzionali. <br>
+
+<strong>Spiegazione</strong>: In realtà, la ReLU È la funzione standard utilizzata nei layer convoluzionali (CNN). La struttura classica di una rete per immagini è quasi sempre: Convoluzione -> ReLU -> Pooling. <br>
+<strong>Utilizzo nei livelli interni</strong>...: risolve vanishing gradient problem e efficienza computazionale. 
+
+
+
+</details>
+</div>
+
+![[Screenshot 2025-11-27 alle 14.34.10.png|294x156]]
+
+![[Code_Generated_Image.png|302x227]]
+
+---
+
+<div class = "domanda1">
+69. Selezionare la risposta <strong>SCORRETTA</strong> relativa agli <strong>autoencoders</strong><br>
+	-Possono essere utilizzati per la rimozione del rumore (denoising)<br>
+	-La rappresentazione interna prodotta dall'encoder abitualmente ha una dimensione ridotta rispetto a quella di partenza <br>
+	-L'encoder e il decoder non devono essere necessariamente simmetrici<br>
+	-<span class="risposta_errata">Gli autoencoders richiedono l'uso di livelli densi</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Gli autoencoders richiedono l'uso di livelli densi<br>
+
+<strong>Spiegazione</strong>: gli autoencoders POSSONO usare livelli densi. Però per compiti come l'elaborazione di immagini, si utilizzano comunemente i <strong>Convolutional Autoencoders</strong>, composti da livelli convoluzionali.
+
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1 riprendere">
+70. Selezionare la risposta <strong>SCORRETTA</strong> relativa alla <strong>backpropagation</strong> per reti neurali<br>
+	-Richiede la memorizzazione delle attivazioni di tutti i neuroni della rete durante la forward pass<br>
+	-Ha un costo computazionale paragonabile a quello del calcolo in avanti (inference) lungo la rete <br>
+	-<span class="risposta_errata">Si basa principalmente su algoritmi di tipo genetico</span><br>
+	-Tipicamente si effettua solo durante la fase di training della rete<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Si basa principalmente su algoritmi di tipo genetico<br>
+
+<strong>Spiegazione</strong>: algoritmi di tipo genetico vengono usati per ingannare la rete (black box), non per l'addestramento standard tramite backpropagation.<br>
+<strong>Memorizzazione delle attivazioni</strong>...: Poiché la backpropagation avviene andando all'indietro (dall'output all'input), per calcolare questa formula è necessario aver memorizzato il valore Al−1​ che era stato calcolato durante il passaggio in avanti (...)
+
+
+</details>
+</div>
+
+$$\frac{\partial E}{\partial w_{ljk}} = a_{l-1} k \delta_{lj}$$
+---
+
+<div class = "domanda1">
+71. Selezionare la risposta <strong>SCORRETTA</strong> relativa al <strong>campo ricettivo</strong> di un neurone di una CNN<br>
+	-Definisce la porzione dell'input che influenza l'attivazione di un determinato neurone<br>
+	-Dipende dalla profondità del layer in cui si trova il neurone e dalle dimensioni e gli strides dei kernel dei layers precedenti<br>
+	-<span class="risposta_errata">E' sempre almeno pari alla dimensione spaziale del dato di input</span><br>
+	-Aumenta rapidamente con l'attraversamento di livelli con downsampling<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>:E' sempre almeno pari alla dimensione spaziale del dato di input. <br>
+
+<strong>Spiegazione</strong>: Nei primi livelli della rete, il campo ricettivo è molto piccolo (pari alla dimensione del kernel, es. 3x3 o 5x5), quindi è molto più piccolo della dimensione dell'input (che potrebbe essere un'immagine intera). Diventa grande quanto l'input solo se la rete è abbastanza profonda. <br>
+<strong>Porzione dell'input</strong>...: receptive field corresponds to the dimension of the input region influencing it.<br>
+<strong>Dipende da profondità dei layers</strong>...: By stacking kernels we enlarge their receptive fields. Quindi dipende dalla profondità (stacking) e dalle dimensioni dei kernel precedenti.<br>
+<strong>Aumenta con attraversamento</strong>...: We may also rapidly enlarge the receptive fields by means of downsampling layers. 
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+72. Il tensore di input di un layer convolutivo 2D ha dimensione (16,16,32). Sintetizzo 8 kernel con dimensione spaziale (3,3), stride 2, nessun padding (valid mode). Quale sarà la dimensione dell'output?<br>
+	-(7, 7, 15)<br>
+	-(8, 8, 8)<br>
+	-<span class="evidenzia_risposta">(7, 7, 8)</span><br>
+	-(8, 8, 32)<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: (7,7,8)<br>
+
+<strong>Spiegazione</strong>: <br>
+La profondità dell'output non dipende dalla dimensione dell'input, ma dal numero di kernel (filtri) che vengono applicati. Feature maps produced by different kernels are stacked along the channel dimension.<br>
+Il testo dice: "Sintetizzo 8 kernel", di conseguenza la profondità dell'output sarà 8.
+
+
+</details>
+</div>
+
+$$\text{Output} = \frac{W + P - K}{S} + 1$$
+---
+
+<div class = "domanda1">
+73. Selezionare la risposta <strong>SCORRETTA</strong> relativa alla tecnica<strong> a discesa del gradiente</strong><br>
+	-Potrebbe convergere a un minimo locale<br>
+	-<span class="risposta_errata">Può essere applicata solo se la funzione da minimizzare ha superficie concava</span><br>
+	-Il risultato può dipendere dall'inizializzazione dei parametri del modello<br>
+	-È opportuno decrementare il learning rate verso la fine dell'apprendimento<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Può essere applicata solo se la funzione da minimizzare ha superficie concava<br>
+
+<strong>Spiegazione</strong>: riguardo alla regressione logistica "the error surface is convex" (la superficie di errore è convessa, a forma di ciotola). Una superficie concava (a forma di collina o arco) non avrebbe un minimo verso cui scendere, ma andrebbe verso −∞.<br>
+<strong>Converge a un minimo locale</strong>: Le superfici di errore complesse hanno molti minimi locali<br>
+<strong>Risultato dipende da inizializzazione dei parametri</strong>...: Se la superficie ha molti minimi locali, il punto di partenza (inizializzazione dei pesi) / initial random guess, determina in quale valle finirà l'algoritmo.<br>
+<strong>Learning Rate</strong>...: Attraverso gli optimizer (by dynamically adapting the learning rate). È pratica standard ridurlo alla fine per atterrare nel minimo con precisione senza oscillare.
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+74. Quale <strong>funzione di loss</strong> è tipicamente utilizzata in una rete neurale per classificazionebinaria che utilizza una sigmoid come attivazione finale?<br>
+	-<span class="evidenzia_risposta">Binary crossentropy</span><br>
+	-Categorical crossentropy<br>
+	-Absolute error<br>
+	-Mean squared error<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Binary crossentropy<br>
+
+<strong>Spiegazione</strong>: La Binary Crossentropy è la funzione di costo standard per la classificazione binaria (due classi, 0 e 1) quando l'output della rete è una probabilità calcolata tramite una Sigmoide.<br>
+<strong>Categorical crossentropy</strong>: È associata alla Softmax come funzione di attivazione, non alla Sigmoide. Presente nel contesto della "Multinomial Regression" per gestire categorie multiple, dove la loss è la categorical crossentropy. <br>
+<strong>Absolute error</strong>: funzione di loss tipica per problemi di regressione<br>
+<strong>Mean squared error</strong>: funzione di loss standard per la regressione <br> (...)
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+75. Un layer convolutivo 2D con stride 1, kernel size 3x3, e senza padding prende in input un layer con dimensioni (32,32,3) e restituisce un layer di dimensione (32,32,16). Quanti sono i suoi parametri?<br>
+	-160<br>
+	-28<br>
+	-432<br>
+	-<span class="evidenzia_risposta">448</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>:448<br>
+
+<strong>Spiegazione</strong>: <br>
+<strong>Calcolo dei pesi per il singolo kernel</strong>:<br>
+If the input layer has depth D, and the kernel spatial size is NxM, the actual dimension of the kernel will be NxMxD.<br>
+Quindi: 3 x 3 x 3 = 27<br>
+<br>
+<strong>Calcolo dei pesi totali</strong>:<br>
+Il numero totale di pesi dipende dal numero di filtri (o kernel) che vuoi creare, che corrisponde alla profondità dell'output.<br>
+Quindi: 27 x 16 = 432<br>
+<br>
+<strong>Calcolo dei bias</strong>: 16<br>
+<br>
+<strong>Calcolo dei parametri totali</strong>:<br>
+432 + 16 = 448<br>
+
+
+
+
+</details>
+</div>
+
+$$
+\text{Parametri} = ((K \times K \times D_{in}) + 1) \times D_{out}
+$$
+
+**Dove:**
+- $K$: Dimensione lato kernel (in questo caso $3$)
+- $D_{in}$: Canali input (in questo caso $3$)
+- $1$: Il bias per ogni filtro
+- $D_{out}$: Canali output/Numero filtri (in questo caso $16$)
+
+---
+
+<div class = "domanda1">
+76. Selezionare la risposta <strong>SCORRETTA</strong> relativa ai<strong> modelli generativi</strong><br>
+	-Generative Adversarial Networks, Variational Autoencoders e Diffusion models sono esempi di tecniche generative profonde<br>
+	-Un tipico esempio di tecnica generativa è Naive Bayes<br>
+	-Sono modelli che cercano di apprendere la distribuzione di probabilità dei dati<br>
+	-<span class="risposta_errata">Sono modelli meta-teorici rivolti alla automatizzazione della generazione di reti neurali</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Sono modelli meta-teorici rivolti alla automatizzazione della generazione di reti neurali<br>
+
+<strong>Spiegazione</strong>: Generative Model: a model that tries to learn the actual distribution pdata of real data. <br>
+<strong>Naïve Bayes</strong>: Example of generative classifiers
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+77. Selezionare la risposta <strong>SCORRETTA</strong> relativa alla tecnica di <strong> discesa del gradiente</strong><br>
+	-<span class="risposta_errata">Se il gradiente tende a zero anche parametri e le attivazioni dei neuroni tendono a zero</span><br>
+	-Se il gradiente tende a zero i parametri non sono più aggiornati e la rete smette di apprendere<br>
+	-Il problema è mitigato dall'uso di link residuali all'interno della rete<br>
+	-Il problema è fortemente attenuato dall'uso di ReLU (o sue varianti) come funzione di attivazione per i livelli nascosti della rete<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Se il gradiente tende a zero anche parametri e le attivazioni dei neuroni tendono a zero<br>
+
+<strong>Spiegazione</strong>: Il vanishing gradient riguarda la derivata dell'errore rispetto ai pesi (il gradiente), che diventa piccolissima. Non implica che i parametri o le attivazioni vadano a zero.<br>
+<strong>Problema mitigato da link residuali</strong>...: during back propagation, the gradient at higher layers can easily pass to lower layers, without being mediated by the weight layers, which may cause vanishing gradient.<br>
+<strong>Uso di ReLU</strong>...: problema vanishing gradient risolto: by the introduction on new activation functions, such as Rectified Linear Units (RELU)
+</details>
+</div>
