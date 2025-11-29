@@ -1609,3 +1609,7 @@ $$
 <strong>Uso di ReLU</strong>...: problema vanishing gradient risolto: by the introduction on new activation functions, such as Rectified Linear Units (RELU)
 </details>
 </div>
+
+---
+
+prova 1
