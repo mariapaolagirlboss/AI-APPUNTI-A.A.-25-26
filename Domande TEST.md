@@ -1594,7 +1594,7 @@ $$
 ---
 
 <div class = "domanda1">
-77. Selezionare la risposta <strong>SCORRETTA</strong> relativa alla tecnica di <strong> discesa del gradiente</strong><br>
+77. Selezionare la risposta <strong>SCORRETTA</strong> relativa al problema di <strong> scomparsa del gradiente</strong><br>
 	-<span class="risposta_errata">Se il gradiente tende a zero anche parametri e le attivazioni dei neuroni tendono a zero</span><br>
 	-Se il gradiente tende a zero i parametri non sono più aggiornati e la rete smette di apprendere<br>
 	-Il problema è mitigato dall'uso di link residuali all'interno della rete<br>
@@ -1612,5 +1612,79 @@ $$
 
 ---
 
-prova 1
-prova2
+<div class = "domanda1 riprendere">
+78. Selezionare la risposta <strong>SCORRETTA</strong> relativa alle <strong> Transposed Convolutions</strong><br>
+	-Possono essere interpretate come convoluzioni normali con stride sub unitario<br>
+	-Sono prevalentemente usate in architetture per Image-to-Image processing, come autoencoders o U-Nets<br>
+	-Sono essenzialmente equivalenti alla applicazione di un livello di upsampling seguito da una convoluzione normale<br>
+	-<span class="risposta_errata">Richiedono la trasposizione dell'input prima di calcolare la convoluzione del Kernel</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Richiedono la trasposizione dell'input prima di calcolare la convoluzione del Kernel<br>
+
+<strong>Spiegazione</strong>:
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+79. Selezionare la risposta <strong>SCORRETTA</strong> relativa alle<strong> Random Forest</strong> (foreste di alberi decisionali)<br>
+	-Richiedono tecniche opportune per la creazione di alberi di decisione diversi relativi a uno stesso dataset<br>
+	-<span class="risposta_errata">Tendono a migliorare l'explainability degli alberi di decisione riducendo l'instabilità nella selezione degli attributi</span><br>
+	-Tentano di mitigare il fenomeno dell'overfitting tipico degli alberi di decisione<br>
+	-È una tecnica di apprendimento ad "ensemble" basata su di una combinazione di alberi di decisione<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Tendono a migliorare l'explainability degli alberi di decisione riducendo l'instabilità nella selezione degli attributi<br>
+<strong>Spiegazione</strong>: Gli alberi di decisione sono usati come componenti nelle foreste random. In pratica si fa un insieme di alberi di decisione che sfruttano il principio di tanti modelli non correlati per avere risultati più efficienti.<br>
+Random Forest: È composta da centinaia o migliaia di alberi che "votano". È quasi impossibile per un umano seguire il percorso logico di 500 alberi contemporaneamente per capire perché la rete ha dato un certo risultato. Diventa una "Black Box".<br>
+<br>
+<strong>Richiedono tecniche opportune</strong>...: se tutti gli alberi fossero uguali, la foresta sarebbe inutile (sarebbe come avere un solo albero ripetuto). Per funzionare, la Random Forest deve creare diversità usando tecniche come il Bagging e scegliendo a caso solo alcune feature per ogni taglio.<br>
+<strong>Mitigare fenomeno overfitting</strong>...: un singolo albero di decisione tende a imparare "a memoria" i dati (overfitting). Mettendo insieme tanti alberi e facendone la media, la Random Forest riduce questo rischio, generalizzando meglio.
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+80. Una variabile aleatoria discreta con valori a, b e c ha la seguente distribuzione di probabilità: P(a)=1/4, P(b)=1/2, P(c)=1/4. Qual è la sua <strong>entropia</strong>?<br>
+	-<span class="evidenzia_risposta">3/2</span><br>
+	-Log(3)<br>
+	-4/5<br>
+	-5/4<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: 5/4<br>
+
+<strong>Spiegazione</strong>: guarda sotto, non avevo voglia di scriverlo non in latex
+</details>
+</div>
+
+$$H(X) = - \sum_{i=1}^{n} P(X=i)\log_2 P(X=i)$$
+**Calcoli e passaggi**:
+$H = - \left[ \frac{1}{4} \log_2\left(\frac{1}{4}\right) + \frac{1}{2} \log_2\left(\frac{1}{2}\right) + \frac{1}{4} \log_2\left(\frac{1}{4}\right) \right]$
+$H = - \left[ \left(\frac{1}{4} \cdot -2\right) + \left(\frac{1}{2} \cdot -1\right) + \left(\frac{1}{4} \cdot -2\right) \right]$
+$H = - \left[ -\frac{1}{2} - \frac{1}{2} - \frac{1}{2} \right]$
+$H = - \left[ -\frac{3}{2} \right] = \frac{3}{2}$
+
+---
+
+<div class = "domanda1">
+81. In che situazioni si parla di <strong>apprendimento auto-supervisionato</strong>?<br>
+	-Quando il modello è in grado di riconfigurare in modo automatico la propria architettura<br>
+	-Quando il modello è dovrebbe contribuire alla creazione di nuovi dati di training<br>
+	-<span class="evidenzia_risposta">Quando i dati di input possono essere considerati come annotazioni (labels) per guidare l'apprendimento, come nel caso degli autoencoders</span><br>
+	-Quando l'apprendimento prevede una sinergia tra l'uomo e la macchina<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Quando i dati di input possono essere considerati come annotazioni (labels) per guidare l'apprendimento, come nel caso degli autoencoders. <br>
+
+<strong>Spiegazione</strong>: 
+</details>
+</div>
