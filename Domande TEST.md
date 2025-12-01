@@ -297,6 +297,9 @@ $$
 \end{aligned}
 $$
 
+![[Screenshot 2025-12-01 alle 14.53.22.png]]
+
+
 ---
 
  <div class = "domanda1">
@@ -1429,7 +1432,7 @@ Di conseguenza, il gradiente passa integralmente (1) attraverso la posizione del
 70. Selezionare la risposta <strong>SCORRETTA</strong> relativa alla <strong>backpropagation</strong> per reti neurali<br>
 	-Richiede la memorizzazione delle attivazioni di tutti i neuroni della rete durante la forward pass<br>
 	-Ha un costo computazionale paragonabile a quello del calcolo in avanti (inference) lungo la rete <br>
-	-<span class="risposta_errata">Si basa principalmente su algoritmi di tipo genetico</span><br>
+	-<span class="risposta_errata">Si basa principalmente su algoritmi di tipo generico</span><br>
 	-Tipicamente si effettua solo durante la fase di training della rete<br>
 <details>
 <summary> Clicca qui per la soluzione e la spiegazione</summary>
@@ -1482,7 +1485,8 @@ $$\frac{\partial E}{\partial w_{ljk}} = a_{l-1} k \delta_{lj}$$
 <strong>Spiegazione</strong>: <br>
 La profondità dell'output non dipende dalla dimensione dell'input, ma dal numero di kernel (filtri) che vengono applicati. Feature maps produced by different kernels are stacked along the channel dimension.<br>
 Il testo dice: "Sintetizzo 8 kernel", di conseguenza la profondità dell'output sarà 8.
-
+<strong>N.B.</strong>: The dimension of the output only depends from the number of
+times the kernel is applied.
 
 </details>
 </div>
@@ -1685,6 +1689,405 @@ $H = - \left[ -\frac{3}{2} \right] = \frac{3}{2}$
 
 <strong>Risposta corretta</strong>: Quando i dati di input possono essere considerati come annotazioni (labels) per guidare l'apprendimento, come nel caso degli autoencoders. <br>
 
-<strong>Spiegazione</strong>: 
+<strong>Spiegazione</strong>: L'apprendimento auto-supervisionato è una tecnica in cui il modello non ha bisogno di etichette fornite dall'uomo (come "gatto" o "cane"). Invece, genera le proprie "etichette" partendo dai dati stessi. <strong> Esempio </strong>: autoencoders. <br>
+<strong>Riconfigurazione dell'architettura</strong>...: applicato a NAS o reti neurali, non c'entra con il modo in cui il modello apprende dai dati, ma con come è costruita la sua struttura.<br>
+<strong>Creazione di nuovi dati di training</strong>...: questo descrive meglio i Modelli Generativi (come le GAN o i modelli di diffusione) o tecniche di Data Augmentation. Sebbene l'apprendimento auto-supervisionato possa essere usato per compiti generativi, la sua definizione non è creare dati, ma imparare rappresentazioni dai dati esistenti senza etichette.<br>
+<strong>Sinergia tra uomo e macchina</strong>...: si riferisce all'active learning.
 </details>
 </div>
+
+---
+
+<div class = "domanda1">
+82. Avendo 5 categorie di dati e 3 features di input booleane, quanti parametri indipendenti devono essere stimati secondo la tecnica <strong>Naive Bayes</strong> (compresi i priors).<br>
+	-15<br>
+	-16<br>
+	-<span class="evidenzia_risposta">19</span><br>
+	-20<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: 19 <br>
+
+<strong>Spiegazione</strong>: spiegazione sotto, non avevo voglia di scriverla non in LateX, ricorda di sommare i priors alla fine!!
+</details>
+</div>
+
+$P(C_1) + P(C_2) + P(C_3) + P(C_4) + P(C_5) = 1 \quad \rightarrow \quad 5 - 1 = 4$
+$(\text{Numero di Classi}) \times (\text{Numero di Features}) \quad \rightarrow \quad 5 \times 3 = 15$
+$\text{Priors} = 4, \quad \text{Totale} = 4 + 15 = 19$
+
+---
+
+<div class = "domanda1">
+83. Quale delle seguenti situazioni NON è particolarmente problematica dal punto di vista dell' <strong>overfitting</strong>?<br>
+	-Avere pochi dati di training<br>
+	-<span class="risposta_errata">Avere dati molto rumorosi</span><br>
+	-Disporre di un modello molto espressivo<br>
+	-Effettuare un training molto prolungato<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Avere dati molto rumorosi <br>
+
+<strong>Spiegazione</strong>: Il rumore è una caratteristica dei dati, non una causa diretta del meccanismo di apprendimento eccessivo. Avere dati molto rumorosi spesso impedisce al modello di adattarsi perfettamente ai dati, rendendo l'overfitting "perfetto" più difficile da raggiungere rispetto alle altre situazioni.
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+83. Un dataset contiene 2/3 di positivi e 1/3 di negativi. La precisione del modello è 9/10. Che percentuale dei dati totali sono <strong>Falsi Positivi</strong>?<br>
+	-1/9<br>
+	-<span class="evidenzia_risposta">Non può essere stabilito</span><br>
+	-2/27<br>
+	-1/10<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Non può essere stabilito <br>
+
+<strong>Spiegazione</strong>: Guarda le formule, non hai nulla per effettuare il calcolo.
+</details>
+</div>
+
+$$
+\begin{aligned}
+\text{Positivi Totali (P)} &= TP + FN \\
+\text{Negativi Totali (N)} &= TN + FP \\
+\text{Totale Dati (All)} &= TP + TN + FP + FN \\
+\\[10pt]
+\text{Accuratezza} &= \frac{TP + TN}{\text{All}} \\
+\\[10pt]
+\text{Precisione} &= \frac{TP}{TP + FP} \\
+\\[10pt]
+\text{Richiamo (Recall)} &= \frac{TP}{TP + FN} \\
+\\[10pt]
+\text{Specificità} &= \frac{TN}{TN + FP} \\
+\\[10pt]
+\text{F1 Score} &= 2 \cdot \frac{\text{Precisione} \cdot \text{Recall}}{\text{Precisione} + \text{Recall}}
+\end{aligned}
+$$
+---
+
+<div class = "domanda1">
+84. Siano date le seguenti distribuzioni di probabilità P e Q: P(0)=3/8, P(1)=1/2, P(2)=1/8, and Q(0)=1/2, Q(1)=1/4, Q(2)=1/4. Quanto vale la crossentropy H(P|Q) tra P e Q?<br>
+	-<span class="evidenzia_risposta">13/8</span><br>
+	-3/2+log(3)<br>
+	-5/2-log(3)/2<br>
+	-2<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: 13/8 <br>
+
+<strong>Spiegazione</strong>: Guarda sotto non ho voglia di scrivere procedimento senza Latex
+</details>
+</div>
+
+$$H(P, Q) = - \sum_{x} P(x) \cdot \log_2(Q(x))$$
+Le variabili x possono assumere i valori {0,1,2}.
+- **P (distribuzione vera/target):**
+    - P(0)=3/8
+    - P(1)=1/2
+    - P(2)=1/8
+- **Q (distribuzione stimata/predetta):**
+    - Q(0)=1/2
+    - Q(1)=1/4
+    - Q(2)=1/4
+
+$\begin{aligned} H(P, Q) &= - \left[ P(0)\log_2(Q(0)) + P(1)\log_2(Q(1)) + P(2)\log_2(Q(2)) \right] \\ &= - \left[ \frac{3}{8}\log_2\left(\frac{1}{2}\right) + \frac{1}{2}\log_2\left(\frac{1}{4}\right) + \frac{1}{8}\log_2\left(\frac{1}{4}\right) \right] \\ &= - \left[ \frac{3}{8}(-1) + \frac{1}{2}(-2) + \frac{1}{8}(-2) \right] \\ &= \frac{3}{8} + 1 + \frac{2}{8} \\ &= \frac{3}{8} + \frac{8}{8} + \frac{2}{8} \\ &= \frac{13}{8} \end{aligned}$
+
+---
+
+<div class = "domanda1">
+85. Selezionare la sentenza <strong>ERRATA</strong> relativa alla <strong>regressione LINEARE</strong>.<br>
+	-<span class="risposta_errata">Cerca di determinare un iperpiano di separazione tra due categorie di dati</span><br>
+	-Il problema di ottimizzazione ammette una soluzione in forma chiusa<br>
+	-La funzione di loss è tipicamente una distanza quadratica tra i valori predetti e quelli osservati<br>
+	-Cerca di stabilire una relazione tra i valori di una variabile di output e i valori di una o più features di input<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Cerca di determinare un iperpiano di separazione tra due categorie di dati.<br>
+
+<strong>Spiegazione</strong>: La definizione descrive un problema di <strong>Classificazione</strong>, <strong>NON</strong> di Regressione Lineare. Classificazione: L'obiettivo è tracciare una linea (o iperpiano) che separi i punti rossi dai punti blu (es. email spam vs non spam). Regressione Lineare: l'obiettivo è tracciare una linea che passi attraverso i punti per predire un valore numerico continuo (es. predire il prezzo di una casa in base ai metri quadri). <strong>Non separa categorie, ma stima valori</strong>.<br>
+<strong>Soluzione in forma chiusa</strong>...: Nella regressione lineare classica, non si è obbligati a usare algoritmi iterativi (come il Gradient Descent) per trovare i parametri migliori. Si usa <strong>EQUAZIONE NORMALE</strong>.<br>
+<strong>Funzione di loss</strong>...: il metodo più comune per allenare una regressione lineare è il metodo dei Minimi Quadrati (Mean Squared Error).<br>
+<strong>Relazione variabile di output</strong>...: la regressione cerca una relazione (spesso indicata come y=wx+b) tra gli input (features) e l'output (target).<br>
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1 riprendere">
+86. Componendo due layer Conv2D con stride 1, il primo con kernel 5x5 e il secondo con kernel 3x3 quale sarà il <strong>campo ricetttivo</strong> dei neuroni finali?<br>
+	-<span class="evidenzia_risposta">7</span><br>
+	-8<br>
+	-Dipende dal padding<br>
+	-3<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: 7 <br>
+
+<strong>Spiegazione</strong>: Ogni volta che aggiungi un nuovo livello, non sommi semplicemente la larghezza del nuovo filtro. Aggiungi solo i bordi extra che il nuovo filtro guadagna spostandosi a destra e a sinistra rispetto al centro.<br>
+Avevi 5. Il filtro da 3 ha un centro e 2 estremità (una a destra, una a sinistra). Queste 2 estremità allargano la visuale di 1 pixel ciascuna, 5 + 2 = 7
+
+</details>
+</div>
+
+$$RF_{\text{totale}} = RF_{\text{precedente}} + (\text{Kernel} - 1)$$
+$RF_1 = 1 + (5 - 1) = 5$
+$RF_{\text{finale}} = 5 + (3 - 1) = 5 + 2 = 7$
+
+---
+
+<div class = "domanda1 riprendere">
+87. Il tensore di input di un layer convolutivo 2D ha dimensione (16,16,8). Sintetizzo 4 kernel con dimensione spaziale (5,5), stride 2, nessun padding (valid mode). Quale sarà la dimensione dell'output?<br>
+	-<span class="evidenzia_risposta">(6, 6, 4)</span><br>
+	-(8, 8, 8)<br>
+	-(7, 7, 4)<br>
+	-(7, 7, 8)<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: (6, 6, 4)<br>
+
+<strong>Spiegazione</strong>: <br>
+<strong>N.B.</strong> Se l'esercizio dice Nessun padding (o Valid padding): Metti P=0. <br>
+Se l'esercizio dice Padding = 1 (o Same padding su kernel 3x3): Significa 1 a sinistra + 1 a destra, metti P=2.<br>
+Se l'esercizio dice Padding = 2: Significa 2 a sinistra + 2 a destra, metti P=4.<br>
+In sintesi: Nella tua formula, P è la somma totale dei bordi aggiunti (Sinistra + Destra). <br>
+(...) Perché non quadruplicato?
+
+</details>
+</div>
+
+
+$$\begin{aligned}
+\text{Output} &= \frac{W + P - K}{S} + 1 \\
+\\[10pt]
+&= \frac{16 + 0 - 5}{2} + 1 \\
+\\[10pt]
+&= \frac{11}{2} + 1 \\
+\\[10pt]
+&= 5.5 + 1 \\
+
+&\quad \downarrow \text{ (prendo solo la parte intera)} \\
+&= 5 + 1 \\
+\\[10pt]
+&= 6
+\end{aligned}$$
+---
+
+<div class = "domanda1">
+88. Selezionare la sentenza errata relativa all'<strong>inception module</strong>.<br>
+	-Sfutta kernel di dimensione diversa<br>
+	-Tende a ridurre il costo computazionale sfruttando convoluzioni unarie per diminuire il numero dei canali<br>
+	-<span class="risposta_errata">Utilizza al proprio interno delle skip-connections per bypassare l'applicazione di parte dei kernel</span><br>
+	-E' un componente tipico della rete Inception-v3<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Utilizza al proprio interno delle skip-connections per bypassare l'applicazione di parte dei kernel <br>
+
+<strong>Spiegazione</strong>: Quella è la definizione di una <strong>Residual Unit</strong>, non di un inception module.<br>
+<strong>ResNet</strong>:Usa le skip-connections per saltare dei layer e sommare l'input direttamente all'output F(x)+x. Serve a combattere il problema del gradiente che svanisce nelle reti molto profonde.<br>
+<strong>Inception Module</strong>: La sua logica non è saltare, ma allargare. Esegue diverse operazioni in parallelo (convoluzioni 1×1, 3×3, 5×5, pooling) e poi concatena tutti i risultati insieme. Non c'è un bypass, c'è un'unione di caratteristiche diverse.<br>
+<br>
+<strong>Kernel di dimensioni diverse</strong>: invece di decidere se usare un filtro 3×3 o 5×5, li usa tutti contemporaneamente su rami paralleli per catturare dettagli sia fini che grossolani.<br>
+<strong>Ridurre il costo computazionale</strong>: Le "convoluzioni unarie" sono le convoluzioni 1×1. Nel modulo Inception vengono messe prima dei kernel grossi (3×3, 5×5) per ridurre il numero di canali (profondità). Questo agisce come un "collo di bottiglia" (bottleneck) che rende il calcolo molto più leggero<br>
+<strong>Riduzione costo computazionale</strong>...: Le "convoluzioni unarie" sono le convoluzioni **1×1**. Nel modulo Inception vengono messe _prima_ dei kernel grossi (3×3, 5×5) per ridurre il numero di canali (profondità). Questo agisce come un "collo di bottiglia" (bottleneck) che rende il calcolo molto più leggero
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+89. Quale delle seguenti tecniche <strong>NON</strong> può aiutare ad uscire da <strong>minimi locali</strong> durante la fase di training.<br>
+	-Ridurre la dimensione del minibatch<br>
+	-<span class="risposta_errata">Fare clipping del gradiente in una range prefissato</span><br>
+	-Aumentare il learning rate<br>
+	-Aggiungere un "momento" al gradiente, cioè parte del gradiente del passo precedente<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Ridurre la dimensione del minibatch <br>
+
+<strong>Spiegazione</strong>: Il gradient clipping serve a prevenire il problema opposto, ovvero l'<strong>Exploding Gradient</strong>(quando il modello fa passi così grandi da "rompere" il training e andare verso l'infinito).<br>
+<br>
+<strong>Ridurre dimensione minibatch</strong>...: usare pochi dati per volta introduce molto rumore statistico. Il gradiente non è preciso, è "ballerino". Questo tremolio continuo (jitter) è utilissimo perché fa sì che il modello non scenda dritto nel buco, ma possa casualmente saltarne fuori grazie all'imprecisione del calcolo.<br>
+<strong>Aumentare learning rate</strong>...: se aumenti il learning rate, fai passi più lunghi. Facendo passi giganti, è probabile che tu riesca a "scavalcare" interamente una piccola buca (minimo locale) senza caderci dentro.<br>
+<strong>Aggiungere momento al gradiente</strong>...: il momento funziona come una pallina pesante che rotola. Se la pallina ha preso velocità (inerzia), non si fermerà appena incontra una piccola risalita (il bordo del minimo locale), ma la supererà grazie alla rincorsa accumulata.
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+90.Un layer convolutivo 2D con stride 1, kernel size 1x1, e senza padding prende in input un layer con dimensioni (32,32,16) e restituisce un layer di dimensione (32,32,4). Quanti sono i suoi parametri??<br>
+	-2<br>
+	-<span class="evidenzia_risposta">68</span><br>
+	-8<br>
+	-64<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: 68<br>
+
+<strong>Spiegazione</strong>: calcoli in Latex sotto
+</details>
+</div>
+
+$$\text{Parametri} = [(\text{Kernel}_h \times \text{Kernel}_w \times C_{in}) + 1] \times C_{out}$$
+$\text{Parametri}= [(1 \times 1 \times 16) + 1] \times 4$ 
+$= [16 + 1] \times 4$
+$= 17 \times 4$
+$= 68$
+
+---
+
+<div class = "domanda1">
+91. Selezionare la sentenza SCORRETTA relativa alla <strong>Intersection over Union</strong> (IoU)<br>
+	-Frequentemente utilizzata come misura di similitudine tra bounding boxes<br>
+	-Restituisce un valore nel range [0,1]<br>
+	-<span class="risposta_errata">Non è una funzione simmetrica dei suoi input</span><br>
+	-È una metrica principalmente utilizzata nel campo della Object Detection<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Non è una funzione simmetrica dei suoi input<br>
+
+<strong>Spiegazione</strong>: Guarda definizione<br>
+<strong>Misura di similitudine</strong>...: è la definizione standard. Si usa per calcolare quanto due rettangoli sono sovrapposti.<br>
+<strong>Restituisce un valore nel range[0,1]</strong>: 0 significa che i box non si toccano, 1 significa che i box sono identici e sovrapposti.<br>
+<strong>Object Detection</strong>...: è la metrica fondamentale per valutare algoritmi come YOLO, Faster R-CNN, ecc. Serve a decidere se un oggetto è stato trovato correttamente o no.
+
+</details>
+</div>
+
+$$\text{IoU}(A, B) = \frac{ |A \cap B| }{ |A \cup B| }$$
+
+---
+
+<div class = "domanda1 riprendere">
+92. Selezionare la sentenza SCORRETTA relativa ai <strong>transformers</strong>.<br>
+	-Hanno una tipica struttura encoder-decoder, ognuno formato da uno stack di sotto componenti modulari<br>
+	-Sono alla base delle reti della famiglia BERT e GPT<br>
+	-Utilizzano pesantemente il meccanismo di attenzione<br>
+	-<span class="risposta_errata">Aggiungono ad ogni livello della rete un encoding posizionale per enfatizzare la posizione relativa dei tokens</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Aggiungono ad ogni livello della rete un encoding posizionale per enfatizzare la posizione relativa dei tokens.<br>
+
+<strong>Spiegazione</strong>: Nel Transformer standard il Positional Encoding viene aggiunto solo all'inizio, direttamente agli input embeddings, prima ancora che entrino nel primo strato della rete. <br>
+<strong>Struttura ad encoder e decoder</strong>...: l'architettura originale del Transformer è composta da due pile (stack): un Encoder (che legge la frase di input) e un Decoder (che genera la traduzione).(...)<br>
+<strong>BERT E GPT</strong>: evoluzioni più famose<br>
+<strong>Meccanismo di attenzione</strong>...: I Transformer hanno abbandonato le ricorrenze (RNN) e le convoluzioni per basarsi interamente sulla Multi-Head Attention, che permette al modello di capire quali parole sono correlate tra loro, indipendentemente dalla distanza nella frase.
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+93. Se un modello calcola una distribuzione di probabilità, aggiungere alla funzione obiettivo una <strong>componente tesa</strong> a diminuirne l'<strong>entropia</strong> avrà effetto di:<br>
+	-Favorire l'uscita dai minimi locali<br>
+	-<span class="evidenzia_risposta">Focalizzare le scelte sui casi più probabili</span><br>
+	-Nessun effetto concreto<br>
+	-Ridistribuire le probabilità in modo più bilanciato tra tutti i casi<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Focalizzare le scelte sui casi più probabili<br>
+
+<strong>Spiegazione</strong>: Bassa Entropia, la distribuzione è spiked. Il modello è molto sicuro di una scelta (es. 90%, 5%, 3%, 2%).<br>
+<strong>Ridistribuire le probabilità in modo più bilanciato tra tutti i casi</strong>: è l'esatto opposto<br>
+<strong>Uscita dai minimi locali</strong>: tipico dell'aumento di entropia
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+94. Un <strong>training set</strong> è composto da 10000 dati. Se la batchsize è 50, quante volte verrà effettuata la backpropagation durante una singola epoca?<br>
+	-50<br>
+	-10000<br>
+	-<span class="evidenzia_risposta">200</span><br>
+	-Nessuna delle risposte è corretta<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: 200<br>
+
+<strong>Spiegazione</strong>: Guarda formula
+</details>
+</div>
+
+$$ \text{Numero di Backpropagation} = \frac{\text{Totale Dati}}{\text{Batch Size}}$$
+
+---
+
+<div class = "domanda1">
+95. Quale è l'obiettivo principale dell'algortimo di <strong>clustering K-means</strong>?<br>
+	-Minimizzare la distanza tra punti in cluster differenti<br>
+	-<span class="evidenzia_risposta">Trovare i K clusters che minimizzano la somma delle distanze quadratiche tra i punti del cluster e il rispettivo centroide</span><br>
+	-Massimizzare la distanza tra i punti all'interno di uno stesso cluster<br>
+	-Massimizzare il numero di clusters del dataset<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: trovare i K clusters che minimizzano la somma delle distanze quadratiche tra i punti del cluster e il rispettivo centroide<br>
+
+<strong>Spiegazione</strong>: L'obiettivo matematico del K-means è rendere i gruppi (cluster) il più "compatti" possibile. Per fare questo, l'algoritmo cerca di ridurre al minimo la "dispersione" dei punti attorno al centro del proprio gruppo (il centroide).<br>
+<strong>Minimizzare distanza tra i punti cluster differenti</strong>...: Questo è l'esatto contrario di ciò che vogliamo. Se minimizziamo la distanza tra cluster diversi, stiamo avvicinando i gruppi tra loro fino a sovrapporli. Un buon algoritmo di clustering vuole massimizzare la separazione tra gruppi diversi (Inter-cluster distance), affinché siano ben distinguibili.<br>
+<strong>Massimizzare la distanza tra punti in uno stesso cluster</strong>...: il contrario di ciò che è detto sopra.<br>
+<strong>Massimizzare il numero di clusters</strong>...: Nel K-means, il numero di cluster K è un parametro fisso deciso dall'utente prima di iniziare (input). L'algoritmo non può modificarlo.
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1 riprendere">
+96. Selezionare la sentenza SCORRETTA relativa alla <strong>Principal Component Analysis</strong> (PCA)<br>
+	-<span class="risposta_errata">Tecnica per selezionare le features migliori tra quelle date, senza modificarle</span><br>
+	-Tecnica per ridurre il numero delle features<br>
+	-Vengono create nuove features come combinazioni lineari delle features esistenti<br>
+	-I dati sono convertiti in un nuovo sistema di coordinate in modo da preservare la varianza massima tra di essi<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Tecnica per selezionare le features migliori tra quelle date, senza modificarle<br>
+
+<strong>Spiegazione</strong>: ...
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+97. Qual è il ruolo principale della <strong>funzione di loss</strong> in una rete neurale?<br>
+	-Fornire un criterio quantitativo per valutare le prestazioni del modello.<br>
+	-<span class="evidenzia_risposta">Misurare la discrepanza tra le previsioni del modello e i valori reali, guidando l'ottimizzazione dei parametri.</span><br>
+	-Regolare il tasso di apprendimento durante l'addestramento.<br>
+	-Penalizzare modelli troppo complessi per migliorare la generalizzazione.<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Misurare la discrepanza tra le previsioni del modello e i valori reali, guidando l'ottimizzazione dei parametri.<br>
+
+<strong>Spiegazione</strong>: <strong>misurare la discrepanza</strong>: Calcola la distanza matematica tra ciò che la rete ha predetto e la realtà + <strong>guidare l'ottimizzazione</strong>: la loss deve essere derivabile. Attraverso il calcolo del gradiente della loss (Backpropagation), l'algoritmo di ottimizzazione capisce in che direzione modificare i pesi per ridurre l'errore al passo successivo.<br>
+<strong>Criterio quantitativo</strong>...: la loss effettivamente ci dice come va il modello, ma questo compito spetta principalmente alle metriche<br>
+<strong>Regolare tasso di apprendimento</strong>...: questo è il compito degli scheduler <br>
+<strong>Penalizzare modelli troppo complessi</strong>...: questo è il compito della regolarizzazione <br>
+
+</details>
+</div>
+

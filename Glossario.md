@@ -24,7 +24,10 @@
 	$$
 H(X) = -\sum_{i=1}^{n} P(X=i) \log_2 P(X=i)
 $$
+- **Etichetta**: etichettatura dei dati è il processo di identificazione dei dati non elaborati (immagini, file di testo, video, ecc.) e l'aggiunta di una o più etichette significative e informative per fornire il contesto in modo che un modello di machine learning possa imparare da esso. Ad esempio, le etichette potrebbero indicare se una foto contiene un uccello o un'auto, quali parole sono state pronunciate in una registrazione audio o se una radiografia contiene un tumore. L‘etichettatura dei dati può essere utilizzata per vari casi d'uso, tra cui visione artificiale, elaborazione del linguaggio naturale e riconoscimento vocale.
+		**esempio**: Autoencoder, prende un input (es. un'immagine), lo comprime in un codice numerico e poi cerca di ricostruire l'immagine originale.
 - **Evento** (probabilità): è un qualche sottoinsieme di $\Omega$ 
+- 
 ## F
 - **Feature randomness**: tecnica che porta alla costruzione di alberi a partire da sottoinsiemi random delle features
 - **Foreste**: Gli alberi di decisione sono abitualmente utilizzati come componenti delle cosiddette Random Forests, dove sono utilizzati con una tecnica ad ensemble.
