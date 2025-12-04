@@ -2,6 +2,8 @@
   "enabledCssSnippets": [
     "evidenzia_risposta",
     "risposta_errata",
-    "riprendere"
+    "riprendere",
+    "laboratorio",
+    "legenda"
   ]
 }

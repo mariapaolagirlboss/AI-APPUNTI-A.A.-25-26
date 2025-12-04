@@ -1,4 +1,15 @@
-<div class = "domanda1">
+<div class="legend-container">
+  <div class="legend-item">
+    <div class="legend-dot legend-yellow"></div>
+    Domande da riguardare
+  </div>
+  <div class="legend-item">
+    <div class="legend-dot legend-blue"></div>
+    Domande di laboratorio
+  </div>
+</div>
+
+<div class = "domanda1 laboratorio">
 1. Qual è lo scopo del metodo di <strong>Cross-Validation K-Fold</strong>?<br>
 	- Selezionare automaticamente il miglior modello.<br>
 	- Aumentare la dimensione del training set.<br>
@@ -27,7 +38,9 @@
 
 <strong>Risposta corretta</strong>: È minore o uguale al numero delle features <br>
 
-<strong>Spiegazione</strong>: La profondità massima è limitata dal numero di domande (features) uniche che puoi porre. Se hai N features, non puoi fare più di N passaggi prima di arrivare a una foglia.
+<strong>Spiegazione</strong>: La profondità massima è limitata dal numero di domande (features) uniche che puoi porre. Se hai N features, non puoi fare più di N passaggi prima di arrivare a una foglia.<br>
+<br>
+Se le feature fossero <strong>continue</strong> allora la risposta cambierebbe, la profondità dell’albero non dipenderebbe più da il numero di features perché la stessa feature può essere riguardata più volte ma con soglie diverse. 
 
 </details>
 </div>
@@ -64,8 +77,11 @@
 
 <strong>Risposta corretta</strong>: Il suo valore è minimo (e uguale a 0) quando la probabilità è equamente distribuita tra tutte le classi <br>
 
-<strong>Spiegazione</strong>: L’entropia è massimizzata quando la X è uniforme su tutti i valori (1) e minima (0) quando è concentrata su un singolo valore. 
+<strong>Spiegazione</strong>: L’entropia è massimizzata quando la X è uniforme su tutti i valori (1) e minima (0) quando è concentrata su un singolo valore. <br>
+<br>
+È <strong>massima</strong> (quindi logn) quando X è <strong>uniformemente distribuita</strong> tra tutti i suoi n valori.<br>È <strong>minima</strong> (quindi 0) quando è concentrata su un singolo valore<br>
 
+Più <strong>l'entropia è bassa</strong> più l'ordine aumenta, permettendo di capire meglio la probabilità che un certo avvenimento accada. Viceversa, più <strong>l'entropia è alta</strong>, maggiore sarà l'incertezza e la confusione
 
 </details>
 </div>
@@ -74,17 +90,17 @@ $$H(X) = - \sum_{i=1}^{n} P(X=i)\log_2 P(X=i)$$
 - - -
 
 <div class = "domanda1">
-5. Selezionare la sentenza <strong> ERRATA </strong> relativa alla <strong>distribuzione congiunta</strong>di probabilità per N variabili aleatorie discrete<br>
+5. Selezionare la sentenza <strong> ERRATA </strong> relativa alla <strong>distribuzione congiunta</strong> di probabilità per N variabili aleatorie discrete<br>
 	- <span class="risposta_errata">Richiede il calcolo di un numero esponenziale di parametri. </span> <br>
 	- È la distribuzione di probabilità di tutte le possibili tuple di valori per le variabili. <br>
-	- Non permette il calcolo di probabilità condizionali tra le features. <br>
+	- <span class="risposta_errata">Non permette il calcolo di probabilità condizionali tra le features.</span><br>
 	- Consente il calcolo delle probabilità marginali delle singole features <br>
 <details>
 <summary> Clicca qui per la soluzione e la spiegazione</summary>
 
 <strong>Risposta corretta</strong>: Richiede il calcolo di un numero esponenziale di parametri.<br>
 
-<strong>Spiegazione</strong>: ?
+<strong>Spiegazione</strong>: Non permette il calcolo di probabilità condizionali tra le features, la probabilit congiunta viene fatto esattamente per quello.
 
 </details>
 </div>
@@ -102,7 +118,7 @@ $$H(X) = - \sum_{i=1}^{n} P(X=i)\log_2 P(X=i)$$
 
 <strong>Risposta corretta</strong>: Non può essere utilizzata se le features non sono tra loro indipendenti, date le classi <br>
 
-<strong>Spiegazione</strong>: L'indipendenza delle feature è un'ipotesi teorica semplificativa, non un requisito tecnico bloccante. Nella realtà i dati hanno quasi sempre dipendenze, ma l'algoritmo si usa lo stesso e spesso funziona sorprendentemente bene perché l'approssimazione è sufficiente per classificare correttamente.
+<strong>Spiegazione</strong>: L'indipendenza delle feature è un'ipotesi teorica semplificativa, non un requisito tecnico bloccante. Nella realtà i dati hanno quasi sempre dipendenze, ma l'algoritmo si usa lo stesso e spesso funziona sorprendentemente bene perché l'approssimazione è sufficiente per classificare correttamente. Nelle slide viene detto: si assume per semplicità (grazie hermes possiamo fare sesso? grz)
 
 </details>
 </div>
@@ -156,7 +172,7 @@ Poiché 0.5 > 0.375 è più verosimile che i dati osservati provengano da una mo
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 laboratorio">
 9. Quale è l'obiettivo principale dell'algortimo di <strong>clustering K-means</strong>?<br>
 	-Ridurre il numero dei clustersi al minimo<br>
 	-Ottimizzare il numero dei clusters basandosi sulla distribuzione Gaussiana dei dati<br>
@@ -215,7 +231,7 @@ Poiché 0.5 > 0.375 è più verosimile che i dati osservati provengano da una mo
 
 ---
 
- <div class = "domanda1 riprendere">
+ <div class = "domanda1 laboratorio">
 12. Nella <strong>Principal Component Analysis</strong>, cosa indica la varianza spiegata da ciascuna componente?<br>
 	-Indica la correlazione tra ciascuna componente e la variabile target<br>
 	-<span class="evidenzia_risposta">Indica quanto una singola componente contribuisce alla varianza complessiva dei dati</span><br>
@@ -466,7 +482,7 @@ $$ y = f\left( \sum_{i=1}^{n} w_i x_i + b \right) $$
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 laboratorio">
 23. Quale è lo scopo dell'<strong>optimizer</strong> in <strong>Tensorflow/Keras?</strong> <br>
 	-<span class="evidenzia_risposta">Definire l'algoritmo che calcola i gradienti della loss e aggiorna i pesi del modello</span><br>
 	-Salvare i migliori pesi del modello durante il processo di training<br>
@@ -1041,7 +1057,7 @@ following kind: a long sequence of convolutional layers, possibly organized in s
 <br>
 https://www.gironi.it/blog/lalgoritmo-di-discesa-del-gradiente-gradient-descent-spiegato-semplice/<br>
 <br>
-<strong>Permette sempre di individuare minimo globale</strong>...: scorretto, discesa del gradiente è algoritmo miope, per le reti neurali multistrato la superficie di errore può essere molto complicata e piena di minimi locali. Se l'algoritmo inizia la discesa vicino a un minimo locale, finirà lì dentro e non sarà in grado di risalire per trovare il minimo globale. <br>
+<strong>Permette sempre di individuare minimo globale</strong>...: scorretto, discesa del gradiente è algoritmo miope, per le reti neurali multistrato la superficie di errore può essere molto complicata e piena di minimi locali. Se l'algoritmo inizia la discesa vicino a un minimo locale, finirà lì dentro e non sarà in grado di risalire per trovare il minimo globale. Tecnica dei gradienti coniugati <br>
 (...)
 </details>
 </div>
@@ -1164,7 +1180,7 @@ Un'unità LSTM è composta tipicamente da una cella e tre porte: una di input, u
 </details>
 </div>
 
-![[Screenshot 2025-11-26 alle 15.31.57.png]]
+![[Screenshot 2025-11-26 alle 15.31.57.png|0x0]]
 
 
 ---
@@ -2033,7 +2049,7 @@ $$ \text{Numero di Backpropagation} = \frac{\text{Totale Dati}}{\text{Batch Size
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 laboratorio">
 95. Quale è l'obiettivo principale dell'algortimo di <strong>clustering K-means</strong>?<br>
 	-Minimizzare la distanza tra punti in cluster differenti<br>
 	-<span class="evidenzia_risposta">Trovare i K clusters che minimizzano la somma delle distanze quadratiche tra i punti del cluster e il rispettivo centroide</span><br>
@@ -2054,7 +2070,7 @@ $$ \text{Numero di Backpropagation} = \frac{\text{Totale Dati}}{\text{Batch Size
 
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1 laboratorio">
 96. Selezionare la sentenza SCORRETTA relativa alla <strong>Principal Component Analysis</strong> (PCA)<br>
 	-<span class="risposta_errata">Tecnica per selezionare le features migliori tra quelle date, senza modificarle</span><br>
 	-Tecnica per ridurre il numero delle features<br>
