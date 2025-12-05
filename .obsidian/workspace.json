@@ -8,18 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "6f4d524a064b7233",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "laboratori/laboratorio 1_SkitLearn e Task Supervisionati.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "laboratorio 1_SkitLearn e Task Supervisionati"
-            }
-          },
-          {
             "id": "adfdbc4c7f48e5cb",
             "type": "leaf",
             "state": {
@@ -32,37 +20,8 @@
               "icon": "lucide-file",
               "title": "Domande TEST"
             }
-          },
-          {
-            "id": "bdaa4445b5624ed9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Glossario.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Glossario"
-            }
-          },
-          {
-            "id": "26f8124bd06afa55",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Link per argomento.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Link per argomento"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -120,7 +79,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "1fbfe4f45d9ef085",
@@ -228,23 +188,24 @@
   },
   "active": "adfdbc4c7f48e5cb",
   "lastOpenFiles": [
+    "ilovepdf_merged.pdf",
+    "Domande TEST.md",
+    "laboratori/LINK LABORATORI COLAB.md",
+    "laboratori/lab4.pdf",
+    "laboratori/laboratorio4.pdf",
+    "Link per argomento.md",
+    "Glossario.md",
+    "laboratori/lab3_RetiNeurali.pdf",
+    "laboratori/lab2_NonSupervisionati.pdf",
+    "laboratori/lab3_retineurali.pdf",
+    "laboratori/lab1_SkitLearneTaskSupervisionati.pdf",
+    "laboratori/lab0_NumpyeElaborazionediImmagini.pdf",
+    "laboratori/lab3_reti neurali.pdf",
+    "laboratori/vertopal.com_laboratorio3_reti_neurali.pdf",
     "laboratori/lab2_nonsupervisionati.pdf",
     "Laboratorio 1, riassunto.md",
-    "laboratori/laboratorio 1_SkitLearn e Task Supervisionati.pdf",
-    "laboratori/lab0_Numpy e Elaborazione di Immagini.pdf",
-    "Domande TEST.md",
-    "laboratori/lab0_Numpy e Elaborazione di Immagini(1).pdf",
-    "laboratori/lab0.0_Numpy e Elaborazione di Immagini(1).pdf",
-    "laboratori/laboratorio 1.pdf",
-    "laboratori/lab_0.0_Numpy e Elaborazione di Immagini(1).pdf",
-    "laboratori/vertopal.com_laboratorio 1(1).pdf",
     "DUBBI.md",
-    "laboratori/vertopal.com_Numpy e Elaborazione di Immagini(1).pdf",
-    "Link per argomento.md",
-    "laboratori/Numpy e Elaborazione di Immagini(1).ipynb",
-    "laboratori",
     "images/Screenshot 2025-12-01 alle 14.53.22.png",
-    "Glossario.md",
     "images/Screenshot 2025-11-27 alle 15.16.33.png",
     "images/Code_Generated_Image.png",
     "images/Screenshot 2025-11-27 alle 14.34.10.png",

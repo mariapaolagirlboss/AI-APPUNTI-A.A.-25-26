@@ -2106,4 +2106,3 @@ $$ \text{Numero di Backpropagation} = \frac{\text{Totale Dati}}{\text{Batch Size
 
 </details>
 </div>
-
