@@ -11,6 +11,18 @@
             "id": "adfdbc4c7f48e5cb",
             "type": "leaf",
             "state": {
+              "type": "pdf",
+              "state": {
+                "file": "laboratori/lab2_NonSupervisionati.pdf"
+              },
+              "icon": "lucide-file-text",
+              "title": "lab2_NonSupervisionati"
+            }
+          },
+          {
+            "id": "109648bb5bb58ec3",
+            "type": "leaf",
+            "state": {
               "type": "markdown",
               "state": {
                 "file": "Domande TEST.md",
@@ -20,8 +32,23 @@
               "icon": "lucide-file",
               "title": "Domande TEST"
             }
+          },
+          {
+            "id": "f69fc98cf14c436d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Link per argomento.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Link per argomento"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -79,8 +106,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "1fbfe4f45d9ef085",
@@ -186,23 +212,23 @@
       "bases:Create new base": false
     }
   },
-  "active": "adfdbc4c7f48e5cb",
+  "active": "109648bb5bb58ec3",
   "lastOpenFiles": [
-    "ilovepdf_merged.pdf",
+    "laboratori/lab2_NonSupervisionati.pdf",
     "Domande TEST.md",
+    "laboratori/lab1_SkitLearneTaskSupervisionati.pdf",
+    "Link per argomento.md",
+    "laboratori/lab0_NumpyeElaborazionediImmagini.pdf",
+    "cheatsheet.pdf",
+    "laboratori/lab3_RetiNeurali.pdf",
+    "images/Screenshot 2025-12-05 alle 16.15.06.png",
+    "ilovepdf_merged.pdf",
     "laboratori/LINK LABORATORI COLAB.md",
     "laboratori/lab4.pdf",
     "laboratori/laboratorio4.pdf",
-    "Link per argomento.md",
     "Glossario.md",
-    "laboratori/lab3_RetiNeurali.pdf",
-    "laboratori/lab2_NonSupervisionati.pdf",
     "laboratori/lab3_retineurali.pdf",
-    "laboratori/lab1_SkitLearneTaskSupervisionati.pdf",
-    "laboratori/lab0_NumpyeElaborazionediImmagini.pdf",
     "laboratori/lab3_reti neurali.pdf",
-    "laboratori/vertopal.com_laboratorio3_reti_neurali.pdf",
-    "laboratori/lab2_nonsupervisionati.pdf",
     "Laboratorio 1, riassunto.md",
     "DUBBI.md",
     "images/Screenshot 2025-12-01 alle 14.53.22.png",
@@ -214,7 +240,6 @@
     "images/Screenshot 2025-11-26 alle 13.55.49.png",
     "images/Screenshot 2025-11-26 alle 13.50.25.png",
     "images/Screenshot 2025-11-25 alle 15.22.16.png",
-    "images/Screenshot 2025-11-24 alle 15.44.48.png",
     "Domande da riprendere.md"
   ]
 }

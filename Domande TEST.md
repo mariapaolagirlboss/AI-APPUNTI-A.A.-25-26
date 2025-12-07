@@ -1,11 +1,15 @@
 <div class="legend-container">
   <div class="legend-item">
     <div class="legend-dot legend-yellow"></div>
-    Domande da riguardare
+    Da riguardare
   </div>
   <div class="legend-item">
     <div class="legend-dot legend-blue"></div>
     Domande di laboratorio
+  </div>
+   <div class="legend-item">
+    <div class="legend-dot legend-red"></div>
+    In precedenza le hai sbagliate!
   </div>
 </div>
 
@@ -231,7 +235,7 @@ Poiché 0.5 > 0.375 è più verosimile che i dati osservati provengano da una mo
 
 ---
 
- <div class = "domanda1 laboratorio">
+ <div class = "domanda1 laboratorio ripasso">
 12. Nella <strong>Principal Component Analysis</strong>, cosa indica la varianza spiegata da ciascuna componente?<br>
 	-Indica la correlazione tra ciascuna componente e la variabile target<br>
 	-<span class="evidenzia_risposta">Indica quanto una singola componente contribuisce alla varianza complessiva dei dati</span><br>
@@ -242,14 +246,16 @@ Poiché 0.5 > 0.375 è più verosimile che i dati osservati provengano da una mo
 
 <strong>Risposta corretta</strong>: Indica quanto una singola componente contribuisce alla varianza complessiva dei dati<br>
 
-<strong>Spiegazione</strong>: ...
+<strong>Spiegazione</strong>: Nella PCA, la "varianza" (quanto i dati sono sparpagliati) è considerata equivalente all'informazione. Se i dati variano molto lungo una certa direzione, quella direzione contiene molte informazioni interessanti. <br>
+<br>
+PCA trasforma un dataset ad alta dimensionalità in uno spazio a dimensioni inferiori, semplificandone la visualizzazione e accelerando altre analisi dei dati. Ma PCA non riduce semplicemente la dimensionalità dei dati: mira a catturare le strutture più significative nei dati, preservando il più possibile la variabilità.
 
 </details>
 </div>
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 ripasso">
 13. Selezionare la sentenza <strong>ERRATA</strong> relativa alla <strong>probabilità condizionata</strong> P(A|B) tra due eventi A e B<br>
 	-P(A|B) può essere maggiore di P(A)<br>
 	-P(A|B) può essere inferiore a P(A)<br>
@@ -258,7 +264,7 @@ Poiché 0.5 > 0.375 è più verosimile che i dati osservati provengano da una mo
 <details>
 <summary> Clicca qui per la soluzione e la spiegazione</summary>
 
-<strong>Risposta corretta</strong>: Aumentare il numero di epoche di addestramento.<br>
+<strong>Risposta corretta</strong>: P(A|B) è sicuramente minore o uguale di P(A and B)<br>
 
 <strong>Spiegazione</strong>:Essendo una probabilità, P(B) è un numero compreso tra 0 e 1. Cosa succede quando si divide un numero per qualcosa di più piccolo di 1? Il risultato diventa più grande.<br>
 <strong>Esempio</strong>:<br>
@@ -268,7 +274,10 @@ P(A∣B)=0,1 / 0,5=0,2<br>
 0,2 (il risultato) > 0,1 (l'intersezione).<br>
 Opzione c afferma che P(A∣B)< P(A and B).<br>
 Questo è matematicamente IMPOSSIBILE (a meno che P(A∣B) non sia zero). <br>
-Dividendo l'intersezione per un numero decimale (P(B)), il risultato cresce, non diminuisce.
+Dividendo l'intersezione per un numero decimale (P(B)), il risultato cresce, non diminuisce.<br>
+<br>
+<strong>N.B.</strong>: P(A|B) significa la probabilità di A dato B, è la probabilità che si verifichi l'evento A, sapendo che l'evento B è già accaduto (o è vero).<br>
+<strong>Esempio</strong>: A = il terreno è bagnato, B = sta piovendo. P(A∣B) è la probabilità che il terreno sia bagnato sapendo che sta piovendo. Questa probabilità è altissima (quasi il 100%). P(B∣A) è la probabilità che stia piovendo sapendo che il terreno è bagnato. Questa probabilità non è per forza alta: qualcuno potrebbe aver innaffiato il prato o lavato la strada.
 </details>
 </div>
 
@@ -337,7 +346,7 @@ gradients should be updated. The actual amount of the update is obtained by mult
 
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1 ripasso">
 16. Selezionare la sentenza corretta riguardo alla <strong>regressione logistica</strong><br>
 	-La predizione non dipende dal bilanciamento dei dati di training rispetto alle classi<br>
 	-<span class="evidenzia_risposta">I parametri del modello sono tipicamente calcolati mediante discesa del gradiente</span><br>
@@ -348,11 +357,19 @@ gradients should be updated. The actual amount of the update is obtained by mult
 
 <strong>Risposta corretta</strong>: I parametri del modello sono tipicamente calcolati mediante discesa del gradiente<br>
 
-<strong>Spiegazione</strong>: <br>
-regressione logistica molto sensibile al bilanciamento delle classi(...)<br>
-i parametri <strong>non</strong> possono essere calcolati in forma chiusa (si parlerebbe di regressione lineare)<br>
-Calcolo non si basa su loglikelyhood: Regressione logistica è un metodo discriminativo, ma la funzione standard per trovare parametri migliori è MLE (...)
+<strong>Spiegazione</strong>: A causa della funzione non-lineare (Sigmoide), non esiste una formula matematica per calcolare i parametri esatti in un colpo solo. È necessario usare un algoritmo iterativo (discesa del gradiente), che procede per tentativi successivi fino a minimizzare l'errore.<br>
+<strong>Regressione logistica non dipende dal bilanciamento dei dati</strong>...: Falso! Se ho dataset con 99% di dati negativi e 1% di dati positivi, il modello imparerà a predire quasi sempre negativo. <br>
+<strong> I parametri possono essere calcolati in forma chiusa</strong>...: Falso! Si parlerebbe di regressione lineare)<br>
+<strong>Calcolo non si basa su loglikelihood</strong>...: il metodo standard per trovare i parametri (l'addestramento) è la Massima Verosimiglianza (MLE), logaritmo negativo della likelihood.
 
+<br>
+Linear regression is a type of supervised machine-learning algorithm that learns from the labelled datasets and maps the data points with most optimized linear functions which can be used for prediction on new datasets. It assumes that there is a linear relationship between the input and output, meaning the output changes at a constant rate as the input changes. This relationship is represented by a straight line.<br>
+<br>
+For example we want to predict a student's exam score based on how many hours they studied. We observe that as students study more hours, their scores go up. In the example of predicting exam scores based on hours studied. <br>
+
+<strong>Independent variable</strong>(input): hours studied because it's the factor we control or observe.<br>
+<strong>Dependent variable</strong>(output): exam score because it depends on hobw many hours were studied.<br>
+We use the independent variable to predict the dependent variable.
 </details>
 </div>
 
@@ -369,7 +386,7 @@ Calcolo non si basa su loglikelyhood: Regressione logistica è un metodo discrim
 
 <strong>Risposta corretta</strong>: Un neurone artificiale può apprendere qualunque funzione dei suoi input.<br>
 
-<strong>Spiegazione</strong>: 
+<strong>Spiegazione</strong>: <br>
 <strong>Calcolo di combinazione lineare degli input...</strong>: corretto! Prima fa la somma pesata (z = w1​x1​ + w2​x2​ + ... + b) e poi applica una non-linearità (come la Sigmoide o la ReLU) al risultato.<br>
 <strong>Numero dei parametri...</strong>: Se un neurone ha N input, avrà N pesi (uno per ogni input) più 1 bias. Quindi i parametri totali sono N+1...riguarda...Pesi collegati a input (?).<br>
 <br>
@@ -401,7 +418,7 @@ $$ y = f\left( \sum_{i=1}^{n} w_i x_i + b \right) $$
 
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1 ripasso">
 19. Selezionare la sentenza <strong>SCORRETTA</strong> relativa alla <strong>backpropagation</strong> per reti neurali<br>
 	-E' l'algoritmo per il calcolo della derivata parziale della loss rispetto a ogni parametro della rete<br>
 	-Si riduce a semplici calcoli algebrici facilmente parallelizzabili in strutture di calcolo tipo GPU<br>
@@ -412,7 +429,14 @@ $$ y = f\left( \sum_{i=1}^{n} w_i x_i + b \right) $$
 
 <strong>Risposta corretta</strong>: Tipicamente, il gradiente viene artificialmente rinforzato ad ogni layer attraversato per contrastare il fenomeno della sua scomparsa (vanishing)<br>
 
-<strong>Spiegazione</strong>: ...
+<strong>Spiegazione</strong>: la backpropagation moltiplica tanti numeri piccoli tra loro (derivate minori di 1), il gradiente tende a diventare minuscolo e svanire (vanishing gradient). La backpropagation causa o rivela questo problema, non lo risolve.<br>
+<br>
+The purpose of backpropagation is to train a neural network to make better predictions through supervised learning. More fundamentally, the goal of backpropagation is to determine how model weights and biases should be adjusted to minimize error as measured by a loss function.<br>
+Backpropagation è il meccanismo che permette alla rete neurale di imparare dai propri errori. Processo suddiviso in circa quattro parti:<br>
+1. Forward Pass: la rete riceve un dato in input, fa i suoi calcoli attraverso tutti i vari layer e produce una previsione finale. Esempio: viene mostrata foto di un cane e rete afferma che invece è un gatto (poiché non è ancora allenata).<br>
+2. Calcolo dell'Errore, si confronta la previsione con la realtà e si calcola errore. La funzione di costo o Loss Function calcola un numero che rappresenta questo errore.<br>
+3. Backward Pass: qui avviene la backpropagation. L'algoritmo torna indietro, dall'output verso l'input, per capire di chi è la colpa dell'errore. Chiede all'ultimo strato: "Quanto hai contribuito a questo errore?" Poi va allo strato penultimo: "E tu, quanto hai influenzato lo strato successivo a sbagliare?". E così via fino all'inizio.<br>
+4. Update: una volta capito quanto ogni singolo neurone (ogni peso) ha contribuito all'errore, usiamo un ottimizzatore (come Discesa del Gradiente) per "girare la manopola" di quel peso nella direzione opposta, così la prossima volta sbaglierà meno.
 
 </details>
 </div>
@@ -513,7 +537,7 @@ $$ y = f\left( \sum_{i=1}^{n} w_i x_i + b \right) $$
 <details>
 <summary> Clicca qui per la soluzione e la spiegazione</summary>
 
-<strong>Risposta corretta</strong>: Segmentazione di immagini (semantic segmentation<br>
+<strong>Risposta corretta</strong>: Segmentazione di immagini<br>
 
 <strong>Spiegazione</strong>: hanno applicazioni per la data denoising, anomaly detection, feature extraction e generative models
 </details>
@@ -533,6 +557,10 @@ $$ y = f\left( \sum_{i=1}^{n} w_i x_i + b \right) $$
 <strong>Risposta corretta</strong>: Permettono una migliore gestione del problema del vanishing gradient.<br>
 
 <strong>Spiegazione</strong>: In order to solve the problem of the vanishing/exploding gradient, this architecture introduced the concept called <strong>Residual Blocks</strong>. In this network, we use a technique called <strong>skip connections</strong>. The skip connection connects activations of a layer to further layers by skipping some layers in between, this forms a residual block. Resnets are made by stacking these residual blocks together.<br>
+<br>
+Skip connections in deep architectures, as the name suggests, skip some layer in the neural network and feeds the output of one layer as the input to the next layers (instead of only the next one). <br>
+<strong>Esempio</strong>: Con le skip connections, l'output del Layer 1 fa due cose contemporaneamente: va al layer 2 (come al solito) e salta il Layer 2 e va a sommarsi direttamente all'ingresso del layer 3. Quindi il layer 3 riceve due cose: l'elaborazione del Layer 2 e l'informazione originale del layer 1 che è stata "trasportata" via scorciatoia.<br>
+<br>
 <strong>Riducono il numero di parametri...</strong>: le skip connections non riducono i parametri. Il numero di parametri rimane identico (o aumenta leggermente), poiché si tratta semplicemente di una somma elemento per elemento dell'input con l'output dello strato.<br>
 <strong>Evitare overfitting</strong>: Lo scopo delle skip connections non è la regolarizzazione ma l'abilitazione dell'addestramento in profondità.<br>
 <strong>Miglioramento velocità di calcolo</strong>: non migliorano la velocità di calcolo, la rete è di solito più profonda e complessa.
@@ -541,7 +569,7 @@ $$ y = f\left( \sum_{i=1}^{n} w_i x_i + b \right) $$
 
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1 ripasso">
 26. Seleziona la sentenza corretta relativa alle <strong>Transposed Convolutions</strong>.<br>
 	-Sono prevalentemente utilizzate in architetture per classificazione di immagini.<br>
 	-Sono essenzialmente equivalenti all'applicazione di un livello di downsampling seguito da una convoluzione normale.<br>
@@ -552,7 +580,10 @@ $$ y = f\left( \sum_{i=1}^{n} w_i x_i + b \right) $$
 
 <strong>Risposta corretta</strong>: Possono essere interpretate come convoluzioni normali con stride sub-unitario.<br>
 
-<strong>Spiegazione</strong>: ...
+<strong>Spiegazione</strong>: Pensa al concetto di stride, in una convoluzione normale (stride >1) il filtro salta dei pixel e l'immagine di output diventa più piccola. Qui invece avviene il contrario, lo stride è <strong>SUB</strong>-unitario, l'algoritmo inserisce degli zeri tra i pixel dell'input e poi applica una convoluzione normale. Questo processo allarga l'immagine.<br>
+<br>
+A transposed convolutional layer is an upsampling layer that generates the output feature map greater than the input feature map. Transposed convolutional layers are used in a variety of tasks, including <strong>image generation, image super-resolution, and image segmentation</strong>. They are particularly useful for tasks that involve upsampling the input data, such as converting a low-resolution image to a high-resolution one or generating an image from a set of noise vectors.<br>
+
 
 </details>
 </div>
@@ -621,7 +652,7 @@ La U-Net è un'architettura progettata specificamente per la <strong>Segmentazio
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 ripasso">
 30. Selezionare la sentenza <strong>SCORRETTA</strong> relativa ai <strong>modelli a diffusione</strong><br>
 	-<span class="risposta_errata">Generano i risultati attraverso un processo di diffusione della informazione</span><br>
 	-Tipicamente, lo spazio latente ha la stessa dimensione dello spazio visibile<br>
@@ -632,10 +663,10 @@ La U-Net è un'architettura progettata specificamente per la <strong>Segmentazio
 
 <strong>Risposta corretta</strong>: Generano i risultati attraverso un processo di diffusione della informazione. <br>
 
-<strong>Spiegazione</strong>: <br>
+<strong>Spiegazione</strong>: Nei modelli a diffusione ciò che viene diffuso non è l'informazione, ma il il rumore. Il modello distrugge l'informazione aggiungendo rumore (Forward Process) e poi impara a ricostruirla togliendo il rumore (Reverse/Denoising Process).<br>
 <strong>Risultato ottenuto tramite U-net...</strong>: corretto, mostrato in ppt cartabinaria 07 modelli generativi ultima slide (...)<br>
 <strong>Modelli a diffusione iterano operazione di denoising</strong>: as of 2024, diffusion models are mainly used for computer vision tasks, including image denoising, inpainting, super-resolution, image generation, and video generation.<br>
-<strong>Spazio latente ha stessa dimensione spazio visibile</strong>: 
+<strong>Spazio latente ha stessa dimensione spazio visibile</strong>: Il processo avviene trasformando progressivamente un'immagine in un'immagine di puro rumore <strong>della stessa dimensione</strong>. A differenza delle VAE, in cui si prende una immagina e la si comprime in un vettore molto piccolo.
 
 
 </details>
@@ -773,7 +804,7 @@ $$ \text {Totale Parametri} = N + 1$$
 $$\sigma(x) \cdot (1 - \sigma(x))$$
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1">
 38. Selezionare la sentenza <strong>ERRONEA</strong> relativa alla <strong>crossentropy</strong> H(P,Q) tra P e Q:<br>
 	-È uguale alla divergenza di Kullback-Leibler KL(P,Q) più l'entropia H(P) di P<br>
 	-Misura la loglikelihood di Q data la distribuzione P<br>
@@ -784,7 +815,10 @@ $$\sigma(x) \cdot (1 - \sigma(x))$$
 
 <strong>Risposta corretta</strong>: È una funzione simmetrica H(P,Q) = H(Q,P)<br>
 
-<strong>Spiegazione</strong>: P e Q hanno ruoli fissi e diversi: P è la distribuzione reale dei dati (il "Ground Truth"). Es: Questa immagine è un GATTO al 100%. Q è quello che pensa il modello. Es: Il modello pensa che sia un GATTO al 70% e un CANE al 30%.<br>
+<strong>Spiegazione</strong>: P e Q hanno ruoli fissi e diversi: P è la distribuzione reale dei dati (il "Ground Truth"), per esempio: questa immagine è un GATTO al 100%. Q è quello che pensa il modello, la predizione/stima, per esempio il modello pensa che sia un GATTO al 70% e un CANE al 30%.<br>
+<br>
+<strong>Misura la loglikelihood di Q data la distribuzione P</strong>: voler massimizzare la probabilità di azzeccarci (Likelihood) è esattamente uguale a minimizzare la penalità per aver sbagliato (Cross-Entropy). <br>
+<strong>Valore minimo quando P = Q</strong>: Il valore minimo di errore si ottiene quando il tuo modello (Q) ha capito perfettamente la distribuzione dei dati reali (P), incluse le loro incertezze. Se P e Q sono identiche, non c'è più nulla da imparare e ho raggiunto il minimo.<br><strong>N.B.</strong> tenere conto delle incertezze!
 
 </details>
 </div>
@@ -867,7 +901,7 @@ $$ P(\text{Scenario A}) + P(\text{Scenario B}) $$
 $$H(X) = - \sum_{i=1}^{n} P(X=i)\log_2 P(X=i)$$
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1">
 42. Selezionare la sentenza <strong>SCORRETTA</strong> riguardo alla <strong>regressione logistica</strong><br>
 	-Si basa su una combinazione lineare delle features di input<br>
 	-Probabilità della predizione cresce se ci si allontana dalla superficie di confine tra le classi<br>
@@ -878,7 +912,8 @@ $$H(X) = - \sum_{i=1}^{n} P(X=i)\log_2 P(X=i)$$
 
 <strong>Risposta corretta</strong>: Non dipende dal bilanciamento dei dati di training rispetto alle classi. <br>
 
-<strong>Spiegazione</strong>: La regressione logistica soffre moltissimo se i dati sono sbilanciati.<br>
+<strong>Spiegazione</strong>: La regressione logistica soffre moltissimo se i dati sono sbilanciati. Pensa a dare in pasto alla macchina 900 foto di te nudo e 10 foto di te vestito, per evitare errori la macchina prima o poi dirà solamente che nelle foto sei nudo (anche se capitano quelle vestito). <br>
+
 <strong>Si basa su combinazione lineare</strong>: corretto, si basa su calcolo lineare a cui poi viene applicata la sigmoide. (...)<br>
 <strong>Probabilità della predizione cresce</strong>...: corretto, sul confine la probabilità è 0.5 (massima incertezza). Più ci si allontana dal confine, più la sigmoide spinge la probabilità verso 1 o verso 0.<br>
 <strong>Superficie tra le classi è iperpiano</strong>...: no curve complesse (...)
@@ -948,7 +983,7 @@ $$H(X) = - \sum_{i=1}^{n} P(X=i)\log_2 P(X=i)$$
 
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1">
 46. Cosa si intende per tecniche discriminative?<br>
 	-Tecniche tipiche di unsupervised learning che tentano di separare i dati in clusters distinti<br>
 	-<span class="evidenzia_risposta">Tecniche di classificazione che si focalizzano sulla definizione delle frontiere di decisione (decision boundaries)</span><br>
@@ -962,6 +997,8 @@ $$H(X) = - \sum_{i=1}^{n} P(X=i)\log_2 P(X=i)$$
 <strong>Spiegazione</strong>: (...)
 </details>
 </div>
+
+![[Screenshot 2025-12-05 alle 16.15.06.png|590x133]]
 
 ---
 
@@ -1180,8 +1217,6 @@ Un'unità LSTM è composta tipicamente da una cella e tre porte: una di input, u
 </details>
 </div>
 
-![[Screenshot 2025-11-26 alle 15.31.57.png|0x0]]
-
 
 ---
 
@@ -1380,7 +1415,7 @@ Di conseguenza, il gradiente passa integralmente (1) attraverso la posizione del
 
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1">
 67. Selezionare la sentenza <strong>CORRETTA</strong> relativa alle <strong>tecniche discriminative</strong><br>
 	-Cercano di determinare le distribuzioni di probabilità delle varie classi di dati<br>
 	-<span class="evidenzia_risposta">Si focalizzano sulla definizione delle frontiere di decisione (decision boundaries)</span><br>
@@ -1389,13 +1424,15 @@ Di conseguenza, il gradiente passa integralmente (1) attraverso la posizione del
 <details>
 <summary> Clicca qui per la soluzione e la spiegazione</summary>
 
-<strong>Risposta corretta</strong>: Quando la classificazione dipende da un confronto tra le features. <br>
+<strong>Risposta corretta</strong>:  Si focalizzano sulla definizione delle frontiere di decisione (decision boundaries) <br>
 
-<strong>Spiegazione</strong>: Si focalizzano sulla definizione delle frontiere di decisione (decision boundaries) (...)
+<strong>Spiegazione</strong>: (...)
 
 
 </details>
 </div>
+
+![[Screenshot 2025-12-05 alle 16.15.06.png|590x133]]
 
 ---
 
@@ -1465,7 +1502,7 @@ Di conseguenza, il gradiente passa integralmente (1) attraverso la posizione del
 $$\frac{\partial E}{\partial w_{ljk}} = a_{l-1} k \delta_{lj}$$
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 ripasso">
 71. Selezionare la risposta <strong>SCORRETTA</strong> relativa al <strong>campo ricettivo</strong> di un neurone di una CNN<br>
 	-Definisce la porzione dell'input che influenza l'attivazione di un determinato neurone<br>
 	-Dipende dalla profondità del layer in cui si trova il neurone e dalle dimensioni e gli strides dei kernel dei layers precedenti<br>
@@ -1899,7 +1936,7 @@ $$\begin{aligned}
 \end{aligned}$$
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 ripasso">
 88. Selezionare la sentenza errata relativa all'<strong>inception module</strong>.<br>
 	-Sfutta kernel di dimensione diversa<br>
 	-Tende a ridurre il costo computazionale sfruttando convoluzioni unarie per diminuire il numero dei canali<br>
