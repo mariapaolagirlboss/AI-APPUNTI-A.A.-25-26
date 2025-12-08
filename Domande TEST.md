@@ -95,7 +95,7 @@ $$H(X) = - \sum_{i=1}^{n} P(X=i)\log_2 P(X=i)$$
 
 <div class = "domanda1">
 5. Selezionare la sentenza <strong> ERRATA </strong> relativa alla <strong>distribuzione congiunta</strong> di probabilità per N variabili aleatorie discrete<br>
-	- <span class="risposta_errata">Richiede il calcolo di un numero esponenziale di parametri. </span> <br>
+	- <span class="risposta_errata">Richiede il calcolo di un numero esponenziale di parametri.</span> <br>
 	- È la distribuzione di probabilità di tutte le possibili tuple di valori per le variabili. <br>
 	- <span class="risposta_errata">Non permette il calcolo di probabilità condizionali tra le features.</span><br>
 	- Consente il calcolo delle probabilità marginali delle singole features <br>
@@ -105,6 +105,7 @@ $$H(X) = - \sum_{i=1}^{n} P(X=i)\log_2 P(X=i)$$
 <strong>Risposta corretta</strong>: Richiede il calcolo di un numero esponenziale di parametri.<br>
 
 <strong>Spiegazione</strong>: Non permette il calcolo di probabilità condizionali tra le features, la probabilit congiunta viene fatto esattamente per quello.
+<strong>N.B.</strong> probabile errore prof prima risposta errata, richiede il calcolo di un numero esponenziale di parametri.
 
 </details>
 </div>
@@ -2174,6 +2175,26 @@ $$ \text{Numero di Backpropagation} = \frac{\text{Totale Dati}}{\text{Batch Size
 <strong>Criterio quantitativo</strong>...: la loss effettivamente ci dice come va il modello, ma questo compito spetta principalmente alle metriche<br>
 <strong>Regolare tasso di apprendimento</strong>...: questo è il compito degli scheduler <br>
 <strong>Penalizzare modelli troppo complessi</strong>...: questo è il compito della regolarizzazione <br>
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1">
+98. Selezionare la sentenza <strong>CORRETTA</strong> relativa agli <strong>alberi di decisione</strong><br>
+	-Possono essere utilizzati solo con features discrete<br>
+	-Costo computazionale molto elevato<br>
+	-Non presentano problemi di overfitting<br>
+	-<span class="evidenzia_risposta">Possono esprimere qualunque funzione di classificazione</span><br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: Possono esprimere qualunque funzione di classificazione <br>
+
+<strong>Spiegazione</strong>: straightforward<br>
+
+
 
 </details>
 </div>
