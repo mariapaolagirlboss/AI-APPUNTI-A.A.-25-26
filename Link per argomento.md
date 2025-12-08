@@ -4,6 +4,7 @@
 	- https://www.gironi.it/blog/lalgoritmo-di-discesa-del-gradiente-gradient-descent-spiegato-semplice/
 	- https://www.youtube.com/watch?v=FgakZw6K1QQ
 	- https://www.youtube.com/watch?v=HMOI_lkzW08
+	- https://www.youtube.com/watch?v=qizQ36sEVRg
 	- 
 - **Alberi di decisione**
 	- https://www.andreaminini.com/ai/machine-learning/alberi-di-decisione

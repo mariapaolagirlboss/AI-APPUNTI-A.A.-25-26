@@ -917,6 +917,8 @@ $$H(X) = - \sum_{i=1}^{n} P(X=i)\log_2 P(X=i)$$
 <strong>Si basa su combinazione lineare</strong>: corretto, si basa su calcolo lineare a cui poi viene applicata la sigmoide. (...)<br>
 <strong>Probabilità della predizione cresce</strong>...: corretto, sul confine la probabilità è 0.5 (massima incertezza). Più ci si allontana dal confine, più la sigmoide spinge la probabilità verso 1 o verso 0.<br>
 <strong>Superficie tra le classi è iperpiano</strong>...: no curve complesse (...)
+<br>
+Machine Learning Regression is a technique for investigating the relationship between independent variables or features and a dependent variable or outcome. It’s used as a method for predictive modeling in machine learning, in which an algorithm is used to predict continuous outcomes.
 
 
 </details>
@@ -1079,7 +1081,7 @@ following kind: a long sequence of convolutional layers, possibly organized in s
 
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1">
 51. Selezionare la sentenza corretta relativa alla tecnica a <strong>discesa del gradiente</strong><br>
 	-Permette sempre di individuare il minimo globale, se questo esiste<br>
 	-Risultato non dipende dall'inizializzazione dei parametri del modello<br>
@@ -1092,12 +1094,29 @@ following kind: a long sequence of convolutional layers, possibly organized in s
 
 <strong>Spiegazione</strong>: L’algoritmo può convergere a un minimo locale anziché a un minimo globale, soprattutto se la funzione di costo è non convessa. <br>
 <br>
-https://www.gironi.it/blog/lalgoritmo-di-discesa-del-gradiente-gradient-descent-spiegato-semplice/<br>
-<br>
 <strong>Permette sempre di individuare minimo globale</strong>...: scorretto, discesa del gradiente è algoritmo miope, per le reti neurali multistrato la superficie di errore può essere molto complicata e piena di minimi locali. Se l'algoritmo inizia la discesa vicino a un minimo locale, finirà lì dentro e non sarà in grado di risalire per trovare il minimo globale. Tecnica dei gradienti coniugati <br>
 (...)
+<br>
+<strong>N.B.</strong>: raramente le funzioni da minimizzare sono delle conche perfette, l'algoritmo di discesa del gradiente tende a portare al punto più basso nelle vicinanze rispetto a dove si è partiti, vi è quindi il rischio che l'algoritmo si blocchi in un punto di minimo locale credendo di essere arrivato al punto più basso in assoluto.<br>
+Gradient Descent is an optimization algorithm used in linear regression to find the best-fit line for the data. It works by gradually adjusting the line’s slope and intercept to reduce the difference between actual and predicted values. This process helps the model make accurate predictions by minimizing errors step by step.<br>
+Regressione definisce cosa desidero ottenere, discesa del gradiente allena la regressione.<br>
+Per la regressione lineare semplice, esiste una formula matematica diretta (OLS - Minimi Quadrati Ordinari) che offre soluzione perfetta senza bisogno della discesa del gradiente. Tuttavia, quando i modelli diventano complessi (come nel Deep Learning o nelle Reti Neurali), non esistono formule dirette: la discesa del gradiente diventa l'unico modo possibile per trovare la soluzione.
+<br>
+<br>
+<strong>Discesa del gradiente applicata solo se è presente superficie concava</strong>...: ERRATA! Superficie concava è una sorta di collina, non è possibile applicarlo a essa. La Discesa del Gradiente funziona idealmente su funzioni convesse, dove esiste un chiaro punto di fondo. Tuttavia, si applica anche a superfici irregolari (non convesse), accettando però il rischio di finire in un minimo locale<br>
+<strong>Permette sempre di individuare minimo globale</strong>...: errato! come detto prima, se sono presenti molti minimi locali (tipo delle valli), algoritmo rischia di incepparsi.<br>
+<strong>Risultato non dipende da inizializzazione</strong>: ERRATO! Il punto di partenza (inizializzazione) cambia drasticamente il risultato finale
+
 </details>
 </div>
+
+```vid
+https://www.youtube.com/watch?v=qizQ36sEVRg
+Title: Come Imparano le RETI NEURALI? Scopriamo il Meccanismo della DISCESA del GRADIENTE
+Author: YouSciences by GIUX
+Thumbnail: https://i.ytimg.com/vi/qizQ36sEVRg/mqdefault.jpg
+AuthorUrl: https://www.youtube.com/@yousciences
+```
 
 ---
 
@@ -1142,7 +1161,7 @@ https://www.gironi.it/blog/lalgoritmo-di-discesa-del-gradiente-gradient-descent-
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 ripasso">
 54. I <strong>Long-Short Term Memory Models</strong> (LSTMs) sono modelli utilizzati prevalentemente per:<br>
 	-Segmentazione immagini mediche<br>
 	-<span class="evidenzia_risposta">Elaborazione di sequenze di dati</span><br>
@@ -1155,6 +1174,8 @@ https://www.gironi.it/blog/lalgoritmo-di-discesa-del-gradiente-gradient-descent-
 
 <strong>Spiegazione</strong>: una rete a lunga memoria a breve termine (Long Short-Term Memory o LSTM) è un tipo di rete neurale ricorrente (RNN). Le LSTM sono prevalentemente usate per apprendere, elaborare e classificare dati sequenziali in quanto sono in grado di apprendere le dipendenze a lungo termine tra fasi temporali di dati. <br>
 <br>
+A recurrent neural network is a deep learning structure that uses past information to improve the performance of the network on current and future inputs. What makes an RNN unique is that the network contains a hidden state and loops. The looping structure allows the network to store past information in the hidden state and operate on sequences.<br>
+
 Un'unità LSTM è composta tipicamente da una cella e tre porte: una di input, una di output e una di oblio. La cella ricorda valori a intervalli di tempo arbitrari e le porte regolano il flusso di informazioni in entrata e in uscita dalla cella. Le porte di oblio decidono quali informazioni scartare dallo stato precedente, mappando lo stato precedente e l'input corrente su un valore compreso tra 0 e 1. Un valore (arrotondato) di 1 indica la conservazione delle informazioni, mentre un valore di 0 rappresenta l'eliminazione. Le porte di input decidono quali nuove informazioni memorizzare nello stato corrente della cella, utilizzando lo stesso sistema delle porte di oblio. Le porte di output controllano quali informazioni nello stato corrente della cella emettere, assegnando un valore da 0 a 1 alle informazioni, considerando lo stato precedente e quello corrente. L'emissione selettiva di informazioni rilevanti dallo stato corrente consente alla rete LSTM di mantenere dipendenze utili a lungo termine per effettuare predizioni, sia al passo corrente sia in quelli futuri. 
 
 </details>
@@ -1174,7 +1195,12 @@ Un'unità LSTM è composta tipicamente da una cella e tre porte: una di input, u
 <strong>Risposta corretta</strong>: Categorical crossentropy<br>
 
 <strong>Spiegazione</strong>: Richiesta di una funzione di loss per una rete che fa classificazione a categorie multiple (<strong> multinomial regression </strong>) e usa <strong>softmax</strong>. 
-
+<br>
+Categorical Cross-Entropy is widely used as a loss function to measure how well a model predicts the correct class in multi-class classification problems.<br>
+- It is used when there are more than two classes.<br>
+- Works with softmax outputs where probabilities sum to 1.<br>
+- Higher loss means the prediction is far from the true class, lower loss means the model is performing well.<br>
+- Commonly used in image classification, text classification and speech recognition tasks.<br>
 
 </details>
 </div>
@@ -1217,7 +1243,6 @@ Un'unità LSTM è composta tipicamente da una cella e tre porte: una di input, u
 </details>
 </div>
 
-
 ---
 
 <div class = "domanda1">
@@ -1231,7 +1256,9 @@ Un'unità LSTM è composta tipicamente da una cella e tre porte: una di input, u
 
 <strong>Risposta corretta</strong>: Segmentazione semantica<br>
 
-<strong>Spiegazione</strong>: U-Net is a convolutional neural network that was developed for image segmentation. The network is based on a fully convolutional neural network.
+<strong>Spiegazione</strong>: U-Net is a convolutional neural network that was developed for image segmentation. The network is based on a fully convolutional neural network.<br>
+<br>
+Image segmentation is the process of partitioning a digital image into multiple image segments, also known as image regions or image objects. The goal of segmentation is to simplify and/or change the representation of an image into something that is more meaningful and easier to analyze. Image segmentation is typically used to locate objects and boundaries (lines, curves, etc.) in images. More precisely, image segmentation is the process of assigning a label to every pixel in an image such that pixels with the same label share certain characteristics. <br>
 
 
 </details>
@@ -1239,7 +1266,7 @@ Un'unità LSTM è composta tipicamente da una cella e tre porte: una di input, u
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 ripasso">
 59. Selezionare la risposta <strong>SCORRETTA</strong> relativa alla <strong>Mutua Informazione</strong> I(X,Y) tra due variabili aleatorie X e Y (anche detta Information Gain nel contesto degli Alberi di Decisione)<br>
 	-Funzione simmetrica: I(X,Y) = I(Y,X)<br>
 	-<span class="risposta_errata">Coincide con l'entropia H(Y|X) di Y dato X</span><br>
@@ -1266,7 +1293,7 @@ $$I(X,Y) = H(Y) - H(Y|X)$$
 $$ \text{Simmetria: }I(X,Y)=H(X)−H(X∣Y)=H(Y)−H(Y∣X)$$
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1 laboratorio">
 60. Il tensore di input di un <strong>layer convolutivo</strong> 2D ha dimensione (32,32,8). Sintetizzo un unico kernel con dimensione spaziale (4,4), stride 2, nessun padding (valid mode). Quale sarà la dimensione dell'output?<br>
 	-(16,16,1)<br>
 	-(16,16,8)<br>
@@ -1284,7 +1311,7 @@ $$ \text{Simmetria: }I(X,Y)=H(X)−H(X∣Y)=H(Y)−H(Y∣X)$$
 $$\text{Output} = \frac{W + P - K}{S} + 1$$
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1 ripasso">
 61. Quale è la derivata della funzione di <strong>MaxPooling</strong>?<br>
 	-Identità<br>
 	-Non è derivabile<br>
@@ -1299,7 +1326,9 @@ $$\text{Output} = \frac{W + P - K}{S} + 1$$
 Quando si calcola il gradiente (la derivata) per tornare indietro (Backpropagation):<br>
 La rete si chiede: "Chi ha contribuito a questo output?"<br>
 Solo il "vincitore" (il massimo) ha contribuito. Gli altri numeri sono stati ignorati<br>
-Di conseguenza, il gradiente passa integralmente (1) attraverso la posizione del massimo e viene bloccato (0) per tutte le altre posizioni che non erano il massimo.<br>È una sorta di interruttore, 1 per il valore più alto, 0 per gli altri (...)
+Di conseguenza, il gradiente passa integralmente (1) attraverso la posizione del massimo e viene bloccato (0) per tutte le altre posizioni che non erano il massimo.<br>È una sorta di interruttore, 1 per il valore più alto, 0 per gli altri <br>
+<br>
+
 </details>
 </div>
 
@@ -1327,7 +1356,7 @@ Di conseguenza, il gradiente passa integralmente (1) attraverso la posizione del
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 ripasso">
 63. Selezionare la risposta <strong>ERRATA</strong> relativa all' <strong>apprendimento supervisionato</strong><br>
 	-<span class="risposta_errata">Richiede costante supervisione di un esperto durante il training</span><br>
 	-Può comprendere sia problemi di regressione che di classificazione<br>
@@ -1340,10 +1369,9 @@ Di conseguenza, il gradiente passa integralmente (1) attraverso la posizione del
 
 <strong>Spiegazione</strong>: 
 <strong>Ground truth</strong>...: corretto, building supervised training sets is expensive, since it requires a complex human operation to create ground truth annotations.<br>
-<strong>Problemi di regressione e classificazione</strong>...: corretto, presente nella "definizione" slide iniziali.
-
-
-
+<strong>Problemi di regressione e classificazione</strong>...: corretto, presente nella "definizione" slide iniziali.<br>
+<br>
+Ground truth or ground truth data, refers to verified, true data used for training, validating and testing artificial intelligence (AI) models
 </details>
 </div>
 
@@ -1383,7 +1411,7 @@ Di conseguenza, il gradiente passa integralmente (1) attraverso la posizione del
 
 <strong>Spiegazione</strong>: <br>
 <strong>Produce valori compresi tra [-1, 1]</strong>: errato, softmax produce probabilità, la probabilità non può mai essere negativa.<br>
-<strong>Somma dei valori su tutti gli input</strong>...: Per un dato input, la somma dei suoi valori su tutte le classi è sempre 1 !!!<br>
+<strong>Somma dei valori su tutti gli input</strong>...: La Softmax somma a 1 per ogni singolo esempio (orizzontalmente), non per la colonna del batch (verticalmente)!<br>
 <strong>Classificazione binaria</strong>: La funzione softmax è usata in vari metodi di classificazione multi-classe, come la regressione logistica multinomiale, analisi discriminante lineare multiclasse, classificatori bayesiani e reti neurali artificiali.
 
 
@@ -1481,7 +1509,7 @@ Di conseguenza, il gradiente passa integralmente (1) attraverso la posizione del
 
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1">
 70. Selezionare la risposta <strong>SCORRETTA</strong> relativa alla <strong>backpropagation</strong> per reti neurali<br>
 	-Richiede la memorizzazione delle attivazioni di tutti i neuroni della rete durante la forward pass<br>
 	-Ha un costo computazionale paragonabile a quello del calcolo in avanti (inference) lungo la rete <br>
@@ -1499,7 +1527,6 @@ Di conseguenza, il gradiente passa integralmente (1) attraverso la posizione del
 </details>
 </div>
 
-$$\frac{\partial E}{\partial w_{ljk}} = a_{l-1} k \delta_{lj}$$
 ---
 
 <div class = "domanda1 ripasso">
@@ -1514,9 +1541,12 @@ $$\frac{\partial E}{\partial w_{ljk}} = a_{l-1} k \delta_{lj}$$
 <strong>Risposta corretta</strong>:E' sempre almeno pari alla dimensione spaziale del dato di input. <br>
 
 <strong>Spiegazione</strong>: Nei primi livelli della rete, il campo ricettivo è molto piccolo (pari alla dimensione del kernel, es. 3x3 o 5x5), quindi è molto più piccolo della dimensione dell'input (che potrebbe essere un'immagine intera). Diventa grande quanto l'input solo se la rete è abbastanza profonda. <br>
-<strong>Porzione dell'input</strong>...: receptive field corresponds to the dimension of the input region influencing it.<br>
-<strong>Dipende da profondità dei layers</strong>...: By stacking kernels we enlarge their receptive fields. Quindi dipende dalla profondità (stacking) e dalle dimensioni dei kernel precedenti.<br>
-<strong>Aumenta con attraversamento</strong>...: We may also rapidly enlarge the receptive fields by means of downsampling layers. 
+<br>
+<strong>Definisce la porzione dell'input</strong>...: receptive field corresponds to the dimension of the input region influencing it, corretta! Definizione da manuale<br>
+<br>
+<strong>Dipende da profondità dei layers</strong>...: By stacking kernels we enlarge their receptive fields. Quindi dipende dalla profondità (stacking) e dalle dimensioni dei kernel precedenti. Se un neurone guarda 3x3 neuroni del livello prima ma ognuno di quelli guardava già 3x3 pixel originali, il neurone del secondo livello copre un'area più grande dell'immagine originale (es. 5x5). Più aggiungi strati (profondità) e più fai passi lunghi (strides), più questo effetto si accumula e l'area che il neurone "vede" si allarga.<br>
+<br>
+<strong>Aumenta con attraversamento</strong>...: We may also rapidly enlarge the receptive fields by means of downsampling layers. Il downsampling è come fare uno "zoom out". Se dimezzi l'immagine (da 100x100 a 50x50), un filtro piccolo (3x3) applicato sull'immagine rimpicciolita coprirà una porzione enorme dell'immagine originale. È il modo più veloce per far sì che la rete veda l'oggetto intero invece che i dettagli.
 
 
 </details>
@@ -1524,7 +1554,7 @@ $$\frac{\partial E}{\partial w_{ljk}} = a_{l-1} k \delta_{lj}$$
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 laboratorio">
 72. Il tensore di input di un layer convolutivo 2D ha dimensione (16,16,32). Sintetizzo 8 kernel con dimensione spaziale (3,3), stride 2, nessun padding (valid mode). Quale sarà la dimensione dell'output?<br>
 	-(7, 7, 15)<br>
 	-(8, 8, 8)<br>
@@ -1569,7 +1599,7 @@ $$\text{Output} = \frac{W + P - K}{S} + 1$$
 ---
 
 <div class = "domanda1">
-74. Quale <strong>funzione di loss</strong> è tipicamente utilizzata in una rete neurale per classificazionebinaria che utilizza una sigmoid come attivazione finale?<br>
+74. Quale <strong>funzione di loss</strong> è tipicamente utilizzata in una rete neurale per classificazione binaria che utilizza una sigmoid come attivazione finale?<br>
 	-<span class="evidenzia_risposta">Binary crossentropy</span><br>
 	-Categorical crossentropy<br>
 	-Absolute error<br>
@@ -1588,7 +1618,7 @@ $$\text{Output} = \frac{W + P - K}{S} + 1$$
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 laboratorio">
 75. Un layer convolutivo 2D con stride 1, kernel size 3x3, e senza padding prende in input un layer con dimensioni (32,32,3) e restituisce un layer di dimensione (32,32,16). Quanti sono i suoi parametri?<br>
 	-160<br>
 	-28<br>
@@ -1669,7 +1699,7 @@ $$
 
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1 ripasso">
 78. Selezionare la risposta <strong>SCORRETTA</strong> relativa alle <strong> Transposed Convolutions</strong><br>
 	-Possono essere interpretate come convoluzioni normali con stride sub unitario<br>
 	-Sono prevalentemente usate in architetture per Image-to-Image processing, come autoencoders o U-Nets<br>
@@ -1680,9 +1710,13 @@ $$
 
 <strong>Risposta corretta</strong>: Richiedono la trasposizione dell'input prima di calcolare la convoluzione del Kernel<br>
 
-<strong>Spiegazione</strong>:
+<strong>Spiegazione</strong>:<br>
+<strong>Prevalentemente usate per Image-to-Image processing</strong>...: corretto! Le U-Net e gli Autoencoder prima rimpiccioliscono (<strong>encoder</strong>) e poi devono ingrandire per ricostruire l'immagine originale (<strong>decoder</strong>). Le Transposed Convolutions sono lo strumento standard per fare questo ingrandimento (Upsampling) imparando dai dati.<br>
+<br>
+<strong>Equivalenti a applicazione di livello di upsampling</strong>...: corretto! Una Transposed Convolution fa due cose insieme: allarga l'immagine (mettendo degli zeri tra i pixel) e applica un filtro. Si può ottenere lo stesso effetto facendo manualmente un upsampling seguito da una convoluzione classica. Il risultato finale è equivalente: un'immagine più grande processata.
 </details>
 </div>
+![[down-and-upsampling-cnn_orig.png]]
 
 ---
 
@@ -1707,7 +1741,7 @@ Random Forest: È composta da centinaia o migliaia di alberi che "votano". È qu
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 laboratorio">
 80. Una variabile aleatoria discreta con valori a, b e c ha la seguente distribuzione di probabilità: P(a)=1/4, P(b)=1/2, P(c)=1/4. Qual è la sua <strong>entropia</strong>?<br>
 	-<span class="evidenzia_risposta">3/2</span><br>
 	-Log(3)<br>
@@ -1751,7 +1785,7 @@ $H = - \left[ -\frac{3}{2} \right] = \frac{3}{2}$
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 laboratorio">
 82. Avendo 5 categorie di dati e 3 features di input booleane, quanti parametri indipendenti devono essere stimati secondo la tecnica <strong>Naive Bayes</strong> (compresi i priors).<br>
 	-15<br>
 	-16<br>
@@ -1823,7 +1857,7 @@ $$
 $$
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 laboratorio">
 84. Siano date le seguenti distribuzioni di probabilità P e Q: P(0)=3/8, P(1)=1/2, P(2)=1/8, and Q(0)=1/2, Q(1)=1/4, Q(2)=1/4. Quanto vale la crossentropy H(P|Q) tra P e Q?<br>
 	-<span class="evidenzia_risposta">13/8</span><br>
 	-3/2+log(3)<br>
@@ -1875,7 +1909,7 @@ $\begin{aligned} H(P, Q) &= - \left[ P(0)\log_2(Q(0)) + P(1)\log_2(Q(1)) + P(2)\
 
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1 laboratorio">
 86. Componendo due layer Conv2D con stride 1, il primo con kernel 5x5 e il secondo con kernel 3x3 quale sarà il <strong>campo ricetttivo</strong> dei neuroni finali?<br>
 	-<span class="evidenzia_risposta">7</span><br>
 	-8<br>
@@ -1898,7 +1932,7 @@ $RF_{\text{finale}} = 5 + (3 - 1) = 5 + 2 = 7$
 
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1 laboratorio">
 87. Il tensore di input di un layer convolutivo 2D ha dimensione (16,16,8). Sintetizzo 4 kernel con dimensione spaziale (5,5), stride 2, nessun padding (valid mode). Quale sarà la dimensione dell'output?<br>
 	-<span class="evidenzia_risposta">(6, 6, 4)</span><br>
 	-(8, 8, 8)<br>
@@ -1952,14 +1986,14 @@ $$\begin{aligned}
 <strong>Inception Module</strong>: La sua logica non è saltare, ma allargare. Esegue diverse operazioni in parallelo (convoluzioni 1×1, 3×3, 5×5, pooling) e poi concatena tutti i risultati insieme. Non c'è un bypass, c'è un'unione di caratteristiche diverse.<br>
 <br>
 <strong>Kernel di dimensioni diverse</strong>: invece di decidere se usare un filtro 3×3 o 5×5, li usa tutti contemporaneamente su rami paralleli per catturare dettagli sia fini che grossolani.<br>
-<strong>Ridurre il costo computazionale</strong>: Le "convoluzioni unarie" sono le convoluzioni 1×1. Nel modulo Inception vengono messe prima dei kernel grossi (3×3, 5×5) per ridurre il numero di canali (profondità). Questo agisce come un "collo di bottiglia" (bottleneck) che rende il calcolo molto più leggero<br>
-<strong>Riduzione costo computazionale</strong>...: Le "convoluzioni unarie" sono le convoluzioni **1×1**. Nel modulo Inception vengono messe _prima_ dei kernel grossi (3×3, 5×5) per ridurre il numero di canali (profondità). Questo agisce come un "collo di bottiglia" (bottleneck) che rende il calcolo molto più leggero
+<strong>Ridurre il costo computazionale</strong>: Le convoluzioni unarie sono le convoluzioni 1×1. Nel modulo Inception vengono messe prima dei kernel grossi (3×3, 5×5) per ridurre il numero di canali (profondità). Questo agisce come un "collo di bottiglia" (bottleneck) che rende il calcolo molto più leggero<br>
+<strong>Riduzione costo computazionale</strong>...: Le convoluzioni unarie sono le convoluzioni 1×1. Nel modulo Inception vengono messe prima dei kernel grossi (3×3, 5×5) per ridurre il numero di canali (profondità). Questo agisce come un bottleneck) che rende il calcolo molto più leggero
 </details>
 </div>
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 ripasso">
 89. Quale delle seguenti tecniche <strong>NON</strong> può aiutare ad uscire da <strong>minimi locali</strong> durante la fase di training.<br>
 	-Ridurre la dimensione del minibatch<br>
 	-<span class="risposta_errata">Fare clipping del gradiente in una range prefissato</span><br>
@@ -1968,7 +2002,7 @@ $$\begin{aligned}
 <details>
 <summary> Clicca qui per la soluzione e la spiegazione</summary>
 
-<strong>Risposta corretta</strong>: Ridurre la dimensione del minibatch <br>
+<strong>Risposta corretta</strong>: Fare clipping del gradiente in una range prefissato <br>
 
 <strong>Spiegazione</strong>: Il gradient clipping serve a prevenire il problema opposto, ovvero l'<strong>Exploding Gradient</strong>(quando il modello fa passi così grandi da "rompere" il training e andare verso l'infinito).<br>
 <br>
@@ -1981,7 +2015,7 @@ $$\begin{aligned}
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 laboratorio">
 90.Un layer convolutivo 2D con stride 1, kernel size 1x1, e senza padding prende in input un layer con dimensioni (32,32,16) e restituisce un layer di dimensione (32,32,4). Quanti sono i suoi parametri??<br>
 	-2<br>
 	-<span class="evidenzia_risposta">68</span><br>
@@ -2004,7 +2038,7 @@ $= 68$
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 ripasso">
 91. Selezionare la sentenza SCORRETTA relativa alla <strong>Intersection over Union</strong> (IoU)<br>
 	-Frequentemente utilizzata come misura di similitudine tra bounding boxes<br>
 	-Restituisce un valore nel range [0,1]<br>
@@ -2015,7 +2049,7 @@ $= 68$
 
 <strong>Risposta corretta</strong>: Non è una funzione simmetrica dei suoi input<br>
 
-<strong>Spiegazione</strong>: Guarda definizione<br>
+<strong>Spiegazione</strong>: Guarda definizione, l'intersezione tra A e B è uguale all'intersezione tra B e A, così come l'unione<br>
 <strong>Misura di similitudine</strong>...: è la definizione standard. Si usa per calcolare quanto due rettangoli sono sovrapposti.<br>
 <strong>Restituisce un valore nel range[0,1]</strong>: 0 significa che i box non si toccano, 1 significa che i box sono identici e sovrapposti.<br>
 <strong>Object Detection</strong>...: è la metrica fondamentale per valutare algoritmi come YOLO, Faster R-CNN, ecc. Serve a decidere se un oggetto è stato trovato correttamente o no.
@@ -2027,7 +2061,7 @@ $$\text{IoU}(A, B) = \frac{ |A \cap B| }{ |A \cup B| }$$
 
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1 laboratorio">
 92. Selezionare la sentenza SCORRETTA relativa ai <strong>transformers</strong>.<br>
 	-Hanno una tipica struttura encoder-decoder, ognuno formato da uno stack di sotto componenti modulari<br>
 	-Sono alla base delle reti della famiglia BERT e GPT<br>
@@ -2067,7 +2101,7 @@ $$\text{IoU}(A, B) = \frac{ |A \cap B| }{ |A \cup B| }$$
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 laboratorio">
 94. Un <strong>training set</strong> è composto da 10000 dati. Se la batchsize è 50, quante volte verrà effettuata la backpropagation durante una singola epoca?<br>
 	-50<br>
 	-10000<br>

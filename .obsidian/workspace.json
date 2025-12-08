@@ -106,7 +106,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "1fbfe4f45d9ef085",
@@ -214,10 +215,12 @@
   },
   "active": "109648bb5bb58ec3",
   "lastOpenFiles": [
-    "laboratori/lab2_NonSupervisionati.pdf",
-    "Domande TEST.md",
-    "laboratori/lab1_SkitLearneTaskSupervisionati.pdf",
+    "images/down-and-upsampling-cnn_orig.png",
+    "Concetti_ML.pdf",
     "Link per argomento.md",
+    "Domande TEST.md",
+    "laboratori/lab2_NonSupervisionati.pdf",
+    "laboratori/lab1_SkitLearneTaskSupervisionati.pdf",
     "laboratori/lab0_NumpyeElaborazionediImmagini.pdf",
     "cheatsheet.pdf",
     "laboratori/lab3_RetiNeurali.pdf",
@@ -228,7 +231,6 @@
     "laboratori/laboratorio4.pdf",
     "Glossario.md",
     "laboratori/lab3_retineurali.pdf",
-    "laboratori/lab3_reti neurali.pdf",
     "Laboratorio 1, riassunto.md",
     "DUBBI.md",
     "images/Screenshot 2025-12-01 alle 14.53.22.png",
