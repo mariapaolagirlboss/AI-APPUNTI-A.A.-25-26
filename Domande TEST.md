@@ -195,7 +195,7 @@ Poiché 0.5 > 0.375 è più verosimile che i dati osservati provengano da una mo
 
 ---
 
-<div class = "domanda1 riprendere">
+<div class = "domanda1">
 10. Qual è il principale scopo della <strong>normalizzazione</strong> dei dati prima dell'addestramento di un modello di machine learning?<br>
 	-Aumentare la precisione delle previsioni del modello.<br>
 	-<span class="evidenzia_risposta">Garantire che tutte le feature abbiano la stessa scala, migliorando la convergenza dell'ottimizzazione.</span><br>
@@ -323,7 +323,7 @@ $$
 \end{aligned}
 $$
 
-![[Screenshot 2025-12-01 alle 14.53.22.png]]
+![[Screenshot 2025-12-01 alle 14.53.22.png|0x0]]
 
 
 ---
@@ -1922,7 +1922,8 @@ $\begin{aligned} H(P, Q) &= - \left[ P(0)\log_2(Q(0)) + P(1)\log_2(Q(1)) + P(2)\
 <strong>Risposta corretta</strong>: 7 <br>
 
 <strong>Spiegazione</strong>: Ogni volta che aggiungi un nuovo livello, non sommi semplicemente la larghezza del nuovo filtro. Aggiungi solo i bordi extra che il nuovo filtro guadagna spostandosi a destra e a sinistra rispetto al centro.<br>
-Avevi 5. Il filtro da 3 ha un centro e 2 estremità (una a destra, una a sinistra). Queste 2 estremità allargano la visuale di 1 pixel ciascuna, 5 + 2 = 7
+Avevi 5. Il filtro da 3 ha un centro e 2 estremità (una a destra, una a sinistra). Queste 2 estremità allargano la visuale di 1 pixel ciascuna, 5 + 2 = 7.<br>
+<strong>N.B.</strong> la Regola dell'Espansione: quando aggiungi un filtro sopra un altro (con stride 1), il nuovo filtro espande la visuale. Quanto espande? La sua dimensione - 1.
 
 </details>
 </div>

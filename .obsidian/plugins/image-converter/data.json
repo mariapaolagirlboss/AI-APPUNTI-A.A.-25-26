@@ -218,7 +218,7 @@
     "quality": 100,
     "colorDepth": 1,
     "resizeMode": "Fit",
-    "desiredWidth": 800,
+    "desiredWidth": 500,
     "desiredHeight": 600,
     "desiredLongestEdge": 1000,
     "enlargeOrReduce": "Auto",
