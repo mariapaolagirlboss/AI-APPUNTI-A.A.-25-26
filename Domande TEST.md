@@ -1,22 +1,30 @@
 <div class="legend-container">
-  <div class="legend-item">
-    <div class="legend-dot legend-yellow"></div>
-    <div class="legend-tooltip">Domande 10 e 57</div>
-    Da riguardare
-  </div>
   
   <div class="legend-item">
-    <div class="legend-dot legend-blue"></div>
-     <div class="legend-tooltip">Domande: 1, 9, 14, 23, 60, 72, 75, 80, 82, 84, 86, 87, 90, 92, 94, 95, 96</div>
-    Domande di laboratorio
+    <div class="legend-dot legend-yellow"></div>
+    <div class="legend-text-col">
+      <span class="legend-title">Da riguardare</span>
+      <span class="legend-details">10, 57</span>
+    </div>
   </div>
-   <div class="legend-item">
-    <div class="legend-dot legend-red"></div>
-    <div class="legend-tooltip">Domande: 12, 13, 16, 19, 26, 30, 54, 59, 61, 63, 71, 78, 88, 89, 91, 99, 100</div>
-    In precedenza le hai sbagliate!
-  </div>
-</div>
 
+  <div class="legend-item">
+    <div class="legend-dot legend-blue"></div>
+    <div class="legend-text-col">
+      <span class="legend-title">Laboratorio</span>
+      <span class="legend-details">1, 9, 14, 23, 60, 72, 75, 80, 82, 84, 86, 87, 90, 92, 94, 95, 96</span>
+    </div>
+  </div>
+
+  <div class="legend-item">
+    <div class="legend-dot legend-red"></div>
+    <div class="legend-text-col">
+      <span class="legend-title">Sbagliate!</span>
+      <span class="legend-details">12, 13, 16, 19, 26, 30, 54, 59, 61, 63, 71, 78, 88, 89, 91, 99, 100</span>
+    </div>
+  </div>
+
+</div>
 <div class = "domanda1 laboratorio">
 1. Qual è lo scopo del metodo di <strong>Cross-Validation K-Fold</strong>?<br>
 	- Selezionare automaticamente il miglior modello.<br>

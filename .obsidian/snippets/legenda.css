@@ -1,68 +1,88 @@
+
 .legend-container {
   display: flex;
-  gap: 16px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
+  width: fit-content;
+  padding: 5px;
 }
+
 
 .legend-item {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-radius: 12px;
-  font-size: 14px;
-  font-weight: 500;
-  background: rgba(255, 255, 255, 0.03);
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.08) inset;
+  align-items: flex-start; 
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 12px; 
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   
+  
+  max-width: fit-content;    
+  min-width: 200px;          
+  transition: all 0.3s ease; 
+  cursor: help;
+  overflow: hidden;
 }
+
+
+.legend-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  max-width: 300px; 
+}
+
 
 .legend-dot {
-  width: 14px;
-  height: 14px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px; 
+}
+.legend-yellow { background: #f5c542; box-shadow: 0 0 6px rgba(245, 197, 66, 0.4); }
+.legend-blue   { background: #3b82f6; box-shadow: 0 0 6px rgba(59, 130, 246, 0.4); }
+.legend-red    { background: #ff4444; box-shadow: 0 0 6px rgba(255, 68, 68, 0.4); }
+
+
+.legend-text-col {
+  display: flex;
+  flex-direction: column; 
+  gap: 2px;
 }
 
-.legend-yellow {
-  background: #f5c542;
-}
 
-.legend-blue {
-  background: #3b82f6;
-}
-
-.legend-red {
-  background: #ff0000;
+.legend-title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  white-space: nowrap; 
 }
 
 
-
-.legend-tooltip {
-  position: fixed !important; 
-  background: rgba(20,20,20,0.98);
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.12);
-  white-space: nowrap;
-  pointer-events: none;
-  z-index: 999999 !important;
+.legend-details {
+ 
+  max-height: 0;
   opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 0.1s ease;
+  margin-top: 0;
+  
+  
+  font-size: 12px;
+  color: #aaa;
+  line-height: 1.4;
+  
+  
+  white-space: normal; 
+  overflow: hidden;
+  
+  transition: all 0.3s ease; 
 }
 
 
-.legend-item:hover .legend-tooltip {
+.legend-item:hover .legend-details {
+  max-height: 500px; 
   opacity: 1;
+  margin-top: 6px; 
 }
-
-
-.legend-item:hover .legend-tooltip {
-  top: calc(var(--mouse-y, 0px) + 12px);
-  left: calc(var(--mouse-x, 0px) + 12px);
-}
-
-
 
 

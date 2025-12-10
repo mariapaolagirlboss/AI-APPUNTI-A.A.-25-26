@@ -8,18 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "adfdbc4c7f48e5cb",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "laboratori/lab2_NonSupervisionati.pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "lab2_NonSupervisionati"
-            }
-          },
-          {
             "id": "109648bb5bb58ec3",
             "type": "leaf",
             "state": {
@@ -32,37 +20,8 @@
               "icon": "lucide-file",
               "title": "Domande TEST"
             }
-          },
-          {
-            "id": "f69fc98cf14c436d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Link per argomento.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Link per argomento"
-            }
-          },
-          {
-            "id": "fcd87193e028d239",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Formulario.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Formulario"
-            }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -120,8 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "1fbfe4f45d9ef085",
@@ -227,15 +185,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "fcd87193e028d239",
+  "active": "109648bb5bb58ec3",
   "lastOpenFiles": [
+    "Untitled mindmap.md",
     "Domande TEST.md",
+    "Mappa Concettuale.md",
+    "Concetti_ML.pdf",
+    "Link per argomento.md",
+    "Glossario.md",
     "Formulario.md",
     "laboratori/lab2_NonSupervisionati.pdf",
-    "Link per argomento.md",
     "cheatsheet.pdf",
     "images/down-and-upsampling-cnn_orig.png",
-    "Concetti_ML.pdf",
     "laboratori/lab1_SkitLearneTaskSupervisionati.pdf",
     "laboratori/lab0_NumpyeElaborazionediImmagini.pdf",
     "laboratori/lab3_RetiNeurali.pdf",
@@ -244,7 +205,6 @@
     "laboratori/LINK LABORATORI COLAB.md",
     "laboratori/lab4.pdf",
     "laboratori/laboratorio4.pdf",
-    "Glossario.md",
     "laboratori/lab3_retineurali.pdf",
     "Laboratorio 1, riassunto.md",
     "DUBBI.md",
