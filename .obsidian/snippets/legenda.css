@@ -15,6 +15,7 @@
   font-weight: 500;
   background: rgba(255, 255, 255, 0.03);
   box-shadow: 0 0 0 1px rgba(255,255,255,0.08) inset;
+  
 }
 
 .legend-dot {
@@ -34,4 +35,34 @@
 .legend-red {
   background: #ff0000;
 }
+
+
+
+.legend-tooltip {
+  position: fixed !important; 
+  background: rgba(20,20,20,0.98);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 999999 !important;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.1s ease;
+}
+
+
+.legend-item:hover .legend-tooltip {
+  opacity: 1;
+}
+
+
+.legend-item:hover .legend-tooltip {
+  top: calc(var(--mouse-y, 0px) + 12px);
+  left: calc(var(--mouse-x, 0px) + 12px);
+}
+
+
+
 

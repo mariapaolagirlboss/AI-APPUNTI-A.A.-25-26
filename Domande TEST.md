@@ -1,14 +1,18 @@
 <div class="legend-container">
   <div class="legend-item">
     <div class="legend-dot legend-yellow"></div>
+    <div class="legend-tooltip">Domande 10 e 57</div>
     Da riguardare
   </div>
+  
   <div class="legend-item">
     <div class="legend-dot legend-blue"></div>
+     <div class="legend-tooltip">Domande: 1, 9, 14, 23, 60, 72, 75, 80, 82, 84, 86, 87, 90, 92, 94, 95, 96</div>
     Domande di laboratorio
   </div>
    <div class="legend-item">
     <div class="legend-dot legend-red"></div>
+    <div class="legend-tooltip">Domande: 12, 13, 16, 19, 26, 30, 54, 59, 61, 63, 71, 78, 88, 89, 91, 99, 100</div>
     In precedenza le hai sbagliate!
   </div>
 </div>
@@ -195,7 +199,7 @@ Poiché 0.5 > 0.375 è più verosimile che i dati osservati provengano da una mo
 
 ---
 
-<div class = "domanda1">
+<div class = "domanda1 riprendere">
 10. Qual è il principale scopo della <strong>normalizzazione</strong> dei dati prima dell'addestramento di un modello di machine learning?<br>
 	-Aumentare la precisione delle previsioni del modello.<br>
 	-<span class="evidenzia_risposta">Garantire che tutte le feature abbiano la stessa scala, migliorando la convergenza dell'ottimizzazione.</span><br>
@@ -285,7 +289,7 @@ Dividendo l'intersezione per un numero decimale (P(B)), il risultato cresce, non
 $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$$
 ---
 
- <div class = "domanda1">
+ <div class = "domanda1 laboratorio">
 14. Un dataset contiene 1/3 di positivi e 2/3 di negativi. La recall del modello è di 2/3. Che percentuale dei dati sono falsi negativi?<br>
 	-Non può essere stabilito<br>
 	-1/3<br>
