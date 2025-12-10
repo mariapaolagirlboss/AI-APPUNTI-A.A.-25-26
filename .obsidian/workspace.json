@@ -106,8 +106,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "1fbfe4f45d9ef085",
@@ -215,14 +214,14 @@
   },
   "active": "109648bb5bb58ec3",
   "lastOpenFiles": [
+    "cheatsheet.pdf",
+    "Domande TEST.md",
     "images/down-and-upsampling-cnn_orig.png",
     "Concetti_ML.pdf",
     "Link per argomento.md",
-    "Domande TEST.md",
     "laboratori/lab2_NonSupervisionati.pdf",
     "laboratori/lab1_SkitLearneTaskSupervisionati.pdf",
     "laboratori/lab0_NumpyeElaborazionediImmagini.pdf",
-    "cheatsheet.pdf",
     "laboratori/lab3_RetiNeurali.pdf",
     "images/Screenshot 2025-12-05 alle 16.15.06.png",
     "ilovepdf_merged.pdf",
@@ -241,7 +240,6 @@
     "images/Screenshot 2025-11-26 alle 15.31.57.png",
     "images/Screenshot 2025-11-26 alle 13.55.49.png",
     "images/Screenshot 2025-11-26 alle 13.50.25.png",
-    "images/Screenshot 2025-11-25 alle 15.22.16.png",
     "Domande da riprendere.md"
   ]
 }

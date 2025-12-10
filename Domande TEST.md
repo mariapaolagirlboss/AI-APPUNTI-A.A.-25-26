@@ -235,7 +235,7 @@ Poiché 0.5 > 0.375 è più verosimile che i dati osservati provengano da una mo
 </div>
 
 ---
-
+!!!
  <div class = "domanda1 laboratorio ripasso">
 12. Nella <strong>Principal Component Analysis</strong>, cosa indica la varianza spiegata da ciascuna componente?<br>
 	-Indica la correlazione tra ciascuna componente e la variabile target<br>
@@ -346,7 +346,7 @@ gradients should be updated. The actual amount of the update is obtained by mult
 </div>
 
 ---
-
+!!!
 <div class = "domanda1 ripasso">
 16. Selezionare la sentenza corretta riguardo alla <strong>regressione logistica</strong><br>
 	-La predizione non dipende dal bilanciamento dei dati di training rispetto alle classi<br>
@@ -569,7 +569,7 @@ Skip connections in deep architectures, as the name suggests, skip some layer
 </div>
 
 ---
-
+!!!
 <div class = "domanda1 ripasso">
 26. Seleziona la sentenza corretta relativa alle <strong>Transposed Convolutions</strong>.<br>
 	-Sono prevalentemente utilizzate in architetture per classificazione di immagini.<br>
@@ -584,6 +584,8 @@ Skip connections in deep architectures, as the name suggests, skip some layer
 <strong>Spiegazione</strong>: Pensa al concetto di stride, in una convoluzione normale (stride >1) il filtro salta dei pixel e l'immagine di output diventa più piccola. Qui invece avviene il contrario, lo stride è <strong>SUB</strong>-unitario, l'algoritmo inserisce degli zeri tra i pixel dell'input e poi applica una convoluzione normale. Questo processo allarga l'immagine.<br>
 <br>
 A transposed convolutional layer is an upsampling layer that generates the output feature map greater than the input feature map. Transposed convolutional layers are used in a variety of tasks, including <strong>image generation, image super-resolution, and image segmentation</strong>. They are particularly useful for tasks that involve upsampling the input data, such as converting a low-resolution image to a high-resolution one or generating an image from a set of noise vectors.<br>
+<br>
+<strong>N.B.</strong>: Sono essenzialmente equivalenti all'applicazione di un livello di downsampling seguito da una convoluzione normale. <strong> PERCHÈ QUESTA FRASE È ERRATA?</strong> Una tecnica alternativa molto usata per sostituire le Transposed Convolutions è <strong>UPsampling</strong> + Convolution.
 
 
 </details>
@@ -1226,7 +1228,7 @@ Categorical Cross-Entropy is widely used as a loss function to measure how well 
 </div>
 
 ---
-
+!!!
 <div class = "domanda1 riprendere">
 57. Il numero dei parametri di un <strong>layer convolutivo</strong> dipende da:<br>
 	-Unicamente dalle dimensioni dei layers di input e output<br>
@@ -1266,7 +1268,7 @@ Image segmentation is the process of partitioning a digital image into multiple 
 </div>
 
 ---
-
+!!!
 <div class = "domanda1 ripasso">
 59. Selezionare la risposta <strong>SCORRETTA</strong> relativa alla <strong>Mutua Informazione</strong> I(X,Y) tra due variabili aleatorie X e Y (anche detta Information Gain nel contesto degli Alberi di Decisione)<br>
 	-Funzione simmetrica: I(X,Y) = I(Y,X)<br>
@@ -1529,7 +1531,7 @@ Ground truth or ground truth data, refers to verified, true data used for traini
 </div>
 
 ---
-
+!!!
 <div class = "domanda1 ripasso">
 71. Selezionare la risposta <strong>SCORRETTA</strong> relativa al <strong>campo ricettivo</strong> di un neurone di una CNN<br>
 	-Definisce la porzione dell'input che influenza l'attivazione di un determinato neurone<br>
@@ -1971,7 +1973,7 @@ $$\begin{aligned}
 &= 6
 \end{aligned}$$
 ---
-
+!!!
 <div class = "domanda1 ripasso">
 88. Selezionare la sentenza errata relativa all'<strong>inception module</strong>.<br>
 	-Sfutta kernel di dimensione diversa<br>
@@ -2062,7 +2064,7 @@ $= 68$
 $$\text{IoU}(A, B) = \frac{ |A \cap B| }{ |A \cup B| }$$
 
 ---
-
+!!!
 <div class = "domanda1 laboratorio">
 92. Selezionare la sentenza SCORRETTA relativa ai <strong>transformers</strong>.<br>
 	-Hanno una tipica struttura encoder-decoder, ognuno formato da uno stack di sotto componenti modulari<br>
@@ -2142,7 +2144,7 @@ $$ \text{Numero di Backpropagation} = \frac{\text{Totale Dati}}{\text{Batch Size
 </div>
 
 ---
-
+!!!
 <div class = "domanda1 laboratorio">
 96. Selezionare la sentenza SCORRETTA relativa alla <strong>Principal Component Analysis</strong> (PCA)<br>
 	-<span class="risposta_errata">Tecnica per selezionare le features migliori tra quelle date, senza modificarle</span><br>
@@ -2199,3 +2201,43 @@ $$ \text{Numero di Backpropagation} = \frac{\text{Totale Dati}}{\text{Batch Size
 
 </details>
 </div>
+
+---
+
+<div class = "domanda1 ripasso">
+99. Quale di queste reti NON è stata creata per la <strong>classificazione di immagini</strong>?<br>
+	-Inception v-3<br>
+	-<span class="risposta_errata">U-Net</span><br>
+	-VGG19<br>
+	-ResNet<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: U-Net<br>
+
+<strong>Spiegazione</strong>: U-Net is a convolutional neural network that was developed for image segmentation.
+
+
+</details>
+</div>
+
+---
+
+<div class = "domanda1 ripasso">
+100. Quale è l'effetto tipico dell' <strong>aumento della dimensione del minibatch</strong> durante il training?<br>
+	-La Backpropagation è effettuata meno frequentemente e l'aggiornamento dei parametri è meno accurato<br>
+	-La Backpropagation è effettuata più frequentemente ma l'aggiornamento dei parametri è meno accurato<br>
+	-<span class="evidenzia_risposta">La Backpropagation è effettuata meno frequentemente ma l'aggiornamento dei parametri è più accurato</span><br>
+	-La Backpropagation è effettuata più frequentemente e l'aggiornamento dei parametri è più accurato<br>
+<details>
+<summary> Clicca qui per la soluzione e la spiegazione</summary>
+
+<strong>Risposta corretta</strong>: La Backpropagation è effettuata meno frequentemente ma l'aggiornamento dei parametri è più accurato<br>
+
+<strong>Spiegazione</strong>: 
+
+</details>
+</div>
+
+---
+
